@@ -1,0 +1,40 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100vw;
+    height: 64px;
+    
+    padding: 16px;
+
+    background-color: green;
+}
+
+header div {
+    display: flex;
+    gap: 0px;
+}
+
+header h2 {
+    margin: 0;
+    color: #FFFFFF;
+  }
+
+header div a {
+    padding-inline: 24px;
+    padding-top: 16px;
+
+    text-decoration: none;
+    font-size: large;
+
+    height: 64px;
+    
+    color: white;
+}
+
+header div a:hover {
+    text-decoration: underline;
+
+    background-color: #00000011;
+}
