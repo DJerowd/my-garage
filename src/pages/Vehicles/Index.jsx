@@ -4,19 +4,20 @@ import Form from './Form';
 import manufacturers from '../../data/manufacturers.json';
 import models from '../../data/models.json';
 import './Styles.css';
+import Footer from '../../components/Footer';
 
 function Veiculo() {
   return (
-    <div className='container'>
+    <div className='container-car'>
       <Header />
 
-      <div className='content'>
-
-        <div className='car-list'>
-          <Form marcas={manufacturers} modelos={models} />
+      <div className='content-car'>
+        <div className='list-car'>
+          <Form manufacturers={manufacturers} models={models} />
         </div>
+      </div>
 
-      </div>;
+      <Footer/>
     </div>
   );
 };

@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "username": "PlayerOne",
+      "RP": 1,
+      "dataCriacao": "2024-08-04"
+    },
+    {
+      "id": 2,
+      "username": "John_Doe",
+      "RP": 1000,
+      "dataCriacao": "2019-02-15"
+    },
+    {
+      "id": 3,
+      "username": "DJ_player",
+      "RP": 3300,
+      "dataCriacao": "2020-03-22"
+    },
+    {
+      "id": 4,
+      "username": "P3DR1NH0_G4M3PL4YS",
+      "RP": 120,
+      "dataCriacao": "2024-05-09"
+    }
+  ]

@@ -1,4 +1,5 @@
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import './Styles.css';
 
 
@@ -7,9 +8,9 @@ function Home() {
     <div className='container-home'>
       <Header />
       
-      <div className='content-home'>
-        <h1>Página Home</h1>
-      </div>
+      <main className='content-home'><h1>Página Home</h1></main>
+
+      <Footer/>
     </div>
   );
 }

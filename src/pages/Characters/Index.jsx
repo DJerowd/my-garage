@@ -1,53 +1,23 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import Header from '../../components/Header';
-import './Styles.css';
+import Footer from '../../components/Footer';
+import Form from './Form';
+import List from './List';
 import { CharacterProvider } from './Context';
+import './Styles.css';
 
-function Personagem({ onAdd }) {
-  const [nome, setNome] = useState('');
-  const [reputation, setReputation] = useState(1);
-  const [createDate, setCreateDate] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onAdd({
-      nome,
-      reputation,
-      createDate,
-    });
-    setNome('');
-    setReputation(1);
-    setCreateDate('');
-  };
+function Personagem() {
 
   return (
-    <div className='container'>
+    <div className='container-character'>
       <Header />
-      <div className='content'>
 
-        <form className='form' onSubmit={handleSubmit}>
-          <label>
-            Nome: 
-            <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} required /><br/>
-          </label>
-          <label>
-            Nível:
-            <input type="number" value={reputation} onChange={(e) => setReputation(e.target.value)} min="1" max={"9999"} required /><br/>
-          </label>
-          <label>
-            Data de Criação:
-            <input type="date" value={createDate} onChange={(e) => setCreateDate(e.target.value)} required /><br/><br/>
-          </label>
-          <button type="submit">Adicionar Novo Personagem</button>
-          <CharacterProvider/>
-        </form>
-        
-        <aside className='list'>
-          <div>RP - Nome - Data de Criação</div>
-          <div>{reputation} {nome} {createDate}</div>
-        </aside>
-
+      <div className='content-character'>
+        <main className='form-character'><Form/></main>
+        <aside className='list-character'><List/></aside>
       </div>
+      
+      <Footer/>
     </div>
   );
 }

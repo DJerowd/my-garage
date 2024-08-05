@@ -1,4 +1,4 @@
-.container {
+.container-character {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -6,7 +6,7 @@
   min-height: 100vh;
 }
 
-.content {
+.content-character {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,10 @@
   min-height: calc(100vh - 64px);
 }
 
-.form {
+.form-character {
+  display: flex;
+  flex-direction: column;
+  
   padding-inline: 12px;
   padding-block: 6px;
 
@@ -26,7 +29,7 @@
   background-color: #00000022;
 }
 
-.list {
+.list-character {
   padding-inline: 12px;
   padding-block: 10px;
   margin-left: 4vh;

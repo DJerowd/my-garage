@@ -1,27 +1,27 @@
-header {
+footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     width: 100vw;
     height: 64px;
     
     padding: 16px;
 
-    background-color: green;
+    background-color: black;
 }
 
-header div {
+footer div {
     display: flex;
     gap: 0px;
 }
 
-header h2 {
+footer h3 {
     margin: 0;
     color: white;
   }
 
-header div a {
+footer div a {
     padding-inline: 24px;
     padding-top: 16px;
 
@@ -33,7 +33,7 @@ header div a {
     color: white;
 }
 
-header div a:hover {
+footer div a:hover {
     text-decoration: underline;
 
     background-color: #00000011;

@@ -1,0 +1,16 @@
+[
+    {
+      "id": 1,
+      "property": "2045 North Conker Avenue",
+      "ocupation": 1,
+      "capacity": 10,
+      "location": "North Los Santos - Vinewood Hills"
+    },
+    {
+      "id": 2,
+      "property": "Eclipse Blvd Garage",
+      "ocupation": 3,
+      "capacity": 50,
+      "location": "North Los Santos - Eclipse Boulevard, Vinewood West"
+    }
+  ]
