@@ -1,18 +1,14 @@
 import { React, useState } from 'react';
 import './Styles.css';
 
-function Form({ onAdd }) {
+function Form() {
   const [username, setUsername] = useState('');
   const [reputation, setReputation] = useState(1);
   const [createDate, setCreateDate] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd({
-      username,
-      reputation,
-      createDate,
-    });
+    
     setUsername('');
     setReputation(1);
     setCreateDate('');
@@ -20,19 +16,21 @@ function Form({ onAdd }) {
 
   return (
     <form onSubmit={handleSubmit}>
-        <label>
+        <label className='form-character-imput'>
             Nome: 
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required /><br/>
+            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
         </label>
-        <label>
-            Nível:
-            <input type="number" value={reputation} onChange={(e) => setReputation(e.target.value)} min="1" max={"9999"} required /><br/>
+        <label className='form-character-imput'>
+            RP:
+            <input type="number" value={reputation} onChange={(e) => setReputation(e.target.value)} min="1" max={"9999"} required />
         </label>
-        <label>
+        <label className='form-character-imput'>
             Data de Criação:
-            <input type="date" value={createDate} onChange={(e) => setCreateDate(e.target.value)} required /><br/><br/>
+            <input type="date" value={createDate} onChange={(e) => setCreateDate(e.target.value)} required />
         </label>
-            <button type="submit">Adicionar Novo Personagem</button>
+        <div style={{display: 'flex', justifyContent: 'center', marginTop: '6px'}}>
+          <button type="submit">Adicionar Novo Personagem</button>
+        </div>
     </form>
   );
 }

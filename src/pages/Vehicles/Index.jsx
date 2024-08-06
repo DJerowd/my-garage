@@ -1,10 +1,8 @@
 import React from 'react';
 import Header from '../../components/Header';
-import Form from './Form';
-import manufacturers from '../../data/manufacturers.json';
-import models from '../../data/models.json';
-import './Styles.css';
 import Footer from '../../components/Footer';
+import Form from './Form';
+import './Styles.css';
 
 function Veiculo() {
   return (
@@ -13,7 +11,7 @@ function Veiculo() {
 
       <div className='content-car'>
         <div className='list-car'>
-          <Form manufacturers={manufacturers} models={models} />
+          <Form/>
         </div>
       </div>
 

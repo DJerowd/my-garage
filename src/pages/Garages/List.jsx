@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import properties from '../../data/properties.json';
 import './Styles.css';
 
 function List({ personagemId }) {
@@ -24,6 +25,7 @@ function List({ personagemId }) {
   const [garage9, setGarage9] = useState('');
   const [garage10, setGarage10] = useState('');
   const [vinewoodGarage, setVinewoodGarage] = useState('');
+  const [eclipseBlvdGarage, setEclipseBlvdGarage] = useState('');
   const [hangar, setHangar] = useState('');
   const [terrorbyte, setTerrorbyte] = useState('');
   const [moc, setMoc] = useState('');
@@ -48,10 +50,9 @@ function List({ personagemId }) {
                 Agência:<br/>
                 <select value={agency} onChange={(e) => setAgency(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="vespucci canals agency">Agência Vespucci Canais</option>
-                    <option value="little seoul agency">Agência Little Seoul</option>
-                    <option value="hawick agency">Agência Hawick</option>
-                    <option value="rockford hills agency">Agência Rockford Hills</option>
+                    {properties.agency.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -62,7 +63,9 @@ function List({ personagemId }) {
                 Oficina de Arena:<br/>
                 <select value={arena} onChange={(e) => setArena(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="arena">Oficina de Arena Maze Bank</option>
+                    {properties.arena.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -73,11 +76,9 @@ function List({ personagemId }) {
                 Oficina de Tuning:<br/>
                 <select value={autoShop} onChange={(e) => setAutoShop(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="burton auto shop">Burton Auto Shop</option>
-                    <option value="la mesa auto shop">La Mesa Auto Shop</option>
-                    <option value="mission row auto shop">Mission Row Auto Shop</option>
-                    <option value="rancho auto shop">Rancho Auto Shop</option>
-                    <option value="strawberry auto shop">Strawberry Auto Shop</option>
+                    {properties.autoShop.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -88,11 +89,9 @@ function List({ personagemId }) {
                 Escritório de Fiança:<br/>
                 <select value={bailEnforcement} onChange={(e) => setBailEnforcement(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="Downtown Vinewood Bail Office">Oficina de Arena Maze Bank</option>
-                    <option value="Mission Row Bail Office">Oficina de Arena Maze Bank</option>
-                    <option value="Del Perro Bail Office">Oficina de Arena Maze Bank</option>
-                    <option value="Davis Bail Office">Oficina de Arena Maze Bank</option>
-                    <option value="Paleto Bay Bail Office">Oficina de Arena Maze Bank</option>
+                    {properties.bailEnforcement.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -103,7 +102,9 @@ function List({ personagemId }) {
                 Bunker:<br/>
                 <select value={bunker} onChange={(e) => setBunker(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.bunker.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -114,7 +115,9 @@ function List({ personagemId }) {
                 Garagem da Penthouse:<br/>
                 <select value={casinoPenthouse} onChange={(e) => setCasinoPenthouse(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.casinoPenthouse.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -125,7 +128,9 @@ function List({ personagemId }) {
                 Garagem 1 do Escritório Executivo:<br/>
                 <select value={executiveOfficeGarage1} onChange={(e) => setExecutiveOfficeGarage1(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.executiveOfficeGarage1.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -136,7 +141,9 @@ function List({ personagemId }) {
                 Garagem 2 do Escritório Executivo:<br/>
                 <select value={executiveOfficeGarage2} onChange={(e) => setExecutiveOfficeGarage2(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.executiveOfficeGarage2.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -147,7 +154,9 @@ function List({ personagemId }) {
                 Garagem 3 do Escritório Executivo:<br/>
                 <select value={executiveOfficeGarage3} onChange={(e) => setExecutiveOfficeGarage3(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.executiveOfficeGarage3.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -158,7 +167,9 @@ function List({ personagemId }) {
                 Instalações do Complexo:<br/>
                 <select value={facility} onChange={(e) => setFacility(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.facility.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -169,7 +180,9 @@ function List({ personagemId }) {
                 Garagem 1:<br/>
                 <select value={garage1} onChange={(e) => setGarage1(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.garage.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -180,7 +193,9 @@ function List({ personagemId }) {
                 Garagem 2:<br/>
                 <select value={garage2} onChange={(e) => setGarage2(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.garage.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -191,7 +206,9 @@ function List({ personagemId }) {
                 Garagem 3:<br/>
                 <select value={garage3} onChange={(e) => setGarage3(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.garage.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -202,7 +219,9 @@ function List({ personagemId }) {
                 Garagem 4:<br/>
                 <select value={garage4} onChange={(e) => setGarage4(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.garage.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -213,7 +232,9 @@ function List({ personagemId }) {
                 Garagem 5:<br/>
                 <select value={garage5} onChange={(e) => setGarage5(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.garage.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -224,7 +245,9 @@ function List({ personagemId }) {
                 Garagem 6:<br/>
                 <select value={garage6} onChange={(e) => setGarage6(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.garage.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -235,7 +258,9 @@ function List({ personagemId }) {
                 Garagem 7:<br/>
                 <select value={garage7} onChange={(e) => setGarage7(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.garage.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -246,7 +271,9 @@ function List({ personagemId }) {
                 Garagem 8:<br/>
                 <select value={garage8} onChange={(e) => setGarage8(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.garage.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -257,7 +284,9 @@ function List({ personagemId }) {
                 Garagem 9:<br/>
                 <select value={garage9} onChange={(e) => setGarage9(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.garage.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -268,7 +297,9 @@ function List({ personagemId }) {
                 Garagem 10:<br/>
                 <select value={garage10} onChange={(e) => setGarage10(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.garage.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -279,7 +310,22 @@ function List({ personagemId }) {
                 Garagem do Clube Vinewood:<br/>
                 <select value={vinewoodGarage} onChange={(e) => setVinewoodGarage(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.vinewoodGarage.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
+                </select>
+                <button type="submit">Salvar</button>
+            </label>
+        </form>
+
+        <form className='form-garage' onSubmit={handleSubmit}>
+            <label>
+                Garagem de Alto padrão Eclipse Blvd:<br/>
+                <select value={eclipseBlvdGarage} onChange={(e) => setEclipseBlvdGarage(e.target.value)} required>
+                    <option value="">Nenhum</option>
+                    {properties.eclipseBlvdGarage.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -290,7 +336,9 @@ function List({ personagemId }) {
                 Hangar:<br/>
                 <select value={hangar} onChange={(e) => setHangar(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.hangar.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -301,7 +349,9 @@ function List({ personagemId }) {
                 Terrorbyte:<br/>
                 <select value={terrorbyte} onChange={(e) => setTerrorbyte(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.terrorbyte.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -312,7 +362,9 @@ function List({ personagemId }) {
                 Centro de Operações Móveis:<br/>
                 <select value={moc} onChange={(e) => setMoc(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.moc.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -323,7 +375,9 @@ function List({ personagemId }) {
                 Avenger:<br/>
                 <select value={avenger} onChange={(e) => setAvenger(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.avenger.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -334,7 +388,9 @@ function List({ personagemId }) {
                 Motoclube:<br/>
                 <select value={clubhouse} onChange={(e) => setClubhouse(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.clubhouse.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -345,7 +401,9 @@ function List({ personagemId }) {
                 Boate:<br/>
                 <select value={nightclub} onChange={(e) => setNightclub(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.nightclub.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -356,7 +414,9 @@ function List({ personagemId }) {
                 Arcade:<br/>
                 <select value={retroArcade} onChange={(e) => setRetroArcade(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.retroArcade.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>
@@ -367,7 +427,9 @@ function List({ personagemId }) {
                 Pátio do Ferro-velho:<br/>
                 <select value={salvageYard} onChange={(e) => setSalvageYard(e.target.value)} required>
                     <option value="">Nenhum</option>
-                    <option value="1">1</option>
+                    {properties.salvageYard.map((property) => (
+                        <option key={property.value} value={property.value}>({property.capacity} vagas) {property.property}</option>
+                    ))}
                 </select>
                 <button type="submit">Salvar</button>
             </label>

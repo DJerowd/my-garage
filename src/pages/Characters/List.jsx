@@ -1,26 +1,38 @@
 import { React, useEffect, useState } from 'react';
-import characters from '../../data/characters.json';
+import characters from '../../database/characters.json';
 
 function List() {
-  const [characters, setCharacters] = useState([]);
-
-  useEffect(() => {
-    fetch('../../data/characters.json')
-      .then(response => response.json())
-      .then(data => setCharacters(data))
-      .catch(error => console.error('Erro ao carregar os jogadores:', error));
-  }, []);
 
   return (
     <div>
-      <h2>Personagens:</h2>
-      <ul>
-        {characters.map(character => (
-          <li key={character.id}>
-            {character.rp} - {character.username} - Criado em: {character.dataCriacao}
-          </li>
-        ))}
-      </ul>
+      <div style={{display: 'flex', justifyContent: 'space-between'}}>
+        <h3 style={{width: '8%', paddingInline: '10px', textAlign: 'center'}}>RP</h3>
+        <h3 style={{width: '68%', paddingInline: '10px'}}>Username</h3>
+        <h3 style={{width: '24%', paddingInline: '10px', textAlign: 'center'}}>Data de Criação</h3>
+      </div>
+      <div style={{display: 'flex', justifyContent: 'space-between'}}>
+        <ul style={{width: '8%', paddingInline: '10px', textAlign: 'center'}}>
+          {characters.map(character => (
+            <div key={character.id}>
+              <div>{character.rp}</div>
+            </div>
+          ))}
+        </ul>
+        <ul style={{width: '68%', paddingInline: '10px'}}>
+          {characters.map(character => (
+            <div key={character.id}>
+              <div>{character.username}</div>
+            </div>
+          ))}
+        </ul>
+        <ul style={{width: '24%', paddingInline: '10px', textAlign: 'center'}}>
+          {characters.map(character => (
+            <div key={character.id}>
+              <div>{character.dataCriacao}</div>
+            </div>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

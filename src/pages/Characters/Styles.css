@@ -10,32 +10,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 4vh;
 
   width: 100vw;
   min-height: calc(100vh - 64px);
 }
 
 .form-character {
-  display: flex;
-  flex-direction: column;
-  
+  align-self: flex-start;
+
   padding-inline: 12px;
   padding-block: 6px;
-
-  height: 80vh;
 
   border-radius: 6px;
   color: white;
   background-color: #00000022;
 }
+.form-character-imput {
+  display: flex;
+  flex-direction: column;
+
+  width: 20vw;
+  color: white;
+}
 
 .list-character {
+  align-self: flex-start;
+  
   padding-inline: 12px;
-  padding-block: 10px;
+  padding-block: 8px;
   margin-left: 4vh;
 
-  height: 80vh;
-  width: 76%;
+  width: 48%;
+  min-height: 60vh;
 
   border-radius: 6px;
   color: white;
