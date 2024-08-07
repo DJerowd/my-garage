@@ -1,0 +1,221 @@
+{
+    "agency": [
+        {"property": "Agência de Vespucci Canals", "location": "Oeste de Los Santos - Canais Vespucci", "capacity": 20, "price": 2145000},
+        {"property": "Agência de Little Seoul", "location": "Oeste de Los Santos - Pequena Seul", "capacity": 20, "price": 2010000},
+        {"property": "Agência de Hawick", "location": "Norte de Los Santos - Hawick", "capacity": 20, "price": 2830000},
+        {"property": "Agência de Rockford Hills", "location": "Norte de Los Santos - Rockford Hills", "capacity": 20, "price": 2415000}
+    ],
+    "arena": [
+        {"property": "Oficina da Arena Maze Bank", "location": "West Los Santos - La Puerta", "capacity": 31, "price": 995000}
+    ],
+    "autoShop": [
+        {"property": "Oficina mecânica de Burton", "location": "Norte de Los Santos - Burton, Rockford Hills", "capacity": 10, "price": 1830000},
+        {"property": "Oficina mecânica de La Mesa", "location": "Leste de Los Santos - La Mesa", "capacity": 10, "price": 1920000},
+        {"property": "Oficina mecânica de Mission Row", "location": "Centro de Los Santos - Mission Row", "capacity": 10, "price": 1670000},
+        {"property": "Oficina mecânica de Rancho", "location": "Sul de Los Santos - Rancho", "capacity": 10, "price": 1750000},
+        {"property": "Oficina mecânica de Strawberry", "location": "Sul de Los Santos - Strawberry", "capacity": 10, "price": 1705000}
+    ],
+    "bailEnforcement": [
+        {"property": "Escritório de fiança do centro de Vinewood", "location": "Norte de Los Santos - Centro de Vinewood", "capacity": 3, "price": 2620000},
+        {"property": "Escritório de fiança Mission Row", "location": "Centro de Los Santos - Mission Row", "capacity": 3, "price": 2390000},
+        {"property": "Del Perro Bail Office", "location": "Norte de Los Santos - Del Perro", "capacity": 3, "price": 2350000},
+        {"property": "Escritório de fiança Davis", "location": "Sul de Los Santos - Davis", "capacity": 3, "price": 2000000},
+        {"property": "Escritório de fiança de Paleto Bay", "location": "Condado de Blaine - Baía de Paleto", "capacity": 3, "price": 1650000}
+    ],
+    "bunker": [
+        {"property": "Bunker de Chumash", "location": "Condado de Blaine - Floresta Paleto", "capacity": 2, "price": 1165000},
+        {"property": "Bunker do Cânion Raton", "location": "Condado de Blaine - Raton Canyon", "capacity": 2, "price": 1450000},
+        {"property": "Bunker Lago Zancudo", "location": "Condado de Blaine - Lago Zancudo", "capacity": 2, "price": 1550000},
+        {"property": "Bunker de Chumash", "location": "Oeste de Los Santos - Chumash", "capacity": 2, "price": 1650000},
+        {"property": "Bunker de Grapeseed", "location": "Blaine County - Grapeseed", "capacity": 2, "price": 1750000},
+        {"property": "Bunker da Rota 68", "location": "Condado de Blaine - Deserto de Grand Senora", "capacity": 2, "price": 1950000},
+        {"property": "Bunker dos campos petrolíferos Grand Senora", "location": "Condado de Blaine - Deserto de Grand Senora", "capacity": 2, "price": 2035000},
+        {"property": "Bunker do Deserto Grand Senora", "location": "Condado de Blaine - Deserto de Grand Senora", "capacity": 2, "price": 2120000},
+        {"property": "Bunker da estrada Smoke Tree", "location": "Condado de Blaine - Deserto de Grand Senora", "capacity": 2, "price": 2205000},
+        {"property": "Bunker do ferro-velho Thomson", "location": "Condado de Blaine - Deserto de Grand Senora", "capacity": 2, "price": 2290000},
+        {"property": "Bunker da fazenda", "location": "Condado de Blaine - Deserto de Grand Senora", "capacity": 2, "price": 2375000}
+    ],
+    "casinoPenthouse": [
+        {"property": "Cobertura Master do Casino Diamond", "location": "Norte de Los Santos - Vinewood Park Drive", "capacity": 10, "price": 1500000}
+    ],
+    "executiveOfficeGarage1": [
+        {"property": "Garagem do escritório do CEO: Nível 1", "location": "Norte de Los Santos - Del Perro", "capacity": 20, "price": 745000},
+        {"property": "Garagem do escritório do CEO: Nível 1", "location": "Centro de Los Santos - Pillbox Hill", "capacity": 20, "price": 745000},
+        {"property": "Garagem do escritório do CEO: Nível 1", "location": "Norte de Los Santos - Del Perro", "capacity": 20, "price": 745000},
+        {"property": "Garagem do escritório do CEO: Nível 1", "location": "Maze Bank Tower Escritório e Garagem", "capacity": 20, "price": 745000}
+    ],
+    "executiveOfficeGarage2": [
+        {"property": "Garagem do escritório do CEO: Nível 2", "location": "Norte de Los Santos - Del Perro", "capacity": 20, "price": 855000},
+        {"property": "Garagem do escritório do CEO: Nível 2", "location": "Centro de Los Santos - Pillbox Hill", "capacity": 20, "price": 855000},
+        {"property": "Garagem do escritório do CEO: Nível 2", "location": "Norte de Los Santos - Del Perro", "capacity": 20, "price": 855000},
+        {"property": "Garagem do escritório do CEO: Nível 2", "location": "Maze Bank Tower Escritório e Garagem", "capacity": 20, "price": 855000}
+    ],
+    "executiveOfficeGarage3": [
+        {"property": "Garagem do escritório do CEO: Nível 3", "location": "Norte de Los Santos - Del Perro", "capacity": 20, "price": 1150000},
+        {"property": "Garagem do escritório do CEO: Nível 3", "location": "Centro de Los Santos - Pillbox Hill", "capacity": 20, "price": 1150000},
+        {"property": "Garagem do escritório do CEO: Nível 3", "location": "Norte de Los Santos - Del Perro", "capacity": 20, "price": 1150000},
+        {"property": "Garagem do escritório do CEO: Nível 3", "location": "Maze Bank Tower Escritório e Garagem", "capacity": 20, "price": 1150000}
+    ],
+    "facility": [
+        {"property": "Instalação de Paleto Bay", "location": "Condado de Blaine - Paleto Bay", "capacity": 12, "price": 1250000},
+        {"property": "Instalação do Monte Gordo", "location": "Condado de Blaine - Monte Gordo", "capacity": 12, "price": 1465000},
+        {"property": "Instalação do Lago Zancudo", "location": "Condado de Blaine - Lago Zancudo", "capacity": 12, "price": 1670000},
+        {"property": "Instalação do Parque Eólico RON Alternates", "location": "Blaine County - Parque Eólico RON Alternates", "capacity": 12, "price": 1855000},
+        {"property": "Instalação do Rio Zancudo", "location": "Condado de Blaine - Rio Zancudo", "capacity": 12, "price": 2100000},
+        {"property": "Instalação da Rota 68", "location": "Condado de Blaine - Deserto de Grand Senora", "capacity": 12, "price": 2312500},
+        {"property": "Instalação do Deserto de Grand Senora", "location": "Condado de Blaine - Deserto de Grand Senora", "capacity": 12, "price": 2525000},
+        {"property": "Instalação de Sandy Shores", "location": "Condado de Blaine - Sandy Shores", "capacity": 12, "price": 2740000},
+        {"property": "Instalação do Reservatório Land Act", "location": "East Los Santos - Reservatório Land Act", "capacity": 12, "price": 2950000}
+    ],
+    "garage": [
+        {"property": "2113 Mad Wayne Thunder Drive", "location": "North Los Santos - Vinewood Hills", "capacity": 10, "price": 449000},
+        {"property": "3677 Rua Whispymound", "location": "Norte de Los Santos - Vinewood Hills", "capacity": 10, "price": 478000},
+        {"property": "Avenida Hillcrest, 2866", "location": "Norte de Los Santos - Vinewood Hills", "capacity": 10, "price": 525000},
+        {"property": "Avenida Hillcrest, 2874", "location": "Norte de Los Santos - Vinewood Hills", "capacity": 10, "price": 571000},
+        {"property": "Estrada Milton 2117", "location": "Norte de Los Santos - Vinewood Hills", "capacity": 10, "price": 608000},
+        {"property": "Avenida Hillcrest, 2868", "location": "Norte de Los Santos - Vinewood Hills", "capacity": 10, "price": 672000},
+        {"property": "Avenida Hillcrest, 2862", "location": "Norte de Los Santos - Vinewood Hills", "capacity": 10, "price": 705000},
+        {"property": "Avenida Conker Norte 2045", "location": "Norte de Los Santos - Vinewood Hills", "capacity": 10, "price": 727000},
+        {"property": "Avenida Conker Norte 2044", "location": "Norte de Los Santos - Vinewood Hills", "capacity": 10, "price": 762000},
+        {"property": "3655 Estrada de aveia selvagem", "location": "Norte de Los Santos - Vinewood Hills", "capacity": 10, "price": 800000},
+        {"property": "Eclipse Towers, Suíte Penthouse 2", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 905000},
+        {"property": "Eclipse Towers, Suíte Penthouse 1", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 985000},
+        {"property": "Eclipse Towers, Suíte Penthouse 3", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 1100000},
+        {"property": "Estrada Sustância 12", "location": "Leste de Los Santos - El Burro Heights", "capacity": 6, "price": 143000},
+        {"property": "4584 Procópio Drive", "location": "Condado de Blaine - Baía de Paleto", "capacity": 6, "price": 155000},
+        {"property": "4401 Procópio Drive", "location": "Condado de Blaine - Baía de Paleto", "capacity": 6, "price": 165000},
+        {"property": "4 Avenida do Carrasco", "location": "Norte de Los Santos - Vinewood Hills", "capacity": 6, "price": 175000},
+        {"property": "Avenida Grapeseed 1893", "location": "Condado de Blaine - Grapeseed", "capacity": 2, "price": 118000},
+        {"property": "Avenida Zancudo 140", "location": "Condado de Blaine - Sandy Shores", "capacity": 2, "price": 120000},
+        {"property": "0232 Paleto Boulevard", "location": "Condado de Blaine - Paleto Bay", "capacity": 2, "price": 121000},
+        {"property": "Del Perro Heights, Apto. 4", "location": "Norte de Los Santos - Del Perro", "capacity": 10, "price": 468000},
+        {"property": "4 Integrity Way, Apto. 28", "location": "Centro de Los Santos - Pillbox Hill", "capacity": 10, "price": 476000},
+        {"property": "Richards Majestic, Apto. 2", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 484000},
+        {"property": "Torres Tinsel, Apto 42", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 492000},
+        {"property": "Eclipse Towers, Apto 3", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 500000},
+        {"property": "O Royale, Apto 19", "location": "Norte de Los Santos - Vinewood West", "capacity": 6, "price": 125000},
+        {"property": "0604 Las Lagunas Boulevard, Apto 4", "location": "Norte de Los Santos - Vinewood West", "capacity": 6, "price": 126000},
+        {"property": "0605 Avenida Espanhola, Apto 1", "location": "Norte de Los Santos - Centro de Vinewood", "capacity": 6, "price": 128000},
+        {"property": "1162 Power Street, Apto 3", "location": "Norte de Los Santos - Hawick", "capacity": 6, "price": 130000},
+        {"property": "Dream Tower, Apto 15", "location": "Oeste de Los Santos - Pequena Seul", "capacity": 6, "price": 134000},
+        {"property": "0325 Sul Rockford Drive", "location": "Oeste de Los Santos - Pequena Seul", "capacity": 6, "price": 137000},
+        {"property": "0504 Sul Mo Milton Drive", "location": "Norte de Los Santos - Vinewood West", "capacity": 6, "price": 141000},
+        {"property": "0184 Milton Road, Apto 13", "location": "Norte de Los Santos - Vinewood West", "capacity": 6, "price": 146000},
+        {"property": "0115 Bay City Avenue, Apto 45", "location": "Oeste de Los Santos - La Puerta", "capacity": 6, "price": 150000},
+        {"property": "0112 South Rockford Drive, Apto 13", "location": "Oeste de Los Santos - Canais Vespucci", "capacity": 2, "price": 80000},
+        {"property": "Avenida Vespucci, 2057, Apto 1", "location": "Oeste de Los Santos - Pequena Seul", "capacity": 2, "price": 87000},
+        {"property": "1115 Boulevard Del Perro, Apto 18", "location": "Norte de Los Santos - Del Perro", "capacity": 2, "price": 93000},
+        {"property": "1561 San Vitas Street, Apto 2", "location": "Norte de Los Santos - Vinewood West", "capacity": 2, "price": 99000},
+        {"property": "1237 Prosperity Street, Apto 21", "location": "Norte de Los Santos - Del Perro", "capacity": 2, "price": 105000},
+        {"property": "0069 Cougar Avenue, Apto 19", "location": "Norte de Los Santos - Del Perro", "capacity": 2, "price": 112000},
+        {"property": "Avenida Las Lagunas, 2143, Apto 9", "location": "Norte de Los Santos - Hawick", "capacity": 2, "price": 115000},
+        {"property": "Del Perro Heights, Apto. 7", "location": "Norte de Los Santos - Del Perro", "capacity": 10, "price": 200000},
+        {"property": "Del Perro Heights, Apto 20", "location": "Norte de Los Santos - Del Perro", "capacity": 10, "price": 205000},
+        {"property": "3 Alta Street Tower, Apto 10", "location": "Oeste de Los Santos - Pillbox Hill", "capacity": 10, "price": 217000},
+        {"property": "3 Alta Street Tower, Apto 57", "location": "Oeste de Los Santos - Pillbox Hill", "capacity": 10, "price": 223000},
+        {"property": "4 Integrity Way, Apto. 30", "location": "Oeste de Los Santos - Pillbox Hill", "capacity": 10, "price": 235000},
+        {"property": "Richards Majestic Apto. 4", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 241000},
+        {"property": "4 Integrity Way, Apto. 35", "location": "Oeste de Los Santos - Pillbox Hill", "capacity": 10, "price": 247000},
+        {"property": "Richards Majestic, Apto 51", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 253000},
+        {"property": "Tinsel Towers, Apto 45", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 270000},
+        {"property": "Tinsel Towers, Apto 29", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 286000},
+        {"property": "Weazel Plaza, Apto 26", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 304000},
+        {"property": "Weazel Plaza, Apto 70", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 319000},
+        {"property": "Weazel Plaza, Apto 101", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 335000},
+        {"property": "Eclipse Towers, Apto 9", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 373000},
+        {"property": "Eclipse Towers, Apto 5", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 382000},
+        {"property": "Eclipse Towers, Apto 40", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 391000},
+        {"property": "Eclipse Towers, Apto 31", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 400000},
+        {"property": "Rua Sul Shambles 1623", "location": "Leste de Los Santos - Cypress Flats", "capacity": 10, "price": 105000},
+        {"property": "1337 Caminho dos Excepcionais", "location": "South Los Santos - Aeroporto Internacional de Los Santos", "capacity": 10, "price": 112500},
+        {"property": "Greenwich Parkway, Unidade 76", "location": "South Los Santos - Aeroporto Internacional de Los Santos", "capacity": 10, "price": 120000},
+        {"property": "Rua de Suprimentos 331", "location": "Leste de Los Santos - La Mesa", "capacity": 10, "price": 135000},
+        {"property": "Rua Popular, Unidade 2", "location": "Leste de Los Santos - La Mesa", "capacity": 10, "price": 142500},
+        {"property": "0120 Murrieta Heights", "location": "Leste de Los Santos - Murrieta Heights", "capacity": 10, "price": 150000},
+        {"property": "870 Route 68 Approach", "location": "Blaine County - Grand Senora Desert", "capacity": 6, "price": 62500},
+        {"property": "8754 Rota 68", "location": "Condado de Blaine - Rio Zancudo", "capacity": 6, "price": 65000},
+        {"property": "Rua da Doca Seca 4531", "location": "Leste de Los Santos - Cypress Flats", "capacity": 6, "price": 67500},
+        {"property": "Autoestrada Olímpica, Unidade 1", "location": "Leste de Los Santos - La Mesa", "capacity": 6, "price": 70000},
+        {"property": "Avenida Davis 0432", "location": "Sul de Los Santos - Davis", "capacity": 6, "price": 72500},
+        {"property": "Avenida Davis 1905", "location": "Sul de Los Santos - Davis", "capacity": 6, "price": 75000},
+        {"property": "Rua Popular, Unidade 14", "location": "Leste de Los Santos - La Mesa", "capacity": 6, "price": 77500},
+        {"property": "0552 Avenida Roy Lowenstein", "location": "Sul de Los Santos - Davis", "capacity": 6, "price": 80000},
+        {"property": "Rua Popular, Unidade 124", "location": "Leste de Los Santos - La Mesa", "capacity": 2, "price": 25000},
+        {"property": "1 Avenida Morango", "location": "Condado de Blaine - Paleto Bay", "capacity": 2, "price": 26000},
+        {"property": "142 Paleto Boulevard", "location": "Condado de Blaine - Paleto Bay", "capacity": 2, "price": 26500},
+        {"property": "Avenida Grapeseed 1932", "location": "Blaine County - Grapeseed", "capacity": 2, "price": 27500},
+        {"property": "1200 Rota 68", "location": "Condado de Blaine - Deserto de Grand Senora", "capacity": 2, "price": 28000},
+        {"property": "197 Rota 68", "location": "Condado de Blaine - Deserto de Grand Senora", "capacity": 2, "price": 29000},
+        {"property": "0754 Avenida Roy Lowenstein", "location": "Sul de Los Santos - Rancho", "capacity": 2, "price": 29500},
+        {"property": "2000 Grande Rodovia Oceânica", "location": "Condado de Blaine - Chumash do Norte", "capacity": 2, "price": 31500},
+        {"property": "Caminho da Senora 1920", "location": "Blaine County - Parque Eólico RON Alternates", "capacity": 2, "price": 32000},
+        {"property": "Avenida Little Bighorn, 12", "location": "Sul de Los Santos - Rancho", "capacity": 2, "price": 32000},
+        {"property": "634 Boulevard Del Perro", "location": "Norte de Los Santos - Rockford Hills", "capacity": 2, "price": 33500},
+        {"property": "Garagem Innocence Boulevard", "location": "Oeste de Los Santos - La Puerta", "capacity": 2, "price": 34000},
+        {"property": "0897 Avenida do Mirror Park", "location": "Norte de Los Santos - Vinewood Leste", "capacity": 2, "price": 35000}
+
+    ],
+    "vinewoodGarage": [
+        {"property": "Garagem do Clube Vinewood", "location": "Sul de Los Santos - Pillbox Hill", "capacity": 100, "price": 0}
+    ],
+    "eclipseBlvdGarage": [
+        {"property": "Garagem de Alto padrão Eclipse Blvd", "location": "Norte de Los Santos - Eclipse Boulevard, Vinewood West", "capacity": 50, "price": 2740000}
+    ],
+    "hangar": [
+        {"property": "Hangar LSIA A17", "location": "South Los Santos - Aeroporto Internacional de Los Santos", "capacity": 20, "price": 1200000},
+        {"property": "Hangar 1 do LSIA ", "location": "South Los Santos - Aeroporto Internacional de Los Santos", "capacity": 20, "price": 1525000},
+        {"property": "Hangar Forte Zancudo 3497 ", "location": "Condado de Blaine - Forte Zancudo", "capacity": 20, "price": 2085000},
+        {"property": "Hangar Forte Zancudo 3499 ", "location": "Condado de Blaine - Forte Zancudo", "capacity": 20, "price": 2650000},
+        {"property": "Hangar Forte Zancudo A2 ", "location": "Condado de Blaine - Forte Zancudo", "capacity": 20, "price": 3250000}
+    ],
+    "terrorbyte": [
+        {"property": "Terrorbyte", "location": "Veículo Movel", "capacity": 1, "price": 1375000}
+    ],
+    "moc": [
+        {"property": "Trailer do Centro de Operações Móveis", "location": "Veículo Movel", "capacity": 1, "price": 1225000}
+    ],
+    "avenger": [
+        {"property": "Avenger", "location": "Veículo Movel", "capacity": 1, "price": 3450000}
+    ],
+    "clubhouse": [
+        {"property": "Motoclube de Grande Chaparral", "location": "Condado de Blaine - 101 Rota 68, Deserto Grand Senora", "capacity": 10, "price": 200000},
+        {"property": "Motoclube de Sandy Shores", "location": "Condado de Blaine - 47 Algonquin Boulevard, Sandy Shores", "capacity": 10, "price": 210000},
+        {"property": "Motoclube de Grapeseed", "location": "Condado de Blaine - 2111 East Joshua Road, Grapeseed", "capacity": 10, "price": 225000},
+        {"property": "Motoclube 1 de Paleto Bay", "location": "Condado de Blaine - 1 Paleto Boulevard", "capacity": 10, "price": 242000},
+        {"property": "Motoclube 2 de Paleto Bay", "location": "Condado de Blaine - 68 Paleto Boulevard", "capacity": 10, "price": 250000},
+        {"property": "Motoclube de Del Perro", "location": "Norte de Los Santos - Praia 7 Del Perro", "capacity": 10, "price": 365000},
+        {"property": "Motoclube de Vespucci Beach", "location": "Oeste Los Santos - Rua Goma 4, Vespucci", "capacity": 10, "price": 395000},
+        {"property": "Motoclube de Rancho", "location": "Sul de Los Santos - 1334 Roy Lowenstein Boulevard, Rancho", "capacity": 10, "price": 420000},
+        {"property": "Motoclube de La Mesa", "location": "Leste de Los Santos - 137 Capital Boulevard, La Mesa", "capacity": 10, "price": 449000},
+        {"property": "Motoclube de Pillbox Hill", "location": "Centro de Los Santos - 75 Elgin Avenue, Pillbox Hill", "capacity": 10, "price": 455000},
+        {"property": "Motoclube de Downtown Vinewood", "location": "Norte de Los Santos - 2214 Clinton Avenue, Vinewood Downtown", "capacity": 10, "price": 472000},
+        {"property": "Motoclube de Hawick", "location": "Norte de Los Santos - 1778 Hawick Avenue", "capacity": 10, "price": 495000}
+    ],
+    "nightclub": [
+        {"property": "Boate do Downtown Vinewood", "location": "Norte de Los Santos - Centro de Vinewood", "capacity": 36, "price": 1670000},
+        {"property": "Boate de Mission Row", "location": "Centro de Los Santos - Mission Row", "capacity": 36, "price": 1440000},
+        {"property": "Boate de La Mesa", "location": "Leste de Los Santos - La Mesa", "capacity": 36, "price": 1500000},
+        {"property": "Boate de Strawberry", "location": "Sul de Los Santos - Strawberry", "capacity": 36, "price": 1525000},
+        {"property": "Boate de Vespucci Canals", "location": "Oeste de Los Santos - Canais Vespucci", "capacity": 36, "price": 1320000},
+        {"property": "Boate de Cypress Flats", "location": "Leste de Los Santos - Cypress Flats", "capacity": 36, "price": 1370000},
+        {"property": "Boate da Ilha Elísia", "location": "Sul de Los Santos - Ilha Elísia", "capacity": 36, "price": 1080000},
+        {"property": "Boate de LSIA", "location": "South Los Santos - Aeroporto Internacional de Los Santos", "capacity": 36, "price": 1135000},
+        {"property": "Boate de Del Perro", "location": "Norte de Los Santos - Del Perro", "capacity": 36, "price": 1645000},
+        {"property": "Boate de Vinewood West", "location": "Norte de Los Santos - Vinewood West", "capacity": 36, "price": 1700000}
+    ],
+    "retroArcade": [
+        {"property": "Arcade Eight-Bit", "location": "Norte de Los Santos - Vinewood", "capacity": 10, "price": 2530000},
+        {"property": "Arcade Insert Coin", "location": "Norte de Los Santos - Rockford Hills", "capacity": 10, "price": 2345000},
+        {"property": "Arcade Warehouse ", "location": "South Los Santos - Davis", "capacity": 10, "price": 2135000},
+        {"property": "Arcade Videogeddon", "location": "East Los Santos - La Mesa", "capacity": 10, "price": 1875000},
+        {"property": "Arcade Wonderama", "location": "Blaine County - Grapeseed", "capacity": 10, "price": 1565000},
+        {"property": "Arcade Pixel Pete's", "location": "Blaine County - Paleto Bay", "capacity": 10, "price": 1235000}
+    ],
+    "salvageYard": [
+        {"property": "Ferro-velho de Strawberry", "location": "Sul de Los Santos - Strawberry, Innocence Boulevard", "capacity": 2, "price": 2570000},
+        {"property": "Ferro-velho de Murrieta Heights", "location": "Leste de Los Santos - Murrieta Heights, El Rancho Boulevard", "capacity": 2, "price": 2420000},
+        {"property": "Ferro-velho de Sandy Shores", "location": "Condado de Blaine - Sandy Shores, East Joshua Road", "capacity": 2, "price": 2030000},
+        {"property": "Ferro-velho de La Puerta", "location": "Oeste de Los Santos - La Puerta", "capacity": 2, "price": 2690000},
+        {"property": "Ferro-velho de Paleto Bay", "location": "Condado de Blaine - Paleto Bay, Paleto Blvd", "capacity": 2, "price": 1620000}
+    ]
+}
