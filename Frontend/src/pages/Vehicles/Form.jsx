@@ -66,9 +66,9 @@ function Form() {
   return (
     <form onSubmit={handleSubmit}>
 
-      <label className='form-car'>
+      <label>
         Garagem:
-        <select style={{paddingInline: '8px'}} name="garage" onChange={handleChange} value={veiculo.garage}>
+        <select name="garage" onChange={handleChange} value={veiculo.garage}>
           <option value="">Selecione uma garagem</option>
           {garages.map(garage => (
             <option key={garage.value} value={garage.id}>{garage.property} {garage.capacity}/{garage.ocupation}</option>
@@ -76,9 +76,9 @@ function Form() {
         </select>
       </label>
 
-      <label className='form-car'>
+      <label>
         Marca:
-        <select style={{paddingInline: '8px'}} name="manufacturer" onChange={handleChange} value={veiculo.manufacturer} disabled={!veiculo.garage}>
+        <select name="manufacturer" onChange={handleChange} value={veiculo.manufacturer} disabled={!veiculo.garage}>
           <option value="">Selecione uma marca</option>
           {manufacturers.map((manufacturer, index) => (
             <option key={index} value={manufacturer}>{manufacturer.charAt(0).toUpperCase() + manufacturer.slice(1)}</option>
@@ -86,9 +86,9 @@ function Form() {
         </select>
       </label>
 
-      <label className='form-car'>
+      <label>
         Modelo:
-        <select style={{paddingInline: '8px'}} name="model" onChange={handleChange} value={veiculo.model} disabled={!veiculo.garage || !veiculo.manufacturer}>
+        <select name="model" onChange={handleChange} value={veiculo.model} disabled={!veiculo.garage || !veiculo.manufacturer}>
           <option value="">Selecione um modelo</option>
           {models.map((model, index) => (
             <option key={index} value={model}>{model.charAt(0).toUpperCase() + model.slice(1)}</option>
@@ -96,9 +96,9 @@ function Form() {
         </select>
       </label>
 
-      <label className='form-car'>
+      <label>
         Cor Primaria: 
-        <select style={{borderColor: veiculo.primaryColor, borderRadius: '4px', paddingInline: '8px'}} name="primaryColor" onChange={handleChange} value={veiculo.primaryColor} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
+        <select style={{borderColor: veiculo.primaryColor}} name="primaryColor" onChange={handleChange} value={veiculo.primaryColor} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
             <option key={index} value={color.hex}>{color.id} {color.description}</option>
@@ -106,9 +106,9 @@ function Form() {
         </select>
       </label>
 
-      <label className='form-car'>
+      <label>
         Cor Secundaria: 
-        <select style={{borderColor: veiculo.secundaryColor, borderRadius: '4px', paddingInline: '8px'}} name="secundaryColor" onChange={handleChange} value={veiculo.secundaryColor} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
+        <select style={{borderColor: veiculo.secundaryColor}} name="secundaryColor" onChange={handleChange} value={veiculo.secundaryColor} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
             <option key={index} value={color.hex}>{color.id} {color.description}</option>
@@ -116,9 +116,9 @@ function Form() {
         </select>
       </label>
 
-      <label className='form-car'>
+      <label>
         Cor do Interior: 
-        <select style={{borderColor: veiculo.interiorColor, borderRadius: '4px', paddingInline: '8px'}} name="interiorColor" onChange={handleChange} value={veiculo.interiorColor} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
+        <select style={{borderColor: veiculo.interiorColor}} name="interiorColor" onChange={handleChange} value={veiculo.interiorColor} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
             <option key={index} value={color.hex}>{color.id} {color.description}</option>
@@ -126,9 +126,9 @@ function Form() {
         </select>
       </label>
 
-      <label className='form-car'>
+      <label>
         Cor dos Detalhes: 
-        <select style={{borderColor: veiculo.dashboardColor, borderRadius: '4px', paddingInline: '8px'}} name="dashboardColor" onChange={handleChange} value={veiculo.dashboardColor} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
+        <select style={{borderColor: veiculo.dashboardColor}} name="dashboardColor" onChange={handleChange} value={veiculo.dashboardColor} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
             <option key={index} value={color.hex}>{color.id} {color.description}</option>
@@ -136,9 +136,9 @@ function Form() {
         </select>
       </label>
 
-      <label className='form-car'>
+      <label>
         Cor das Rodas: 
-        <select style={{borderColor: veiculo.rimColor, borderRadius: '4px', paddingInline: '8px'}} name="rimColor" onChange={handleChange} value={veiculo.rimColor} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
+        <select style={{borderColor: veiculo.rimColor}} name="rimColor" onChange={handleChange} value={veiculo.rimColor} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
             <option key={index} value={color.hex}>{color.id} {color.description}</option>
@@ -146,9 +146,9 @@ function Form() {
         </select>
       </label>
 
-      <label className='form-car'>
+      <label>
         Tipo das rodas:
-        <select style={{paddingInline: '8px'}} name="rimsType" onChange={handleChange} value={veiculo.rimsType} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
+        <select name="rimsType" onChange={handleChange} value={veiculo.rimsType} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
           <option value="">Selecione um tipo de rodas</option>
           {rimsTypes.map((rim, index) => (
             <option key={index} value={rim.type}>{rim.type}</option>
@@ -156,9 +156,9 @@ function Form() {
         </select>
       </label>
 
-      <label className='form-car'>
+      <label>
         Rodas:
-        <select style={{paddingInline: '8px'}} name="rimsType" onChange={handleChange} value={veiculo.rimsType} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
+        <select name="rimsType" onChange={handleChange} value={veiculo.rimsType} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
           <option value="">Selecione um modelo de rodas</option>
           {rims.map((rim, index) => (
             <option key={index} value={rim.id}>{rim.type} - {rim.model}</option>
@@ -168,7 +168,7 @@ function Form() {
 
       <label>
         Placa:
-        <input style={{marginInline: '10px', textAlign: 'center', paddingInline: '8px', marginTop: '8px', width: '20%'}} type="text" name="plate" onChange={handleChange} value={veiculo.plate} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}/>
+        <input type="text" name="plate" onChange={handleChange} value={veiculo.plate} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}/>
       </label>
 
       {/* <label className='form-car'>
@@ -176,7 +176,7 @@ function Form() {
         <textarea name="description" onChange={handleChange} value={veiculo.description}disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}></textarea>
       </label> */}
 
-      <div style={{display: 'flex', justifyContent: 'center', marginTop: '8px'}}>
+      <div style={{display: 'flex', justifyContent: 'center', marginTop: '8px', marginBottom: '10px'}}>
         <button style={{paddingInline: '4px'}} type="submit" disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>Salvar Veículo</button>
       </div>
     </form>

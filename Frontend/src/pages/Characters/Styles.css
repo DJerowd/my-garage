@@ -22,16 +22,23 @@
   padding-inline: 12px;
   padding-block: 6px;
 
+  min-height: 40vh;
+
   border-radius: 6px;
   color: white;
   background-color: #00000022;
 }
-.form-character-imput {
+.form-character label {
   display: flex;
   flex-direction: column;
 
   width: 20vw;
-  color: white;
+  margin: 8px;
+}
+.form-character form div{
+  display: 'flex'; 
+  justify-content: 'center'; 
+  margin-block: '8px';
 }
 
 .list-character {
@@ -42,9 +49,57 @@
   margin-left: 4vh;
 
   width: 48%;
-  min-height: 60vh;
+  min-height: 40vh;
 
   border-radius: 6px;
   color: white;
   background-color: #00000022;
+}
+.list-character div h3 {
+  display: flex; 
+  justify-content: space-between; 
+  width: 100%; 
+  border-bottom: 2px solid white;
+}
+.list-character div ul div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 6vh;
+
+  border-bottom: 1px solid white;
+}
+.list-character div us :hover{
+background-color: #ffffff11;
+}
+.list-character div us div :hover{
+  background-color: #00000000;
+  }
+.list-character div span1{
+  width: 8%; 
+  text-align: center;
+}
+.list-character div span2{
+  width: 8%;
+  padding-inline: 14px;
+}
+.list-character div span3{
+  width: 24%; 
+  text-align: center;
+}
+.list-character div span4{
+  width: 10%;
+  text-align: center;
+}
+.list-character div span4 button{
+  background-color: '#00000000'; 
+  border-color: '#0000';
+  width: 50%;
+  height: 50%;
+  color: white;
+}
+
+.list-character div span4 button :hover{
+  color: gray;
 }

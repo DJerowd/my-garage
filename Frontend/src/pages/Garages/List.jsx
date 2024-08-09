@@ -6,7 +6,7 @@ function List({ personagemId }) {
   const [garagem, setGaragem] = useState({
     agency: '',
     arena: '',
-    arena: '',
+    autoShop: '',
     bailEnforcement: '',
     bunker: '',
     casinoPenthouse: '',
@@ -69,7 +69,7 @@ function List({ personagemId }) {
     const { name, value } = e.target;
     e.preventDefault();
 
-    // alert(`Garagem escolhida para o personagem ${personagemId}: ${garagem}`);
+    alert(`Selecionado ${garagem} para o personagem ${personagemId}.`);
     setGaragem(prevState => ({
         ...prevState,
         [name]: value

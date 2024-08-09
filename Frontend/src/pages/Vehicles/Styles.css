@@ -15,8 +15,15 @@
   width: 100vw;
   min-height: calc(100vh - 64px);
 }
+.content-car aside {
+  align-self: flex-start;
 
-.list-car {
+  margin-left: 4vh;
+
+  width: 60%;
+}
+
+.form-car {
   align-self: flex-start;
   
   padding-inline: 12px;
@@ -29,11 +36,108 @@
   color: white;
   background-color: #00000022;
 }
-
-.form-car {
+.form-car label {
   display: flex;
   flex-direction: column;
   
   padding-inline: 0px;
   padding-block: 2px;
+}
+.form-car label select {
+  padding-inline: 8px;
+
+  border-radius: 4px;
+}
+.form-car label input {
+  text-align: center; 
+
+  margin-inline: 10px; 
+  margin-top: 8px;
+
+  width: 24%;
+
+  border-radius: 4px;
+}
+
+.filter-car {
+  align-self: flex-start;
+
+  padding-inline: 12px;
+  padding-block: 10px;
+
+  margin-bottom: 4vh;
+
+  width: 100%;
+
+  border-radius: 6px;
+  color: white;
+  background-color: #00000022;
+}
+.filter-car select {
+  margin-inline: 20px;
+  padding-inline: 10px;
+
+  width: 60%;
+  height: 4vh;
+}
+
+.list-car {
+  align-self: flex-start;
+
+  padding-inline: 12px;
+  padding-block: 10px;
+
+  width: 100%;
+
+  border-radius: 6px;
+  color: white;
+  background-color: #00000022;
+}
+.list-car h3{
+  display: flex;
+  text-align: center;
+  border-bottom: 2px solid white;
+}
+.list-car ul{
+  display: flex;
+  
+  flex-direction: column;
+
+  width: 100%;
+  list-style-type: none;
+  margin-top: 10px;
+  padding: 0;
+}
+.list-car ul div{
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+
+  margin-bottom: 10px;
+  border-bottom: 1px solid white;
+}
+.list-car span1{
+  width: 30%;
+}
+.list-car span2{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 20%;
+}
+.list-car span3{
+  text-align: center;
+  width: 12%;
+}
+.list-car span4{
+  text-align: center;
+  width: 38%;
+}
+
+.color-block {
+  width: 20px;
+  height: 20px;
+
+  margin-inline: 2px;
 }

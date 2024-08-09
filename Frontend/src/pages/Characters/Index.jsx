@@ -3,7 +3,6 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Form from './Form';
 import List from './List';
-import { CharacterProvider } from './Context';
 import './Styles.css';
 
 function Personagem() {

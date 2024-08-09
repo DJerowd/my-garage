@@ -6,30 +6,33 @@ function Form() {
   const [reputation, setReputation] = useState(1);
   const [createDate, setCreateDate] = useState('');
 
+  // Função de registrar personagem
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    alert(`Personagem salvo!`);
+
     setUsername('');
-    setReputation(1);
+    setReputation(0);
     setCreateDate('');
   };
 
   return (
     <form onSubmit={handleSubmit}>
-        <label className='form-character-imput'>
+        <label>
             Nome: 
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
         </label>
-        <label className='form-character-imput'>
+        <label>
             RP:
             <input type="number" value={reputation} onChange={(e) => setReputation(e.target.value)} min="1" max={"9999"} required />
         </label>
-        <label className='form-character-imput'>
+        <label>
             Data de Criação:
             <input type="date" value={createDate} onChange={(e) => setCreateDate(e.target.value)} required />
         </label>
-        <div style={{display: 'flex', justifyContent: 'center', marginTop: '6px'}}>
-          <button type="submit">Adicionar Novo Personagem</button>
+        <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '8px'}}>
+          <button style={{paddingInline: '4px'}} type="submit">Adicionar Novo Personagem</button>
         </div>
     </form>
   );

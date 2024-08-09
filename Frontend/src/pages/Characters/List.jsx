@@ -1,37 +1,46 @@
 import { React, useEffect, useState } from 'react';
 import characters from '../../database/characters.json';
+import { FaRegEdit, FaTrash  } from "react-icons/fa";
 
 function List() {
 
   // Função de editar personagem
   const handleEdit = (id) => {
-    console.log(`Editar o personagem ${id}`);
+    alert(`Editar o personagem ${id}`);
   };
 
   // Função de excluir personagem
   const handleDelete = (id) => {
-    console.log(`Excluir o personagem ${id}`);
+    alert(`Excluir o personagem ${id}`);
   };
   
   return (
-    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h3 style={{ display: 'flex', justifyContent: 'space-between', width: '100%', borderBottom: '2px solid white' }}>
-        <span style={{ width: '8%', textAlign: 'center'}}>RP </span>
-        <span style={{ flex: 2, marginInline: '20px' }}>Username</span>
-        <span style={{ width: '24%', textAlign: 'center'}}>Data de Criação</span>
+    <div>
+      <h3>
+        <span1>RP</span1>
+        <span2 style={{ flex: 2,}}>Username</span2>
+        <span3>Data de Criação</span3>
+        <span4></span4>
       </h3>
-      <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-        <ul>
-          {characters.map(character => (
-            <div key={character.id} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid white', padding: '10px 0' }}>
-              <span style={{ width: '8%', textAlign: 'center'}}>{character.rp}</span>
-              <span style={{ flex: 2, marginInline: '20px' }}>{character.username}</span>
-              <span style={{ width: '24%', textAlign: 'center'}}>{character.dataCriacao}</span>
+      <ul>
+        {characters.map(character => (
+          <us>
+            <div key={character.id}>
+              <span1>{character.rp}</span1>
+              <span2 style={{ flex: 2}}>{character.username}</span2>
+              <span3>{character.dataCriacao}</span3>
+              <span4>
+                <button style={{backgroundColor: '#0000', borderColor: '#0000'}} onClick={() => handleEdit(character.id)}>
+                  <FaRegEdit style={{width: '50%', height: '50%' }}/>
+                </button>
+                <button style={{backgroundColor: '#0000', borderColor: '#0000'}} onClick={() => handleDelete(character.id)}>
+                  <FaTrash style={{width: '50%', height: '50%' }}/>
+                </button>
+              </span4>
             </div>
-          ))}
-        </ul>
-        
-      </div>
+          </us>
+        ))}
+      </ul>
     </div>
   );
 }
