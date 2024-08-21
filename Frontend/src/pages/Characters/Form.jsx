@@ -19,21 +19,21 @@ function Form() {
 
   return (
     <form onSubmit={handleSubmit}>
-        <label>
-            Nome: 
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
-        </label>
-        <label>
-            RP:
-            <input type="number" value={reputation} onChange={(e) => setReputation(e.target.value)} min="1" max={"9999"} required />
-        </label>
-        <label>
-            Data de Criação:
-            <input type="date" value={createDate} onChange={(e) => setCreateDate(e.target.value)} required />
-        </label>
-        <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '8px'}}>
-          <button style={{paddingInline: '4px'}} type="submit">Adicionar Novo Personagem</button>
-        </div>
+      <label>
+          RP:
+          <input type="number" value={reputation} onChange={(e) => setReputation(e.target.value)} min="1" max={"9999"} required />
+      </label>
+      <label>
+          Nome: 
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
+      </label>
+      <label>
+          Data de Criação:
+          <input type="date" value={createDate} onChange={(e) => setCreateDate(e.target.value)} required />
+      </label>
+      <a style={{justifyContent: 'center', marginTop: '10px', marginBottom: '8px'}}>
+        <button style={{paddingInline: '4px'}} type="submit">Adicionar Novo Personagem</button>
+      </a>
     </form>
   );
 }

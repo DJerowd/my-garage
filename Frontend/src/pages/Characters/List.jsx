@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import characters from '../../database/characters.json';
-import { FaRegEdit, FaTrash  } from "react-icons/fa";
+import { FaRegEdit, FaTrash } from "react-icons/fa";
 
 function List() {
 

@@ -65,6 +65,8 @@ function Form() {
 
   return (
     <form onSubmit={handleSubmit}>
+      
+      <h3>Adicionar Novo Veículo:</h3>
 
       <label>
         Garagem:
@@ -95,6 +97,8 @@ function Form() {
           ))}
         </select>
       </label>
+
+      <h3 style={{textAlign: 'center'}}>__________________________________________</h3>
 
       <label>
         Cor Primaria: 
@@ -146,6 +150,8 @@ function Form() {
         </select>
       </label>
 
+      <h3 style={{textAlign: 'center'}}>__________________________________________</h3>
+
       <label>
         Tipo das rodas:
         <select name="rimsType" onChange={handleChange} value={veiculo.rimsType} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>
@@ -166,6 +172,8 @@ function Form() {
         </select>
       </label>
 
+      <h3 style={{textAlign: 'center'}}>__________________________________________</h3>
+
       <label>
         Placa:
         <input type="text" name="plate" onChange={handleChange} value={veiculo.plate} disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}/>
@@ -175,6 +183,8 @@ function Form() {
         Descrição:
         <textarea name="description" onChange={handleChange} value={veiculo.description}disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}></textarea>
       </label> */}
+
+      <h3 style={{textAlign: 'center'}}>__________________________________________</h3>
 
       <div style={{display: 'flex', justifyContent: 'center', marginTop: '8px', marginBottom: '10px'}}>
         <button style={{paddingInline: '4px'}} type="submit" disabled={!veiculo.garage || !veiculo.manufacturer || !veiculo.model}>Salvar Veículo</button>

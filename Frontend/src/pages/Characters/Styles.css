@@ -8,32 +8,36 @@
 
 .content-character {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+
   padding: 4vh;
+
+  background-image: url('../../assets/aesthetic-gta-cityscape-desktop-wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
 
   width: 100vw;
   min-height: calc(100vh - 64px);
 }
 
 .form-character {
-  align-self: flex-start;
+  align-self: center;
+  align-content: center;
 
   padding-inline: 12px;
   padding-block: 6px;
 
-  min-height: 40vh;
+  width: 60%;
+  min-height: 10vh;
 
   border-radius: 6px;
   color: white;
-  background-color: #00000022;
+  background-color: #000000f0;
 }
 .form-character label {
-  display: flex;
-  flex-direction: column;
-
   width: 20vw;
   margin: 8px;
+  padding-inline: 10px;
 }
 .form-character form div{
   display: 'flex'; 
@@ -42,18 +46,18 @@
 }
 
 .list-character {
-  align-self: flex-start;
+  align-self: center;
   
   padding-inline: 12px;
   padding-block: 8px;
-  margin-left: 4vh;
+  margin-top: 4vh;
 
-  width: 48%;
-  min-height: 40vh;
+  width: 60%;
+  min-height: 38vh;
 
   border-radius: 6px;
   color: white;
-  background-color: #00000022;
+  background-color: #000000f0;
 }
 .list-character div h3 {
   display: flex; 
@@ -66,16 +70,16 @@
   justify-content: space-between;
   align-items: center;
 
-  height: 6vh;
+  height: 8vh;
 
   border-bottom: 1px solid white;
 }
 .list-character div us :hover{
-background-color: #ffffff11;
+  background-color: #ffffff11;
 }
 .list-character div us div :hover{
   background-color: #00000000;
-  }
+}
 .list-character div span1{
   width: 8%; 
   text-align: center;
@@ -99,7 +103,6 @@ background-color: #ffffff11;
   height: 50%;
   color: white;
 }
-
 .list-character div span4 button :hover{
   color: gray;
 }
