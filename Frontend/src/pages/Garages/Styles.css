@@ -8,8 +8,10 @@
 
 .content-garage {
   display: flex;
+  flex-direction: column;
+  
   align-items: center;
-  justify-content: center;
+
   padding: 4vh;
 
   background-image: url('../../assets/aesthetic-gta-cityscape-desktop-wallpaper.jpg');
@@ -20,14 +22,28 @@
   min-height: calc(100vh - 64px);
 }
 
-.list-garage {
-  align-self: flex-start;
-  
+.filter-garage {
+  display: flex;
+  flex-direction: row;
+
   padding-inline: 12px;
   padding-block: 10px;
 
-  max-height: 83vh;
-  width: 32%;
+  margin-bottom: 4vh;
+
+  width: 40%;
+
+  border-radius: 6px;
+  color: white;
+  background-color: #000000f0;
+}
+
+.list-garage {
+  padding-inline: 12px;
+  padding-block: 10px;
+
+  width: 40%;
+  max-height: 64vh;
 
   overflow-y: scroll;
 

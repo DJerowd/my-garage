@@ -116,7 +116,6 @@
 
   width: 100%;
   list-style-type: none;
-  margin-top: 10px;
   padding: 0;
 }
 .list-car ul :hover{
@@ -127,30 +126,44 @@
 }
 .list-car ul div{
   display: flex;
-  flex-direction: row;
-
+  justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 10px;
+  height: 6vh;
+
   border-bottom: 1px solid white;
 }
+.list-car span{
+  width: 6%;
+  text-align: center;
+  font-weight: bold;
+  color: lightgrey;
+  /* background-color: #f005; */
+}
 .list-car span1{
-  width: 30%;
+  width: 36%;
   padding-inline: 14px;
+  /* background-color: #0f05; */
 }
 .list-car span2{
   display: flex;
+  flex-direction: row;
+
   justify-content: center;
   align-content: center;
-  width: 30%;
+  
+  width: 28%;
+  /* background-color: #00f5; */
 }
 .list-car span3{
   text-align: center;
-  width: 30%;
+  width: 18%;
+  /* background-color: #ff05; */
 }
 .list-car span4{
-  width: 10%;
+  width: 12%;
   text-align: center;
+  /* background-color: #f0f5; */
 }
 .list-car span4 button{
   background-color: '#00000000'; 
@@ -163,9 +176,12 @@
   color: gray;
 }
 
-.color-block {
+.colorblock {
   width: 20px;
   height: 20px;
 
   margin-inline: 2px;
+
+  border-radius: 100%;
+  border: 2px outset white;
 }

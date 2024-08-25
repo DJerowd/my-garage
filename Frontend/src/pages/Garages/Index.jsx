@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Filter from './Filter';
 import List from './List';
 import './Styles.css';
 
@@ -10,7 +11,8 @@ function Garagem() {
       <Header />
 
       <div className='content-garage'>
-        <main className='list-garage'><List/></main>
+        <div className='filter-garage'><Filter/></div>
+        <div className='list-garage'><List/></div>
       </div>
 
       <Footer/>

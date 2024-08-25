@@ -53,7 +53,10 @@
   margin-top: 4vh;
 
   width: 60%;
-  min-height: 38vh;
+  min-height: 14vh;
+  max-height: 68vh;
+
+  overflow-y: scroll;
 
   border-radius: 6px;
   color: white;
@@ -80,21 +83,32 @@
 .list-character div us div :hover{
   background-color: #00000000;
 }
-.list-character div span1{
-  width: 8%; 
+.list-character div span{
+  width: 6%;
   text-align: center;
+  font-weight: bold;
+  color: lightgrey;
+  /* background-color: #f005; */
+}
+.list-character div span1{
+  width: 6%; 
+  text-align: center;
+  /* background-color: #0f05; */
 }
 .list-character div span2{
   width: 8%;
   padding-inline: 14px;
+  /* background-color: #00f5; */
 }
 .list-character div span3{
-  width: 24%; 
+  width: 18%; 
   text-align: center;
+  /* background-color: #ff05; */
 }
 .list-character div span4{
   width: 10%;
   text-align: center;
+  /* background-color: #f0f5; */
 }
 .list-character div span4 button{
   background-color: '#00000000'; 
@@ -105,4 +119,8 @@
 }
 .list-character div span4 button :hover{
   color: gray;
+}
+
+.toastContainer{
+  color: '#0f05';
 }

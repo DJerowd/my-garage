@@ -1,23 +1,30 @@
 import { React, useState } from 'react';
-import garages from '../../database/garages.json';
+import useGarages from '../../hooks/useGarages';
 
 function Filter() {
-    const [garage, setGarage] = useState([]);
+  const { garages, setUpdateGarageList } = useGarages();
+  const [ garage, setGarage ] = useState([]);
 
-    const handleChange = (e) => {
-        setGarage(e.target.value);
-      };
+  const handleChange = (e) => {
+    const selectedGarage = JSON.parse(e.target.value);
+    setGarage(selectedGarage);
+  };
   
   return (
     <div>
       <h3>
         Garagem:
-        <select name="garage" onChange={handleChange} value={garage}>
+
+        <select name="garage" onChange={handleChange}>
           <option value="">Selecione uma garagem</option>
-          {garages.map(garage => (
-            <option key={garage.value} value={garage.id}>{garage.property} {garage.capacity}/{garage.ocupation}</option>
+          {garages.map((garage, index) => (
+            <option key={garage.value} value={JSON.stringify(garage)}>
+              {index + 1} - {garage.property}
+            </option>
           ))}
         </select>
+
+        <a>{garage.ocupation} / {garage.capacity}</a>
       </h3>
     </div>
   );
