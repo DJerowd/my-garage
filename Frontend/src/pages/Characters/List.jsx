@@ -3,44 +3,35 @@ import { format } from 'date-fns';
 import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import useCharacters from '../../hooks/useCharacters';
 
-function List() {
-  const { characters, setUpdateCharacterList } = useCharacters();
+function List({ characters, setUpdateCharacterList }) {
 
-  // Função de editar personagem
+  // FUNÇÃO PARA EDITAR O PERSONAGEM.
   const handleEdit = (id) => {
-    setUpdateCharacterList(prevState => !prevState);
     toast.success(`Personagem ${id} editado!`);
   };
 
-  // Função de excluir personagem
+  // FUNÇÃO PARA EXCLUIR O PERSONAGEM.
   const handleDelete = async (id) => {
-
     const confirm = window.confirm("Tem certeza de que deseja excluir este personagem? Todas as informações relacionadas a este personagem serão perdidas.");
     if (!confirm) {
       toast.error(`Exclusão cancelada!`);
       return;
-
     } else {
-    await axios
+      await axios
       .delete("http://localhost:8800/characters/" + id)
       .then(({ data }) => {
         setUpdateCharacterList(prevState => !prevState);
         toast.success(`Personagem ${id} excluido!`);
       })
-      .catch(({ data }) => toast.error(data));
+      .catch(({ data }) => toast.error(data)
+      );
     }
-  };
-
-  const handleLoad = () => {
-    setUpdateCharacterList(prevState => !prevState);
   };
   
   return (
     <div>
       <h3>
-        <button onClick={() => handleLoad()}> Reload </button>
         <span></span>
         <span1>RP</span1>
         <span2 style={{ flex: 2,}}>Username</span2>

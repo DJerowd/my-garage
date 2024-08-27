@@ -1,670 +1,364 @@
-[
-    {
-        "type": "Sport",
-        "model": "Default",
-        "id": -1
-    },
-    {
-        "type": "Sport",
-        "model": "Inferno",
-        "id": 0
-    },
-    {
-        "type": "Sport",
-        "model": "Deep Five",
-        "id": 1
-    },
-    {
-        "type": "Sport",
-        "model": "Lozspeed Mk.V",
-        "id": 2
-    },
-    {
-        "type": "Sport",
-        "model": "Diamond Cut",
-        "id": 3
-    },
-    {
-        "type": "Sport",
-        "model": "Chrono",
-        "id": 4
-    },
-    {
-        "type": "Sport",
-        "model": "Feroci RR",
-        "id": 5
-    },
-    {
-        "type": "Sport",
-        "model": "FiftyNine",
-        "id": 6
-    },
-    {
-        "type": "Sport",
-        "model": "Mercie",
-        "id": 7
-    },
-    {
-        "type": "Sport",
-        "model": "Synthetic Z",
-        "id": 8
-    },
-    {
-        "type": "Sport",
-        "model": "Organtype 0",
-        "id": 9
-    },
-    {
-        "type": "Sport",
-        "model": "Endo v.1",
-        "id": 10
-    },
-    {
-        "type": "Sport",
-        "model": "GT One",
-        "id": 11
-    },
-    {
-        "type": "Sport",
-        "model": "Duper 7",
-        "id": 12
-    },
-    {
-        "type": "Sport",
-        "model": "Uzer",
-        "id": 13
-    },
-    {
-        "type": "Sport",
-        "model": "GroundRide",
-        "id": 14
-    },
-    {
-        "type": "Sport",
-        "model": "S Racer",
-        "id": 15
-    },
-    {
-        "type": "Sport",
-        "model": "Venum",
-        "id": 16
-    },
-    {
-        "type": "Sport",
-        "model": "Cosmo",
-        "id": 17
-    },
-    {
-        "type": "Sport",
-        "model": "Dash VIP",
-        "id": 18
-    },
-    {
-        "type": "Sport",
-        "model": "Ice Kid",
-        "id": 19
-    },
-    {
-        "type": "Sport",
-        "model": "Ruff Weld",
-        "id": 20
-    },
-    {
-        "type": "Sport",
-        "model": "Wangan Master",
-        "id": 21
-    },
-    {
-        "type": "Sport",
-        "model": "Super Five",
-        "id": 22
-    },
-    {
-        "type": "Sport",
-        "model": "Endo v.2",
-        "id": 23
-    },
-    {
-        "type": "Sport",
-        "model": "Split Six",
-        "id": 24
-    },
-
-
-
-
-
-
-    
-    {
-        "type": "Muscle",
-        "model": "Default",
-        "id": -1
-    },
-    {
-        "type": "Muscle",
-        "model": "Classic Five",
-        "id": 0
-    },
-    {
-        "type": "Muscle",
-        "model": "Dukes",
-        "id": 1
-    },
-    {
-        "type": "Muscle",
-        "model": "Muscle Freak",
-        "id": 2
-    },
-    {
-        "type": "Muscle",
-        "model": "Kracka",
-        "id": 3
-    },
-    {
-        "type": "Muscle",
-        "model": "Azreal",
-        "id": 4
-    },
-    {
-        "type": "Muscle",
-        "model": "Mecha",
-        "id": 5
-    },
-    {
-        "type": "Muscle",
-        "model": "Black Top",
-        "id": 6
-    },
-    {
-        "type": "Muscle",
-        "model": "Drag SPL",
-        "id": 7
-    },
-    {
-        "type": "Muscle",
-        "model": "Revolver",
-        "id": 8
-    },
-    {
-        "type": "Muscle",
-        "model": "Classic Rod",
-        "id": 9
-    },
-    {
-        "type": "Muscle",
-        "model": "Fairlie",
-        "id": 10
-    },
-    {
-        "type": "Muscle",
-        "model": "Spooner",
-        "id": 11
-    },
-    {
-        "type": "Muscle",
-        "model": "Five Star",
-        "id": 12
-    },
-    {
-        "type": "Muscle",
-        "model": "Old School",
-        "id": 13
-    },
-    {
-        "type": "Muscle",
-        "model": "El Jefe",
-        "id": 14
-    },
-    {
-        "type": "Muscle",
-        "model": "Dodman",
-        "id": 15
-    },
-    {
-        "type": "Muscle",
-        "model": "Six Gun",
-        "id": 16
-    },
-    {
-        "type": "Muscle",
-        "model": "Mercenary",
-        "id": 17
-    },
-
-
-
-
-
-
-
-
-
-
-
-
-
-    {
-        "type": "Lowrider",
-        "model": "Default",
-        "id": -1
-    },
-    {
-        "type": "Lowrider",
-        "model": "Flare",
-        "id": 0
-    },
-    {
-        "type": "Lowrider",
-        "model": "Wired",
-        "id": 1
-    },
-    {
-        "type": "Lowrider",
-        "model": "Triple Golds",
-        "id": 2
-    },
-    {
-        "type": "Lowrider",
-        "model": "Big Worm",
-        "id": 3
-    },
-    {
-        "type": "Lowrider",
-        "model": "Seven Fives",
-        "id": 4
-    },
-    {
-        "type": "Lowrider",
-        "model": "Split Six",
-        "id": 5
-    },
-    {
-        "type": "Lowrider",
-        "model": "Fresh Mesh",
-        "id": 6
-    },
-    {
-        "type": "Lowrider",
-        "model": "Lead Sled",
-        "id": 7
-    },
-    {
-        "type": "Lowrider",
-        "model": "Turbine",
-        "id": 8
-    },
-    {
-        "type": "Lowrider",
-        "model": "Super Fin",
-        "id": 9
-    },
-    {
-        "type": "Lowrider",
-        "model": "Classic Rod",
-        "id": 10
-    },
-    {
-        "type": "Lowrider",
-        "model": "Dollar",
-        "id": 11
-    },
-    {
-        "type": "Lowrider",
-        "model": "Dukes",
-        "id": 12
-    },
-    {
-        "type": "Lowrider",
-        "model": "Low Five",
-        "id": 13
-    },
-    {
-        "type": "Lowrider",
-        "model": "Gooch",
-        "id": 14
-    },
-
-
-
-
-
-
-
-
-    {
-        "type": "SUV",
-        "model": "Default",
-        "id": -1
-    },
-    {
-        "type": "SUV",
-        "model": "VIP",
-        "id": 0
-    },
-    {
-        "type": "SUV",
-        "model": "Benefactor",
-        "id": 1
-    },
-    {
-        "type": "SUV",
-        "model": "Cosmo",
-        "id": 2
-    },
-    {
-        "type": "SUV",
-        "model": "Bippu",
-        "id": 3
-    },
-    {
-        "type": "SUV",
-        "model": "Royal Six",
-        "id": 4
-    },
-    {
-        "type": "SUV",
-        "model": "Fagorme",
-        "id": 5
-    },
-    {
-        "type": "SUV",
-        "model": "Deluxe",
-        "id": 6
-    },
-    {
-        "type": "SUV",
-        "model": "Iced Out",
-        "id": 7
-    },
-    {
-        "type": "SUV",
-        "model": "Cognoscenti",
-        "id": 8
-    },
-    {
-        "type": "SUV",
-        "model": "LozSpeed Ten",
-        "id": 9
-    },
-    {
-        "type": "SUV",
-        "model": "Supernova",
-        "id": 10
-    },
-    {
-        "type": "SUV",
-        "model": "Obey RS",
-        "id": 11
-    },
-    {
-        "type": "SUV",
-        "model": "LozSpeed Baller",
-        "id": 12
-    },
-    {
-        "type": "SUV",
-        "model": "Extravaganzo",
-        "id": 13
-    },
-    {
-        "type": "SUV",
-        "model": "Split Six",
-        "id": 14
-    },
-    {
-        "type": "SUV",
-        "model": "Empowered",
-        "id": 15
-    },
-    {
-        "type": "SUV",
-        "model": "Sunrise",
-        "id": 16
-    },
-    {
-        "type": "SUV",
-        "model": "Cutter",
-        "id": 18
-    },
-
-
-
-
-
-
-    {
-        "type": "Offroad",
-        "model": "Default",
-        "id": -1
-    },
-
-
-
-
-
-
-
-
-    {
-        "type": "Tuner",
-        "model": "Default",
-        "id": -1
-    },
-
-
-
-
-
-
-    {
-        "type": "Bike Wheels",
-        "model": "Default",
-        "id": -1
-    },
-
-
-
-
-
-
-    {
-        "type": "High End",
-        "model": "Default",
-        "id": -1
-    },
-
-
-
-
-
-
-    {
-        "type": "Benny's Original",
-        "model": "Default",
-        "id": -1
-    },
-
-
-
-
-
-
-    {
-        "type": "Benny's Bespoke",
-        "model": "Default",
-        "id": -1
-    },
-
-
-
-
-
-
-    {
-        "type": "Open Wheel",
-        "model": "Default",
-        "id": -1
-    },
-
-
-
-
-
-
-    {
-        "type": "Street",
-        "model": "Default",
-        "id": -1
-    },
-    {
-        "type": "Street",
-        "model": "Retro Steelie",
-        "id": 0
-    },
-    {
-        "type": "Street",
-        "model": "Poverty Spec Steelie",
-        "id": 1
-    },
-    {
-        "type": "Street",
-        "model": "Concave Steelie",
-        "id": 2
-    },
-    {
-        "type": "Street",
-        "model": "Nebula",
-        "id": 3
-    },
-    {
-        "type": "Street",
-        "model": "Hotring Steelie",
-        "id": 4
-    },
-    {
-        "type": "Street",
-        "model": "Cup Champion",
-        "id": 5
-    },
-    {
-        "type": "Street",
-        "model": "Kracka Custom",
-        "id": 7
-    },
-    {
-        "type": "Street",
-        "model": "Kracka Custom",
-        "id": 7
-    },
-    {
-        "type": "Street",
-        "model": "Dukes Custom",
-        "id": 8
-    },
-    {
-        "type": "Street",
-        "model": "Endo v.3 Custom",
-        "id": 9
-    },
-    {
-        "type": "Street",
-        "model": "V8 Killer",
-        "id": 10
-    },
-    {
-        "type": "Street",
-        "model": "Fujiwara Custom",
-        "id": 11
-    },
-    {
-        "type": "Street",
-        "model": "Cosmo MKII",
-        "id": 12
-    },
-    {
-        "type": "Street",
-        "model": "Aero Star",
-        "id": 13
-    },
-    {
-        "type": "Street",
-        "model": "Hype Five",
-        "id": 14
-    },
-    {
-        "type": "Street",
-        "model": "Ruff Weld Mega Deep",
-        "id": 15
-    },
-    {
-        "type": "Street",
-        "model": "Mercie Concave",
-        "id": 16
-    },
-    {
-        "type": "Street",
-        "model": "Sugoi Concave",
-        "id": 17
-    },
-    {
-        "type": "Street",
-        "model": "Synthetic Z Concave",
-        "id": 18
-    },
-    {
-        "type": "Street",
-        "model": "Endo v.4 Dished",
-        "id": 19
-    },
-    {
-        "type": "Street",
-        "model": "Hyperfresh",
-        "id": 20
-    },
-    {
-        "type": "Street",
-        "model": "Truffade Concave",
-        "id": 21
-    },
-    {
-        "type": "Street",
-        "model": "Organtype II",
-        "id": 22
-    },
-    {
-        "type": "Street",
-        "model": "Big Mamba",
-        "id": 23
-    },
-    {
-        "type": "Street",
-        "model": "Deep Flake",
-        "id": 24
-    },
-    {
-        "type": "Street",
-        "model": "Cosmo MKIII",
-        "id": 25
-    },
-    {
-        "type": "Street",
-        "model": "Concave Racer",
-        "id": 26
-    },
-    {
-        "type": "Street",
-        "model": "Deep Flake Reverse",
-        "id": 27
-    },
-    {
-        "type": "Street",
-        "model": "Wild Wagon",
-        "id": 28
-    },
-    {
-        "type": "Street",
-        "model": "Concave Mega Mesh",
-        "id": 29
-    }
-]
+{
+    "Sport": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "Inferno"},
+        {"id": 2, "model": "Deep Five"},
+        {"id": 3, "model": "Lozspeed Mk.V"},
+        {"id": 4, "model": "Diamond Cut"},
+        {"id": 5, "model": "Chrono"},
+        {"id": 6, "model": "Feroci RR"},
+        {"id": 7, "model": "FiftyNine"},
+        {"id": 8, "model": "Mercie"},
+        {"id": 9, "model": "Synthetic Z"},
+        {"id": 10, "model": "Organtype 0"},
+        {"id": 11, "model": "Endo v.1"},
+        {"id": 12, "model": "GT One"},
+        {"id": 13, "model": "Duper 7"},
+        {"id": 14, "model": "Uzer"},
+        {"id": 15, "model": "GroundRide"},
+        {"id": 16, "model": "S Racer"},
+        {"id": 17, "model": "Venum"},
+        {"id": 18, "model": "Cosmo"},
+        {"id": 19, "model": "Dash VIP"},
+        {"id": 20, "model": "Ice Kid"},
+        {"id": 21, "model": "Ruff Weld"},
+        {"id": 22, "model": "Wangan Master"},
+        {"id": 23, "model": "Super Five"},
+        {"id": 24, "model": "Endo v.2"},
+        {"id": 25, "model": "Split Six"}
+    ],
+    "Muscle": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "Classic Five"},
+        {"id": 2, "model": "Dukes"},
+        {"id": 3, "model": "Muscle Freak"},
+        {"id": 4, "model": "Kracka"},
+        {"id": 5, "model": "Azreal"},
+        {"id": 6, "model": "Mecha"},
+        {"id": 7, "model": "Black Top"},
+        {"id": 8, "model": "Drag SPL"},
+        {"id": 9, "model": "Revolver"},
+        {"id": 10, "model": "Classic Rod"},
+        {"id": 11, "model": "Fairlie"},
+        {"id": 12, "model": "Spooner"},
+        {"id": 13, "model": "Five Star"},
+        {"id": 14, "model": "Old School"},
+        {"id": 15, "model": "El Jefe"},
+        {"id": 16, "model": "Dodman"},
+        {"id": 17, "model": "Six Gun"},
+        {"id": 18, "model": "Mercenary"}
+    ],
+    "Lowrider": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "Flare"},
+        {"id": 2, "model": "Wired"},
+        {"id": 3, "model": "Triple Golds"},
+        {"id": 4, "model": "Big Worm"},
+        {"id": 5, "model": "Seven Fives"},
+        {"id": 6, "model": "Split Six"},
+        {"id": 7, "model": "Fresh Mesh"},
+        {"id": 8, "model": "Lead Sled"},
+        {"id": 9, "model": "Turbine"},
+        {"id": 10, "model": "Super Fin"},
+        {"id": 11, "model": "Classic Rod"},
+        {"id": 12, "model": "Dollar"},
+        {"id": 13, "model": "Dukes"},
+        {"id": 14, "model": "Low Five"},
+        {"id": 15, "model": "Gooch"}
+    ],
+    "SUV": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "VIP"},
+        {"id": 2, "model": "Benefactor"},
+        {"id": 3, "model": "Cosmo"},
+        {"id": 4, "model": "Bippu"},
+        {"id": 5, "model": "Royal Six"},
+        {"id": 6, "model": "Fagorme"},
+        {"id": 7, "model": "Deluxe"},
+        {"id": 8, "model": "Iced Out"},
+        {"id": 9, "model": "Cognoscenti"},
+        {"id": 10, "model": "LozSpeed Ten"},
+        {"id": 11, "model": "Supernova"},
+        {"id": 12, "model": "Obey RS"},
+        {"id": 13, "model": "LozSpeed Baller"},
+        {"id": 14, "model": "Extravaganzo"},
+        {"id": 15, "model": "Split Six"},
+        {"id": 16, "model": "Empowered"},
+        {"id": 17, "model": "Sunrise"},
+        {"id": 18, "model": "Dash VIP"},
+        {"id": 19, "model": "Cutter"}
+    ],
+    "Offroad": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "Raider"},
+        {"id": 2, "model": "Mudslinger"},
+        {"id": 3, "model": "Nevis"},
+        {"id": 4, "model": "Cairngorm"},
+        {"id": 5, "model": "Amazon"},
+        {"id": 6, "model": "Challenger"},
+        {"id": 7, "model": "Dune Basher"},
+        {"id": 8, "model": "Five Star"},
+        {"id": 9, "model": "Rock Crawler"},
+        {"id": 10, "model": "Mill Spec Steelie"},
+        {"id": 11, "model": "Retro Steelie"},
+        {"id": 12, "model": "Heavy Duty Steelie"},
+        {"id": 13, "model": "Concave Steelie"},
+        {"id": 14, "model": "Police Issue Steelie"},
+        {"id": 15, "model": "Lightweight Steelie"},
+        {"id": 16, "model": "Dukes"},
+        {"id": 17, "model": "Avalanche"},
+        {"id": 18, "model": "Mountain Man"},
+        {"id": 19, "model": "Rigde Climber"},
+        {"id": 20, "model": "Concave 5"},
+        {"id": 21, "model": "Flat Six"},
+        {"id": 22, "model": "All Terrain Monster"},
+        {"id": 23, "model": "Drag SPL"},
+        {"id": 24, "model": "Concave Rally Master"},
+        {"id": 25, "model": "Rugged Snowflake"}
+    ],
+    "Tuner": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "Cosmo"},
+        {"id": 2, "model": "Super Mesh"},
+        {"id": 3, "model": "Outsider"},
+        {"id": 4, "model": "Rollas"},
+        {"id": 5, "model": "Driftmeister"},
+        {"id": 6, "model": "Slicer"},
+        {"id": 7, "model": "El Quatro"},
+        {"id": 8, "model": "Dubbed"},
+        {"id": 9, "model": "Five Star"},
+        {"id": 10, "model": "Slideways"},
+        {"id": 11, "model": "Apex"},
+        {"id": 12, "model": "Stanced EG"},
+        {"id": 13, "model": "Countersteer"},
+        {"id": 14, "model": "Endo v.1"},
+        {"id": 15, "model": "Endo v.2 Dish"},
+        {"id": 16, "model": "Gruppe Z"},
+        {"id": 17, "model": "Choku-Dori"},
+        {"id": 18, "model": "Chicane"},
+        {"id": 19, "model": "Saisoku"},
+        {"id": 20, "model": "Dished Eight"},
+        {"id": 21, "model": "Fujiwara"},
+        {"id": 22, "model": "Zokusha"},
+        {"id": 23, "model": "Battle VIII"},
+        {"id": 24, "model": "Rally Master"}
+    ],
+    "Bike Wheels": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "Speedway"},
+        {"id": 2, "model": "Street Special"},
+        {"id": 3, "model": "Racer"},
+        {"id": 4, "model": "Track Star"},
+        {"id": 5, "model": "Overlord"},
+        {"id": 6, "model": "Trident"},
+        {"id": 7, "model": "Triple Threat"},
+        {"id": 8, "model": "Stilleto"},
+        {"id": 9, "model": "Wires"},
+        {"id": 10, "model": "Bobber"},
+        {"id": 11, "model": "Solidus"},
+        {"id": 12, "model": "Ice Shield"},
+        {"id": 13, "model": "Loops"},
+        {"id": 14, "model": "Romper Racing"},
+        {"id": 15, "model": "Warp Drive"},
+        {"id": 16, "model": "Snowflake"},
+        {"id": 17, "model": "Holy Spoke"},
+        {"id": 18, "model": "Old Skool Triple"},
+        {"id": 19, "model": "Futura"},
+        {"id": 20, "model": "Quarter Mile King"},
+        {"id": 21, "model": "Cartwheel"},
+        {"id": 22, "model": "Double Five"},
+        {"id": 23, "model": "Shuriken"},
+        {"id": 24, "model": "Simple Six"},
+        {"id": 25, "model": "Celtic"},
+        {"id": 26, "model": "Razer"},
+        {"id": 27, "model": "Twisted"},
+        {"id": 28, "model": "Morning Star"},
+        {"id": 29, "model": "Jagged Spokes"},
+        {"id": 30, "model": "Eidolon"},
+        {"id": 31, "model": "Enigma"},
+        {"id": 32, "model": "Big Spokes"},
+        {"id": 33, "model": "Webs"},
+        {"id": 34, "model": "Hotplate"},
+        {"id": 35, "model": "Bobsta"},
+        {"id": 36, "model": "Grouch"}
+    ],
+    "High End": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "Shadow"},
+        {"id": 2, "model": "Hyper"},
+        {"id": 3, "model": "Blade"},
+        {"id": 4, "model": "Diamond"},
+        {"id": 5, "model": "Supa Gee"},
+        {"id": 6, "model": "Chromatic Z"},
+        {"id": 7, "model": "Mercie Ch.Lip"},
+        {"id": 8, "model": "Obey RS"},
+        {"id": 9, "model": "GT Chrome"},
+        {"id": 10, "model": "Cheetah R"},
+        {"id": 11, "model": "Solar"},
+        {"id": 12, "model": "Split Ten"},
+        {"id": 13, "model": "Dash VIP"},
+        {"id": 14, "model": "LozSpeed Ten"},
+        {"id": 15, "model": "Carbon Inferno"},
+        {"id": 16, "model": "Carbon Shadow"},
+        {"id": 17, "model": "Carbonic Z"},
+        {"id": 18, "model": "Carbon Solar"},
+        {"id": 19, "model": "Cheetah Carbon R"},
+        {"id": 20, "model": "Carbon S Racer"}
+    ],
+    "Benny's Original": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "OG Hunnets"},
+        {"id": 2, "model": "OG Hunnets (Chrome Lip)"},
+        {"id": 3, "model": "Knock-Offs"},
+        {"id": 4, "model": "Knock-Offs (Chrome Lip)"},
+        {"id": 5, "model": "Spoked Out"},
+        {"id": 6, "model": "Spoked Out (Chrome Lip)"},
+        {"id": 7, "model": "Vintage Wire"},
+        {"id": 8, "model": "Vintage Wire (Chrome Lip)"},
+        {"id": 9, "model": "Smoothie"},
+        {"id": 10, "model": "Smoothie (Chrome Lip)"},
+        {"id": 11, "model": "Smoothie (Solid Color)"},
+        {"id": 12, "model": "Rod Me Up"},
+        {"id": 13, "model": "Rod Me Up (Chrome Lip)"},
+        {"id": 14, "model": "Rod Me Up (Solid Color)"},
+        {"id": 15, "model": "Clean"},
+        {"id": 16, "model": "Lotta Chrome"},
+        {"id": 17, "model": "Spindles"},
+        {"id": 18, "model": "Viking"},
+        {"id": 19, "model": "Triple Spoke"},
+        {"id": 20, "model": "Pharohe"},
+        {"id": 21, "model": "Tiger Style"},
+        {"id": 22, "model": "Three Wheelin"},
+        {"id": 23, "model": "Big Bar"},
+        {"id": 24, "model": "Biohazard"},
+        {"id": 25, "model": "Waves"},
+        {"id": 26, "model": "Lick Lick"},
+        {"id": 27, "model": "Spiralizer"},
+        {"id": 28, "model": "Hypnotics"},
+        {"id": 29, "model": "Psycho-Delic"},
+        {"id": 30, "model": "Half Cut"},
+        {"id": 31, "model": "Super Electric"}
+    ],
+    "Benny's Bespoke": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "Chrome OG Hunnets"},
+        {"id": 2, "model": "Gold OG Hunnets "},
+        {"id": 3, "model": "Gold Wires"},
+        {"id": 4, "model": "Chrome Spoked Out"},
+        {"id": 5, "model": "Gold Spoked Out"},
+        {"id": 6, "model": "Chrome Knock-Offs"},
+        {"id": 7, "model": "Gold Knock-Offs"},
+        {"id": 8, "model": "Chrome Bigger Worm"},
+        {"id": 9, "model": "Gold Bigger Worm"},
+        {"id": 10, "model": "Chrome Vintage Wire"},
+        {"id": 11, "model": "Gold Vintage Wire"},
+        {"id": 12, "model": "Chrome Classic Wire"},
+        {"id": 13, "model": "Gold Classic Wire"},
+        {"id": 14, "model": "Chrome Smoothie"},
+        {"id": 15, "model": "Gold Smoothie"},
+        {"id": 16, "model": "Chrome Classic Rod"},
+        {"id": 17, "model": "Gold Classic Rod"},
+        {"id": 18, "model": "Chrome Dollar"},
+        {"id": 19, "model": "Gold Dollar"},
+        {"id": 20, "model": "Chrome Mighty Star"},
+        {"id": 21, "model": "Gold Mighty Star"},
+        {"id": 22, "model": "Chrome Decadent Dish"},
+        {"id": 23, "model": "Gold Decadent Dish"},
+        {"id": 24, "model": "Chrome Razor Style"},
+        {"id": 25, "model": "Gold Razor Style"},
+        {"id": 26, "model": "Chrome Celtic Knot"},
+        {"id": 27, "model": "Gold Celtic Knot"},
+        {"id": 28, "model": "Chrome Warrior Dish"},
+        {"id": 29, "model": "Gold Warrior Dish"},
+        {"id": 30, "model": "Gold Big Dog Spokes"}
+    ],
+    "Open Wheel": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "Classic 5"},
+        {"id": 2, "model": "Classic 5 (Striped)"},
+        {"id": 3, "model": "Retro Star"},
+        {"id": 4, "model": "Retro Star (Striped)"},
+        {"id": 5, "model": "Triplex"},
+        {"id": 6, "model": "Triplex (Striped)"},
+        {"id": 7, "model": "70s Spec"},
+        {"id": 8, "model": "70s Spec (Striped)"},
+        {"id": 9, "model": "Super 5R"},
+        {"id": 10, "model": "Super 5R (Striped)"},
+        {"id": 11, "model": "Speedster"},
+        {"id": 12, "model": "Speedster (Striped)"},
+        {"id": 13, "model": "GP-90"},
+        {"id": 14, "model": "GP-90 (Striped)"},
+        {"id": 15, "model": "Superspoke"},
+        {"id": 16, "model": "Superspoke (Striped)"},
+        {"id": 17, "model": "Gridline"},
+        {"id": 18, "model": "Gridline (Striped)"},
+        {"id": 19, "model": "Snowflake"},
+        {"id": 20, "model": "Snowflake (Striped)"}
+    ],
+    "Street": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "Retro Steelie"},
+        {"id": 2, "model": "Poverty Spec Steelie"},
+        {"id": 3, "model": "Concave Steelie"},
+        {"id": 4, "model": "Nebula"},
+        {"id": 5, "model": "Hotring Steelie"},
+        {"id": 6, "model": "Cup Champion"},
+        {"id": 7, "model": "Stanced EG Custom"},
+        {"id": 8, "model": "Kracka Custom"},
+        {"id": 9, "model": "Dukes Custom"},
+        {"id": 10, "model": "Endo v.3 Custom"},
+        {"id": 11, "model": "V8 Killer"},
+        {"id": 12, "model": "Fujiwara Custom"},
+        {"id": 13, "model": "Cosmo MKII"},
+        {"id": 14, "model": "Aero Star"},
+        {"id": 15, "model": "Hype Five"},
+        {"id": 16, "model": "Ruff Weld Mega Deep"},
+        {"id": 17, "model": "Mercie Concave"},
+        {"id": 18, "model": "Sugoi Concave"},
+        {"id": 19, "model": "Synthetic Z Concave"},
+        {"id": 20, "model": "Endo v.4 Dished"},
+        {"id": 21, "model": "Hyperfresh"},
+        {"id": 22, "model": "Truffade Concave"},
+        {"id": 23, "model": "Organic Type II"},
+        {"id": 24, "model": "Big Mamba"},
+        {"id": 25, "model": "Deep Flake"},
+        {"id": 26, "model": "Cosmo MKIII"},
+        {"id": 27, "model": "Concave Racer"},
+        {"id": 28, "model": "Deep Flake Reverse"},
+        {"id": 29, "model": "Wild Wagon"},
+        {"id": 30, "model": "Concave Mega Mesh"}
+    ],
+    "Track": [
+        {"id": 0, "model": "Default"},
+        {"id": 1, "model": "Rally Throwback"},
+        {"id": 2, "model": "Grabel Trap"},
+        {"id": 3, "model": "Stove Top"},
+        {"id": 4, "model": "Stove Top Mesh"},
+        {"id": 5, "model": "Retro 3 Piece"},
+        {"id": 6, "model": "Rally Monoblock"},
+        {"id": 7, "model": "Forged 5"},
+        {"id": 8, "model": "Split Star"},
+        {"id": 9, "model": "Speed Boy"},
+        {"id": 10, "model": "90s Running"},
+        {"id": 12, "model": "Tropos"},
+        {"id": 13, "model": "Exos"},
+        {"id": 14, "model": "High Fice"},
+        {"id": 15, "model": "Super Luxe"},
+        {"id": 16, "model": "Pure Business"},
+        {"id": 17, "model": "Pepper Pot"},
+        {"id": 18, "model": "Blacktop Blender"},
+        {"id": 19, "model": "Throwback"},
+        {"id": 20, "model": "Expressway"},
+        {"id": 21, "model": "Hidden Six"},
+        {"id": 22, "model": "Dinka SPL"},
+        {"id": 23, "model": "Retro Turbofan"},
+        {"id": 24, "model": "Conical Turbofan"},
+        {"id": 25, "model": "Ice Storm"},
+        {"id": 26, "model": "Super Turbine"},
+        {"id": 27, "model": "Modern Mesh"},
+        {"id": 28, "model": "Forged Star"},
+        {"id": 29, "model": "Snowflake"},
+        {"id": 30, "model": "Giga Mesh"},
+        {"id": 31, "model": "Mesh Meister"}
+    ]
+}

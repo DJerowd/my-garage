@@ -30,11 +30,11 @@
 .form-car {
   align-self: flex-start;
   
-  padding-inline: 12px;
-  padding-block: 10px;
+  padding-inline: 24px;
+  padding-block: 12px;
 
   max-height: 83vh;
-  width: 24%;
+  width: 26%;
 
   overflow-y: scroll;
 
@@ -54,21 +54,31 @@
 
   height: 100%;
 
-  border-radius: 4px; 
+  padding-block: 4px;
+
+  border-radius: 4px;
 }
 .form-car label input {
   text-align: center; 
 
-  margin-inline: 10px; 
   margin-top: 8px;
 
-  width: 24%;
+  width: 34%;
 
   border-radius: 4px;
+}
+.form-car line {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 8px;
+
+  color: white;
 }
 
 .filter-car {
   align-self: flex-start;
+  justify-content: space-between;
 
   padding-inline: 12px;
   padding-block: 10px;
@@ -77,16 +87,31 @@
 
   width: 100%;
 
+  font-weight: bold;
+  font-size: large;
+
   border-radius: 6px;
   color: white;
   background-color: #000000f0;
+}
+.filter-car div {
+  display: flex;
+  justify-content: space-between;
 }
 .filter-car select {
   margin-inline: 20px;
   padding-inline: 10px;
 
-  width: 60%;
+  width: 70%;
   height: 4vh;
+
+  border-radius: 4px;
+  background-color: #000000f0;
+  border: 2px solid white;
+}
+.filter-car a {
+  text-align: center;
+  width: 14%;
 }
 
 .list-car {

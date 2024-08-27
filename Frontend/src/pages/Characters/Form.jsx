@@ -1,43 +1,38 @@
 import { React, useState } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import useCharacters from '../../hooks/useCharacters';
 import './Styles.css';
 
-function Form() {
-  const { characters, setUpdateCharacterList } = useCharacters();
+function Form({ characters, setUpdateCharacterList }) {
   const [character, setCharacter] = useState({
     username: '',
-    reputation: '',
+    reputation: 0,
     createDate: ''
   });
 
   
-  // Função de registrar personagem
+  // FUNÇÃO PARA INSERIR DADOS DO PERSONAGEM NA VARIAVEL.
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     if (!character.username || !character.reputation || !character.createDate) {
       toast.warn(`Todos os campos devem ser preenchidos!`);
-
     } else {
       await axios
-        .post("http://localhost:8800/characters", {
-          username: character.username,
-          reputation: character.reputation,
-          createDate: character.createDate,
-        })
-        .then(({ data }) => {
-          setUpdateCharacterList(prevState => !prevState);
-          toast.success(`Personagem ${character.username} ${character.reputation} ${character.createDate} salvo!`);
-        })
-        .catch(({ data }) => 
-          toast.error(`Erro ao salvar personagem ${data}!`
-        ));
-      
+      .post("http://localhost:8800/characters", {
+        username: character.username,
+        reputation: character.reputation,
+        createDate: character.createDate,
+      })
+      .then(({ data }) => {
+        setUpdateCharacterList(prevState => !prevState);
+        toast.success(`Personagem ${character.username} ${character.reputation} ${character.createDate} salvo!`);
+      })
+      .catch(({ data }) => 
+        toast.error(`Erro ao salvar personagem ${data}!`
+      ));
       setCharacter({
         username: '',
-        reputation: 1,
+        reputation: 0,
         createDate: ''
       });
     }
