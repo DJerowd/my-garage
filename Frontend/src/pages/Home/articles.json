@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "title": "Visitar Rockstar Games",
+      "image": "../../assets/articles/rockstargames.png",
+      "link": "https://www.gtabase.com/grand-theft-auto-v/vehicles"
+    },
+    {
+      "id": 2,
+      "title": "Visitar GTA Base",
+      "image": "../../assets/articles/gtabase.png",
+      "link": "https://www.rockstargames.com/"
+    }
+  ]

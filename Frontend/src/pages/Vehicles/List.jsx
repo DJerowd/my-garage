@@ -3,7 +3,7 @@ import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-function List({ vehicles, setUpdateVehicleList, selectedGarage }) {
+function List({ vehiclesByGarageId, setUpdateVehicleListByGarageId }) {
   
   // FUNÇÃO PARA EDITAR O VEÍCULO.
   const handleEdit = (id) => {
@@ -20,7 +20,7 @@ function List({ vehicles, setUpdateVehicleList, selectedGarage }) {
       await axios
       .delete("http://localhost:8800/vehicles/" + id)
       .then(({ data }) => {
-        setUpdateVehicleList(prevState => !prevState);
+        setUpdateVehicleListByGarageId(prevState => !prevState);
         toast.success(`Veículo ${id} excluido!`);
       })
       .catch(({ data }) => toast.error(data)
@@ -28,38 +28,69 @@ function List({ vehicles, setUpdateVehicleList, selectedGarage }) {
     }
   };
 
+  // DIRECIONAR PARA A PAGINA DE DETALHES DO VEÍCULO SELECIONADO.
+  const handleVehicleDetails = (vehicle) => {
+    // history.push(`/vehicle/${vehicleId}`);
+    toast.warn(vehicle)
+  };
+
+  //  LISTA VAZIA PARA SER EXIBIDA QUANDO NÃO HOUVER NENHUM VEICULO NA GARAGEM SELECIONADA.
+  if (JSON.stringify(vehiclesByGarageId) == '[]') {
+    return (
+      <div>
+      <h3>
+        <a></a>
+        <a>Veículo</a>
+        <a>Cores do Veículo</a>
+        <a>Placa</a>
+        <a></a>
+      </h3>
+      <ul>
+        <div>
+          <a></a>
+          <a>Nenhum veículo.</a>
+          <a></a>
+          <a></a>
+          <a></a>
+        </div>
+      </ul>
+    </div>
+    );
+  }
+
   return (
     <div>
       <h3>
-        <span></span>
-        <span1>Veículo</span1>
-        <span2>Cores do Veículo</span2>
-        <span3>Placa</span3>
-        <span4>{selectedGarage}</span4>
+        <a></a>
+        <a>Veículo</a>
+        <a>Cores do Veículo</a>
+        <a>Placa</a>
+        <a></a>
       </h3>
+
       <ul>
-          {vehicles.map((vehicle, index) => (
-          <div key={vehicle.id}>
-              <span>{index + 1}</span>
-              <span1>{`${vehicle.manufacturer} ${vehicle.model}`}</span1>
-              <span2>
+          {vehiclesByGarageId.map((vehicle, index) => (
+          <div key={vehicle.id}  onClick={() => handleVehicleDetails(JSON.stringify(vehicle))} >
+              <a /*style={{background:'#f005'}}*/>{index + 1}</a>
+              <a /*</div>style={{background:'#0f05'}}*/>{`${vehicle.manufacturer} ${vehicle.model}`}</a>
+              <a /*style={{background:'#00f5'}}*/>
               {['primaryColor', 'secundaryColor', 'pearlescentColor', 'interiorColor', 'dashboardColor', 'rimColor'].map(colorKey => (
                 <colorBlock
                   key={colorKey}
                   className="colorblock"
-                  style={{ backgroundColor: vehicle[colorKey]}}
+                  style={{ background: vehicle[colorKey]}}
                 />
               ))}
-              </span2>
-              <span3>{`${vehicle.plate}`}</span3>
-              <span4>
-                <button style={{backgroundColor: '#0000', borderColor: '#0000'}} onClick={() => handleEdit(vehicle.id)}>
-                  <FaRegEdit style={{width: '50%', height: '50%' }}/>
+              </a>
+              <a /*style={{background:'#ff05'}}*/>{`${vehicle.plate}`}</a>
+              <a /*style={{background:'#f0f5'}}*/>
+                <button onClick={() => handleEdit(vehicle.id)}>
+                  <FaRegEdit/>
                 </button>
-                <button style={{backgroundColor: '#0000', borderColor: '#0000'}} onClick={() => handleDelete(vehicle.id)}>
-                  <FaTrash style={{width: '50%', height: '50%' }}/>
+                <button onClick={() => handleDelete(vehicle.id)}>
+                  <FaTrash/>
                 </button>
-              </span4>
+              </a>
           </div>
           ))}
       </ul>

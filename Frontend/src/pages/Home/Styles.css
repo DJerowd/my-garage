@@ -1,24 +1,37 @@
 .container-home {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
     min-height: 100vh;
 }
-
 .content-home {
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    background-image: url('../../assets/aesthetic-gta-cityscape-desktop-wallpaper.jpg');
+    width: 100vw;
+    padding: 96px 0 0 0;
+    min-height: calc(116vh - 96px);
+    background-image: url('../../assets/background-1.jpg');
     background-size: cover;
     background-position: center;
-    
-    width: 100vw;
-    min-height: calc(100vh - 64px);
 }
-.content-home :hover {
+
+
+
+/* MAIN */
+.main-home {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    width: 100%;
+
+    background: #0f05;
+}
+
+
+
+/* .content-home :hover {
     transform: scale(1.05);
     background-color: #111;
 }
@@ -35,8 +48,7 @@
     text-decoration: none;
     
     transition: transform 0.3s ease;
-
-    margin: 2vw;  
+  
     padding: 10px;
 
     background-size: cover;
@@ -44,6 +56,7 @@
 
     border-radius: 8px;
     color: white;
+    box-shadow: 1px 1px 10px black;
     background-color: black;
 }
 .RockstarGamesLink {
@@ -51,4 +64,29 @@
 }
 .GTABaseLink {
     background-image: url('../../assets/gtabase-logo.png');
+} */
+
+
+
+.main-home {
+    padding: 8px 0;
+    margin: 20px 20px;
+    height: 28vh;
+    border-radius: 10px;
+    color: var(--font-color);
+    background: var(--transparent-background-color);
+  }
+
+
+
+@media (max-width: 768px) {
+    .content-home {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .content-home button {
+        width: 90vw;
+        height: 60vw;
+    }
 }

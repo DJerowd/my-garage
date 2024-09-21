@@ -32,28 +32,28 @@ function List({ characters, setUpdateCharacterList }) {
   return (
     <div>
       <h3>
-        <span></span>
-        <span1>RP</span1>
-        <span2 style={{ flex: 2,}}>Username</span2>
-        <span3>Data de Criação</span3>
-        <span4></span4>
+        <a></a>
+        <a>RP</a>
+        <a style={{ flex: 2,}}>Username</a>
+        <a>Data de Criação</a>
+        <a></a>
       </h3>
       <ul>
         {characters.map((character, index) => (
           <us>
             <div key={character.id}>
-              <span>{index + 1}</span>
-              <span1>{character.reputation}</span1>
-              <span2 style={{ flex: 2}}>{character.username}</span2>
-              <span3>{format(new Date(character.createDate), 'dd/MM/yyyy')}</span3>
-              <span4>
-                <button style={{backgroundColor: '#0000', borderColor: '#0000'}} onClick={() => handleEdit(character.id)}>
-                  <FaRegEdit style={{width: '50%', height: '50%' }}/>
+              <a>{index + 1}</a>
+              <a>{character.reputation}</a>
+              <a style={{ flex: 2}}>{character.username}</a>
+              <a>{format(new Date(character.createDate), 'dd/MM/yyyy')}</a>
+              <a>
+                <button onClick={() => handleEdit(character.id)}>
+                  <FaRegEdit/>
                 </button>
-                <button style={{backgroundColor: '#0000', borderColor: '#0000'}} onClick={() => handleDelete(character.id)}>
-                  <FaTrash style={{width: '50%', height: '50%' }}/>
+                <button onClick={() => handleDelete(character.id)}>
+                  <FaTrash/>
                 </button>
-              </span4>
+              </a>
             </div>
           </us>
         ))}

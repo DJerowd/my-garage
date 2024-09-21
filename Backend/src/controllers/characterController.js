@@ -1,5 +1,6 @@
 import {db} from "../db.js";
 
+// REQUISIÇÃO DE PERSONAGENS.
 export const getCharacters = (_, res) => {
     const q = "SELECT * FROM characters";
 
@@ -10,7 +11,7 @@ export const getCharacters = (_, res) => {
     });
 };
 
-
+// ADICIONAR NOVO PERSONAGEM.
 export const addCharacter = (req, res) => {
     const q = "INSERT INTO characters(`username`, `reputation`, `createDate`) VALUES (?)";
 
@@ -27,7 +28,7 @@ export const addCharacter = (req, res) => {
     });
 };
 
-
+// ATUALIZAR PERSONAGEM EXISTENTE.
 export const updateCharacter = (req, res) => {
     const q = "UPDATE characters SET `username` = ?, `reputation` = ?, `createDate` = ? WHERE `id` = '?'";
 
@@ -44,7 +45,7 @@ export const updateCharacter = (req, res) => {
     });
 };
 
-
+// EXCLUIR PERSONAGEM EXISTENTE.
 export const deleteCharacter = (req, res) => {
     const q = "DELETE FROM characters WHERE `id` = (?)";
 

@@ -1,0 +1,109 @@
+.container-login {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
+.content-login {
+    display: flex;
+
+    align-items: baseline;
+    justify-content: center;
+    
+    width: 100vw;
+    padding: 96px 0 0 0;
+    min-height: calc(116vh - 96px);
+    background-image: url('../../assets/background-2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.content-login main {
+    display: flex;
+    flex-direction: column;
+
+    width: 30%;
+
+    padding: 20px;
+    margin: 20px 0 0 0;
+    
+    border-radius: 20px;
+
+    backdrop-filter: blur(20px);
+    background-color: var(--transparent-background-color);
+}
+
+.title-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 50%;
+
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.form-login {
+    justify-content: center;
+    
+    color: var(--fonts-color);
+}
+.form-login label{
+    display: block;
+    padding: 6px;
+}
+.form-login label input{
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+
+    color: var(--font-color);
+    background-color: var(--background-color);
+    border: 1px solid var(--font-color);
+}
+.form-login label div {
+    margin: 6px 20px 0px 20px;
+    transition: all 0.5s;
+    color: var(--font-color);
+}
+.form-login label div:hover {
+    color: var(--primary-color);
+}
+
+.buttonsBox {
+    display: grid;
+    text-align: center;
+    padding: 10px 40px;
+}
+.buttonsBox a {
+    text-decoration-line: none;
+    transition: all 0.5s;
+    color: var(--font-color);
+}
+.buttonsBox a:hover {
+    color: var(--primary-color);
+}
+.btnLogin {
+    padding: 10px;
+    margin: 10px;
+    font-size: medium;
+    transition: all 0.5s;
+    border-radius: 100px;
+    border: 0px;
+    color: var(--fonts-color);
+    background-color: var(--background-color);
+}
+.btnLogin:hover {
+    color: var(--fonts-color);
+    background-color: var(--background-color-2);
+}
+
+.error {
+    color: var(--error-color);
+}
+
+@media (max-width: 500px) {
+    .content-login main {
+        width: 90%;
+    }
+}

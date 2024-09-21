@@ -1,126 +1,151 @@
 .container-character {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
   min-height: 100vh;
 }
-
 .content-character {
   display: flex;
-  flex-direction: column;
-
-  padding: 4vh;
-
-  background-image: url('../../assets/aesthetic-gta-cityscape-desktop-wallpaper.jpg');
+  width: 100vw;
+  padding: 96px 0 0 0;
+  min-height: calc(116vh - 96px);
+  background-image: url('../../assets/background-1.jpg');
   background-size: cover;
   background-position: center;
 
-  width: 100vw;
-  min-height: calc(100vh - 64px);
 }
 
-.form-character {
-  align-self: center;
-  align-content: center;
 
-  padding-inline: 12px;
-  padding-block: 6px;
 
-  width: 60%;
-  min-height: 10vh;
-
-  border-radius: 6px;
-  color: white;
-  background-color: #000000f0;
-}
-.form-character label {
-  width: 20vw;
-  margin: 8px;
-  padding-inline: 10px;
-}
-.form-character form div{
-  display: 'flex'; 
-  justify-content: 'center'; 
-  margin-block: '8px';
-}
-
-.list-character {
-  align-self: center;
+/* MAIN */
+.main-character {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
   
-  padding-inline: 12px;
-  padding-block: 8px;
-  margin-top: 4vh;
-
-  width: 60%;
-  min-height: 14vh;
-  max-height: 68vh;
-
-  overflow-y: scroll;
-
-  border-radius: 6px;
-  color: white;
-  background-color: #000000f0;
+  width: 26%;
 }
-.list-character div h3 {
-  display: flex; 
-  justify-content: space-between; 
-  width: 100%; 
+
+
+
+/* FORM - MAIN */
+.form-character {
+  padding: 0 12px;
+  width: 100%;
+  height: 100%;
+}
+.form-character form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+.form-character form label input {
+  padding: 0 8px;
+  height: 30px;
+  border-radius: 4px;
+  border: 2px solid var(--font-color);
+  text-shadow: 0 0 2px var(--font-color-2);
+  color: var(--font-color);
+  background: var(--background-color);
+}
+.form-character form button {
+  width: 100%;
+  margin: 10px 0 0 0;
+  padding: 6px 0;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 2px solid var(--font-color);
+  background: var(--background-color);
+}
+
+
+
+/* ASIDE */
+.aside-character {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 74%;
+}
+
+
+
+/* LIST - ASIDE */
+.list-character {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.list-character h3 {
+  display: grid;
+  text-align: center;
+  grid-template-columns: 4% 10% 46% 30% 10%;
   border-bottom: 2px solid white;
 }
-.list-character div ul div {
-  display: flex;
-  justify-content: space-between;
+.list-character ul div {
+  display: grid;
+  grid-template-columns: 4% 10% 46% 30% 10%;
+  flex-direction: row;
+  transition: all 0.5s;
   align-items: center;
+  height: 40px;
 
-  height: 8vh;
-
-  border-bottom: 1px solid white;
 }
-.list-character div us :hover{
-  background-color: #ffffff11;
+.list-character ul div:hover {
+  background-color: #ffffff44;
 }
-.list-character div us div :hover{
-  background-color: #00000000;
+.list-character ul div a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-bottom: 1px solid var(--font-color);
 }
-.list-character div span{
-  width: 6%;
-  text-align: center;
-  font-weight: bold;
-  color: lightgrey;
-  /* background-color: #f005; */
+.list-character ul div a button {
+  width: 100%;
+  font-size: large;
+  transition: all 0.5s;
+  border: 0;
+  color: var(--font-color);
+  background: #00000000;
 }
-.list-character div span1{
-  width: 6%; 
-  text-align: center;
-  /* background-color: #0f05; */
-}
-.list-character div span2{
-  width: 8%;
-  padding-inline: 14px;
-  /* background-color: #00f5; */
-}
-.list-character div span3{
-  width: 18%; 
-  text-align: center;
-  /* background-color: #ff05; */
-}
-.list-character div span4{
-  width: 10%;
-  text-align: center;
-  /* background-color: #f0f5; */
-}
-.list-character div span4 button{
-  background-color: '#00000000'; 
-  border-color: '#0000';
-  width: 50%;
-  height: 50%;
-  color: white;
-}
-.list-character div span4 button :hover{
-  color: gray;
+.list-character ul div a button:hover {
+  color: var(--font-color-2);
 }
 
-.toastContainer{
-  color: '#0f05';
+
+
+/* TOAST */
+.toastContainer {
+  color: '#00000000';
+}
+
+
+
+/* MAIN - ASIDE */
+.main-character, .aside-character {
+  padding: 8px 0;
+  margin: 20px 20px;
+  height: 78vh;
+  border-radius: 10px;
+  color: var(--font-color);
+  background: var(--transparent-background-color);
+}
+
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .content-character {
+    padding: 1vh;
+  }
+
+  .form-character {
+    width: 100%;
+  }
+
+  .list-character {
+    width: 100%;
+    margin-top: 1vh;
+  }
 }

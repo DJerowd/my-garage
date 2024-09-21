@@ -11,15 +11,16 @@ footer {
     background-color: black;
 }
 
-footer div {
-    display: flex;
-    gap: 0px;
-}
-
 footer h3 {
     margin: 0;
     color: white;
-  }
+}
+
+footer div {
+    display: flex;
+    gap: 0px;
+    text-align: center;
+}
 
 footer div a {
     padding-inline: 24px;

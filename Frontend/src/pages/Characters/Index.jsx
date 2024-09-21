@@ -1,5 +1,6 @@
 import { React } from 'react';
 import { ToastContainer } from 'react-toastify';
+import { getLoggedInUser } from '../../utils/auth.js';
 import 'react-toastify/dist/ReactToastify.css';
 import useCharacters from '../../hooks/useCharacters';
 import Header from '../../components/Header';
@@ -10,20 +11,44 @@ import './Styles.css';
 
 function Personagem() {
   const { characters, setUpdateCharacterList } = useCharacters();
+  const loggedInUser = getLoggedInUser();
+
+  if (!loggedInUser) {
+    return (
+      <div className='container-car'>
+        <Header />
+        <div className='content-car'>
+          Faça login para acessar essa página.
+        </div>
+        <Footer/>
+      </div>
+    );
+  }
 
   return (
     <div className='container-character'>
       <Header />
-
       <div className='content-character'>
-        <main className='form-character'>
-          <Form characters={characters} setUpdateCharacterList={setUpdateCharacterList} />
-          </main>
-        <aside className='list-character'>
-          <List characters={characters} setUpdateCharacterList={setUpdateCharacterList}/>
+
+        <main className='main-character'>
+          <div className='form-character'>
+            <Form 
+              characters={characters} 
+              setUpdateCharacterList={setUpdateCharacterList} 
+            />
+          </div>
+        </main>
+
+        <aside className='aside-character'>
+          <div className='list-character'>
+            <List 
+              characters={characters} 
+              setUpdateCharacterList={setUpdateCharacterList}
+            />
+          </div>
         </aside>
+
       </div>
-      
       <ToastContainer 
         className='toastContainer' 
         autoClose={3000} 
@@ -32,7 +57,6 @@ function Personagem() {
         position="bottom-left" 
         theme="dark"
       />
-
       <Footer/>
     </div>
   );

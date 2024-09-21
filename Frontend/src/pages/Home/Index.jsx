@@ -8,12 +8,16 @@ function Home() {
   return (
     <div className='container-home'>
       <Header />
-      
-      <main className='content-home'>
-        <GTABaseLink/>
-        <RockstarGamesLink />
-      </main>
+      <div className='content-home'>
 
+        <main className='main-home'>
+
+
+          <GTABaseLink/>
+          <RockstarGamesLink />
+        </main>
+
+      </div>
       <Footer/>
     </div>
   );

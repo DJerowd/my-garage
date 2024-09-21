@@ -1,9 +1,13 @@
 import express from "express";
-import { addVehicle, deleteVehicle, getVehicles, updateVehicle } from "../controllers/vehiclesController.js";
+import { addVehicle, deleteVehicle, getVehicles, getVehiclesById, getVehiclesByGarageId, updateVehicle } from "../controllers/vehiclesController.js";
 
 const router = express.Router();
 
 router.get("/", getVehicles);
+
+router.get("/:id", getVehiclesById);
+
+router.get("/garage/:id", getVehiclesByGarageId);
 
 router.post("/", addVehicle);
 

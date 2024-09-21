@@ -1,40 +1,123 @@
-header {
+.header {
+    position: fixed;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     width: 100vw;
-    height: 64px;
-    
-    padding: 16px;
+    height: 96px;
 
-    background-color: black;
+    font-family: sans-serif;
+
+    backdrop-filter: blur(20px);
+    box-shadow: #000000 0 1px 4px;
+    background-color: var(--transparent-background-color-2);
 }
 
-header div {
+.headerAside {
     display: flex;
-    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    height: 96px;
+    width: 96px;
+}
+.headerAside button{
+    display: flex;
+    background: none;
+    border: 0;
+}
+.headerAside img {
+    align-self: center;
+
+    width: 86px;
+
+    transition: all 0.5s;
+}
+.headerAside img:hover {
+    filter: drop-shadow(0 0 10px var(--secondary-color));
+    width: 96px;
+}
+.menuIcon {
+    display: flex;
+    align-items: center;
+
+    height: 96px;
+
+    font-size: x-large;
+    transition: all 0.5s;
+    color: var(--font-color);
+}
+.menuIcon:hover {
+    color: var(--secondary-color);
 }
 
-header h2 {
-    margin: 0;
-    color: white;
-  }
+.headerMain {
+    width: 80%;
+}
 
-header div a {
-    padding-inline: 24px;
-    padding-top: 16px;
+.headerTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    height: 50%;
+}
+.headerTop a {
+    margin: 10px;
+    font-size: xx-large;
+    transition: all 0.5s;
+    color: var(--font-color);
+}
+.headerTop a:hover {
+    color: var(--secondary-color);
+}
+
+.headerBotton {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 0px;
+    height: 50%;
+}
+.headerBotton a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20%;
 
     text-decoration: none;
+    font-weight: bold;
     font-size: large;
+    transition: all 0.5s;
 
-    height: 64px;
-    
-    color: white;
+    border-top: 2px solid var(--font-color);
+    color: var(--font-color);
+}
+.headerBotton a:hover {
+    border-top: 4px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+.headerIcon {
+    font-size: x-large;
+    margin: 0 0 0 6px;
 }
 
-header div a:hover {
-    text-decoration: underline;
 
-    background-color: #00000011;
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+        display: inline-block;
+        height: auto;
+    }
+
+    header h2 {
+        margin-block: 10px
+    }
+
+    header div {
+        justify-content: space-between;
+    }
+    header div a {
+        padding-inline: 0px;
+    }
 }
