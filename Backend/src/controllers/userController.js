@@ -30,7 +30,7 @@ export const addUser = (req, res) => {
 
 // ATUALIZAR USUÁRIO EXISTENTE.
 export const updateUser = (req, res) => {
-    const q = "UPDATE users SET `username` = ?, `email` = ?, `password` = ? WHERE `id` = '?'";
+    const q = "UPDATE users SET `username` = ?, `email` = ?, `password` = ? WHERE `id` = ?";
 
     const values = [
         req.body.username,

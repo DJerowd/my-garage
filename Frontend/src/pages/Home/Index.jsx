@@ -1,7 +1,7 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import GTABaseLink from './GtaBaseLink';
-import RockstarGamesLink from './RockstarGamesLink';
+import Article from './Article';
+import Slide from './Slide';
 import './Styles.css';
 
 function Home() {
@@ -11,10 +11,8 @@ function Home() {
       <div className='content-home'>
 
         <main className='main-home'>
-
-
-          <GTABaseLink/>
-          <RockstarGamesLink />
+          <Article/>
+          <Slide/>
         </main>
 
       </div>

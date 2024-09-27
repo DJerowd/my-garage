@@ -13,7 +13,7 @@
     border-radius: 0 0 0 20px;
     backdrop-filter: blur(20px);
     box-shadow: #000000 0 1px 4px;
-    background-color: var(--transparent-background-color);
+    background-color: var(--background-color);
 }
 
 .menu div {

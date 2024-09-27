@@ -3,7 +3,7 @@ import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-function List({ vehiclesByGarageId, setUpdateVehicleListByGarageId }) {
+function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreaseOccupation }) {
   
   // FUNÇÃO PARA EDITAR O VEÍCULO.
   const handleEdit = (id) => {
@@ -20,6 +20,7 @@ function List({ vehiclesByGarageId, setUpdateVehicleListByGarageId }) {
       await axios
       .delete("http://localhost:8800/vehicles/" + id)
       .then(({ data }) => {
+        decreaseOccupation(ids.garageId);
         setUpdateVehicleListByGarageId(prevState => !prevState);
         toast.success(`Veículo ${id} excluido!`);
       })
@@ -31,7 +32,7 @@ function List({ vehiclesByGarageId, setUpdateVehicleListByGarageId }) {
   // DIRECIONAR PARA A PAGINA DE DETALHES DO VEÍCULO SELECIONADO.
   const handleVehicleDetails = (vehicle) => {
     // history.push(`/vehicle/${vehicleId}`);
-    toast.warn(vehicle)
+    toast.warn(vehicle);
   };
 
   //  LISTA VAZIA PARA SER EXIBIDA QUANDO NÃO HOUVER NENHUM VEICULO NA GARAGEM SELECIONADA.

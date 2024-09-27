@@ -22,6 +22,21 @@ export const getVehiclesById = (req, res) => {
     });
 };
 
+// REQUISIÇÃO DE VEÍCULOS PELO ID DO USUÁRIO.
+export const getVehiclesByCharacterId = (req, res) => {
+    const q = "SELECT * FROM vehicles WHERE `characterId` = ?";
+
+    if (!req.params.id) {
+        return res.status(400).json({ message: "Character ID is required." });
+    }
+
+    db.query(q, [req.params.id], (err, data) => {
+        if (err) return res.json(err);
+
+        return res.status(200).json(data);
+    });
+};
+
 // REQUISIÇÃO DE VEÍCULOS PELO ID DA GARAGEM.
 export const getVehiclesByGarageId = (req, res) => {
     const q = "SELECT * FROM vehicles WHERE `garageId` = ?";
@@ -67,7 +82,34 @@ export const addVehicle = (req, res) => {
 
 // ATUALIZAR VEÍCULO EXISTENTE.
 export const updateVehicle = (req, res) => {
-    const q = "UPDATE vehicles SET  WHERE `id` = '?'";
+    const q = "UPDATE vehicles SET ?  WHERE `id` = ?";
+
+    const values = [
+        req.body,
+        req.params.id
+    ];
+
+    db.query(q, values, (err, data) => {
+        if (err) return res.json(err);
+
+        return res.status(200).json({ message: "Veículo atualizado com sucesso!" });
+    });
+};
+
+// ALTERAR GARAGEM DO VEÍCULO.
+export const updateVehicleGarage = (req, res) => {
+    const q = "UPDATE vehicles SET garageId = ? WHERE id = ?";
+
+    const values = [
+        req.body.garageId,
+        req.params.id
+    ];
+
+    db.query(q, values, (err, data) => {
+        if (err) return res.json(err);
+
+        return res.status(200).json({ message: "Garagem alterada com sucesso!" });
+    });
 };
 
 // EXCLUIR VEÍCULO EXISTENTE.

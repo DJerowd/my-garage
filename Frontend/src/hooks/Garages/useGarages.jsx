@@ -9,7 +9,7 @@ const useGarages = () => {
         const fetchGarages = async () => {
             try {
                 const res = await axios.get(`http://localhost:8800/garages`);
-                setGarages(res.data.sort((a, b) => (a.createDate > b.createDate ? 1 : -1)));
+                setGarages(res.data.sort((a, b) => (a.slot > b.slot ? 1 : -1)));
             } catch (error) {
                 toast.error(error);
             }

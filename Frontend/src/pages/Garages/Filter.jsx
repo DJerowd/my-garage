@@ -1,15 +1,16 @@
 import { React, useState } from 'react';
-import useCharacters from '../../hooks/useCharacters';
 
-function Filter({ setGarageByCharacterId, setUpdateGarageListByCharacterId }) {
-  const { characters, setUpdateCharacterList } = useCharacters();
+function Filter({ setIds, charactersByUserId, setGarageByCharacterId, setUpdateGarageListByCharacterId }) {
   const [ character, setCharacter ] = useState([]);
 
   const handleChange = (e) => {
-    const selectedCharacter = JSON.parse(e.target.value);
+    const selected = JSON.parse(e.target.value);
     setCharacter(e.target.value);
-    setGarageByCharacterId(selectedCharacter.id)
+    setGarageByCharacterId(selected.id)
     setUpdateGarageListByCharacterId(prevState => !prevState);
+    setIds({
+      characterId: selected.id
+    });
   };
 
   return (
@@ -19,7 +20,7 @@ function Filter({ setGarageByCharacterId, setUpdateGarageListByCharacterId }) {
 
         <select name="character" onChange={handleChange} value={character}>
           <option value="0">Selecione um personagem</option>
-          {characters.map((character, index) => (
+          {charactersByUserId.map((character, index) => (
             <option key={character.value} value={JSON.stringify(character)}>
               {index + 1} - {character.username}
             </option>

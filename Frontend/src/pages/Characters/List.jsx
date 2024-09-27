@@ -4,7 +4,7 @@ import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-function List({ characters, setUpdateCharacterList }) {
+function List({ charactersByUserId, setUpdateCharactersListByUserId }) {
 
   // FUNÇÃO PARA EDITAR O PERSONAGEM.
   const handleEdit = (id) => {
@@ -21,7 +21,7 @@ function List({ characters, setUpdateCharacterList }) {
       await axios
       .delete("http://localhost:8800/characters/" + id)
       .then(({ data }) => {
-        setUpdateCharacterList(prevState => !prevState);
+        setUpdateCharactersListByUserId(prevState => !prevState);
         toast.success(`Personagem ${id} excluido!`);
       })
       .catch(({ data }) => toast.error(data)
@@ -39,7 +39,7 @@ function List({ characters, setUpdateCharacterList }) {
         <a></a>
       </h3>
       <ul>
-        {characters.map((character, index) => (
+        {charactersByUserId.map((character, index) => (
           <us>
             <div key={character.id}>
               <a>{index + 1}</a>

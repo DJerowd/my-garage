@@ -5,10 +5,6 @@
 }
 .content-garage {
   display: flex;
-
-  flex-direction: column;
-  align-items: center;
-
   width: 100vw;
   padding: 96px 0 0 0;
   min-height: calc(116vh - 96px);
@@ -17,54 +13,143 @@
   background-position: center;
 }
 
-.filter-garage {
-  display: flex;
-  flex-direction: row;
 
-  padding-inline: 12px;
-  padding-block: 10px;
 
-  margin-bottom: 4vh;
-
-  width: 40%;
-
-  border-radius: 6px;
-  color: white;
-  background-color: #000000f0;
-}
-
-.list-garage {
-  padding-inline: 12px;
-  padding-block: 10px;
-
-  width: 40%;
-  max-height: 64vh;
-
-  overflow-y: scroll;
-
-  border-radius: 6px;
-  color: white;
-  background-color: #000000f0;
-}
-.list-garage form label {
+/* MAIN */
+.main-garage {
   display: flex;
   flex-direction: column;
-
-  color: white;
+  align-self: flex-start;
+  width: 28%;
 }
 
+/* TITLE - MAIN */
+.title-garage {
+  align-content: center;
+  text-align: center;
+  height: 8vh;
+  font-size: large;
+  font-weight: bold;
+}
+
+/* FORM - MAIN */
 .form-garage {
-  display: flex; 
-  
-  padding-inline: 0px;
-  padding-block: 4px;
-
-  height: 100%;
-  width: 100%;
-
-  color: white;
-  background-color: #00000000;
+  height: 78vh;
+  padding: 0 12px;
+  overflow-y: scroll;
+  border-top: 1px solid var(--font-color);
 }
+.form-garage form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+.form-garage form label select, .form-garage form label input {
+  padding: 0 8px;
+  height: 30px;
+  border-radius: 4px;
+  border: 2px solid var(--font-color);
+  text-shadow: 0 0 2px var(--font-color-2);
+  color: var(--font-color);
+  background: var(--background-color);
+}
+.form-garage form button {
+  width: 100%;
+  margin: 10px 0 0 0;
+  padding: 6px 0;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 2px solid var(--font-color);
+  background: var(--background-color);
+}
+
+
+
+/* ASIDE */
+.aside-garage {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 72%;
+}
+
+/* FILTER - ASIDE */
+.filter-garage {
+  align-content: center;
+  text-align: center;
+  height: 8vh;
+  font-size: large;
+  font-weight: bold;
+}
+.filter-garage div select {
+  margin: 0 10px;
+  padding: 0 8px;
+  width: 30%;
+  height: 30px;
+  border-radius: 4px;
+  border: 2px solid var(--font-color);
+  color: var(--font-color);
+  background: var(--background-color);
+}
+
+/* LIST - ASIDE */
+.list-garage {
+  max-height: 78vh;
+  padding: 0 12px;
+}
+.list-garage h3 {
+  display: grid;
+  text-align: center;
+  grid-template-columns: 10% 30% 40% 10% 10%;
+  border-bottom: 2px solid var(--font-color);
+}
+.list-garage ul {
+  height: 64vh;
+  overflow-y: scroll;
+}
+.list-garage ul div {
+  display: grid;
+  grid-template-columns: 10% 30% 40% 10% 10%;
+  flex-direction: row;
+  transition: all 0.5s;
+  align-items: center;
+  height: 40px;
+}
+.list-garage ul div:hover {
+  background-color: #ffffff44;
+}
+.list-garage ul div a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-bottom: 1px solid var(--font-color);
+}
+.list-garage ul div a button {
+  width: 100%;
+  font-size: large;
+  transition: all 0.5s;
+  border: 0;
+  color: var(--font-color);
+  background: #00000000;
+}
+.list-garage ul div a button:hover {
+  color: var(--font-color-2);
+}
+
+
+
+/* MAIN - ASIDE */
+.main-garage, .aside-garage {
+  padding: 8px 0;
+  margin: 20px 20px;
+  height: 78vh;
+  border-radius: 10px;
+  color: var(--font-color);
+  background: var(--transparent-background-color);
+}
+
+
 
 @media (max-width: 768px) {
   .content-garage {

@@ -1,441 +1,132 @@
 import { React, useState, useEffect } from 'react';
-import properties from '../../data/properties.json';
-import './Styles.css';
 import { toast } from 'react-toastify';
 
-function Form({ garagesByCharacterId, setUpdateGarageListByCharacterId }) {
-  const [garagem, setGaragem] = useState({
-    agency: '',
-    arena: '',
-    autoShop: '',
-    bailEnforcement: '',
-    bunker: '',
-    casinoPenthouse: '',
-    executiveOfficeGarage1: '',
-    executiveOfficeGarage2: '',
-    executiveOfficeGarage3: '',
-    garage1: '',
-    garage2: '',
-    garage3: '',
-    garage4: '',
-    garage5: '',
-    garage6: '',
-    garage7: '',
-    garage8: '',
-    garage9: '',
-    garage10: '',
-    vinewoodGarage: '',
-    eclipseBlvdGarage: '',
-    hangar: '',
-    terrorbyte: '',
-    moc: '',
-    avenger: '',
-    clubhouse: '',
-    nightclub: '',
-    retroArcade: '',
-    salvageYard: ''
-  });
+import axios from 'axios';
+import properties from '../../data/properties.json';
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setGaragem(prevState => ({
-    ...prevState,
-    [name]: value
-    }));
-  };
+import './Styles.css';
 
-  const handleSubmit = (e) => {
-    const { name, value } = e.target;
-    e.preventDefault();
-    toast.warn(JSON.stringify(garagesByCharacterId))
-    setUpdateGarageListByCharacterId(prevState => !prevState);
-  };
+function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId }) {
+    const [slot, setSlot] = useState('arena');
+    const [garage, setGarage] = useState({
+        characterId: '',
+        slot: '',
+        property: '',
+        ocupation: 0,
+        capacity: 0,
+        location: '',
+        price: ''
+    });
 
-  useEffect(() => {
-    toast.warn(JSON.stringify(garagesByCharacterId))
-  }, [garagesByCharacterId]);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
 
-  return (
-    <div>
-        <h3>Garagens:</h3>
-        <h3 style={{color: '#f00'}}>{JSON.stringify(garagem)}</h3>
-        <h3 style={{color: '#f0f'}}>{JSON.stringify(garagem.agency)}</h3>
+        if (name == 'slot') {
+            setSlot(value);
+            setGarage(prevState => ({
+                ...prevState,
+                [name]: value
+            }));
+        } 
+        if (name == 'property') {
+            if (value == '') {
+                setGarage(prevState => ({
+                    ...prevState,
+                    property: "",
+                    capacity: 0,
+                    location: "",
+                    price: ""
+                }));
+            }
+            const property = JSON.parse(value);
+            setGarage(prevState => ({
+                ...prevState,
+                property: property.property,
+                capacity: property.capacity,
+                location: property.location,
+                price: property.price
+            }));
+        }
+    };
 
-        {garagesByCharacterId.map((garage, index) => (
-          <us>
-            <div key={garage.id}>
-            {index + 1} {garage.slot}
-            </div>
-          </us>
-        ))}
+    const handleSubmit = async (e) => {
+        const { name, value } = e.target;
+        e.preventDefault();
+        if (!ids.characterId) {
+            toast.warn(`Selecione uma garagem primeiro!`);
+        } else if ( !garage.slot || !garage.property || !garage.capacity || !garage.location || !garage.price ) {
+            toast.warn(`Todos os campos devem ser preenchidos!`);
+        } else {
+            await axios
+            .post("http://localhost:8800/garages", {
+                characterId: ids.characterId,
+                slot: garage.slot,
+                property: garage.property,
+                ocupation: garage.ocupation,
+                capacity: garage.capacity,
+                location: garage.location,
+                price: garage.price
+            })
+            .then(({ data }) => {
+            setUpdateGarageListByCharacterId(prevState => !prevState);
+            toast.success(`Garagem salva!`);
+            })
+            .catch(({ data }) =>
+            toast.error(`Erro ao salvar garagem!`)
+            );
+            setGarage({
+                characterId: ids.characterId,
+                slot: "",
+                property: "",
+                capacity: 0,
+                location: "",
+                price: ""
+            });
+        }
+    };
 
-        <form onSubmit={handleSubmit}>
-            <label>
-                Agência:
-                <select name="agency" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.agency.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Tipo de Propriedade:
+                    <select name="slot" onChange={handleChange}>
+                        <option value="">Nenhum</option>
+                        {Object.keys(properties).map((property) => (
+                            <option key={property} value={property}>
+                                {property}
+                            </option>
+                        ))}
+                    </select>
+                </label>
 
-            <label>
-                Oficina de Arena:
-                <select name="arena" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.arena.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>  
-            </label>
+                <label>
+                    Agência:
+                    <select name="property" onChange={handleChange}>
+                        <option value="">Nenhum</option>
+                        {properties.agency.map((property) => (
+                            <option key={property.value} value={JSON.stringify(property)}>
+                                ({property.capacity} vagas) {property.property}
+                            </option>
+                        ))}
+                    </select>
+                </label>
 
-            <label>
-                Oficina de Tuning:
-                <select name="autoShop" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.autoShop.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Escritório de Fiança:
-                <select name="bailEnforcement" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.bailEnforcement.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
- 
-            <label>
-                Bunker:
-                <select name="bunker" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.bunker.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem da Penthouse:
-                <select name="casinoPenthouse" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.casinoPenthouse.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem 1 do Escritório Executivo:
-                <select name="executiveOfficeGarage1" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.executiveOfficeGarage1.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem 2 do Escritório Executivo:
-                <select name="executiveOfficeGarage2" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.executiveOfficeGarage2.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem 3 do Escritório Executivo:
-                <select name="executiveOfficeGarage3" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.executiveOfficeGarage3.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Instalações do Complexo:
-                <select name="facility" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.facility.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem 1:
-                <select name="garage1" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.garage.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem 2:
-                <select name="garage2" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.garage.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem 3:
-                <select name="garage3" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.garage.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem 4:
-                <select name="garage4" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.garage.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem 5:
-                <select name="garage5" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.garage.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem 6:
-                <select name="garage6" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.garage.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem 7:
-                <select name="garage7" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.garage.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem 8:
-                <select name="garage8" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.garage.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem 9:
-                <select name="garage9" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.garage.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-        
-            <label>
-                Garagem 10:
-                <select name="garage10" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.garage.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Garagem do Clube Vinewood:
-                <select name="vinewoodGarage" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.vinewoodGarage.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-        
-            <label>
-                Garagem de Alto padrão Eclipse Blvd:
-                <select name="eclipseBlvdGarage" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.eclipseBlvdGarage.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>    
-            </label>
-        
-            <label>
-                Hangar:
-                <select name="hangar" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.hangar.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-        
-            <label>
-                Terrorbyte:
-                <select name="terrorbyte" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.terrorbyte.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-        
-            <label>
-                Centro de Operações Móveis:
-                <select name="moc" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.moc.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Avenger:
-                <select name="avenger" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.avenger.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-        
-            <label>
-                Motoclube:
-                <select name="clubhouse" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.clubhouse.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-        
-            <label>
-                Boate:
-                <select name="nightclub" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.nightclub.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-        
-            <label>
-                Arcade:
-                <select name="retroArcade" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.retroArcade.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-        
-            <label>
-                Pátio do Ferro-velho:
-                <select name="salvageYard" onChange={handleChange}>
-                    <option value="">Nenhum</option>
-                    {properties.salvageYard.map((property) => (
-                        <option key={property.value} value={property.value}>
-                            ({property.capacity} vagas) {property.property}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <div style={{display: 'flex', justifyContent: 'center', marginTop: 4}}>
-                <button style={{paddingInline: 10}} type="submit">Salvar</button>
-            </div>
-        </form>
-    </div>
-  );
+                <div style={{display: 'flex', justifyContent: 'center', marginTop: 4}}>
+                    <button style={{paddingInline: 10}} type="submit">Salvar</button>
+                </div>
+            </form>
+            
+            <h4>{garage.characterId}</h4>
+            <h4>{garage.slot}</h4>
+            <h4>{garage.property}</h4>
+            <h4>{garage.ocupation}</h4>
+            <h4>{garage.capacity}</h4>
+            <h4>{garage.location}</h4>
+            <h4>{garage.price}</h4>
+            {ids.characterId}
+        </div>
+    );
 }
 
 export default Form;

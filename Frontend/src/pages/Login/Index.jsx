@@ -1,9 +1,12 @@
 import { React } from 'react';
 import { ToastContainer } from 'react-toastify';
-import useUsers from '../../hooks/useUsers';
+
+import useUsers from '../../hooks/Users/useUsers.jsx';
+
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Form from './Form';
+
 import 'react-toastify/dist/ReactToastify.css';
 import './Styles.css';
 

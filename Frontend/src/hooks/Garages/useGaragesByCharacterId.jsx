@@ -4,7 +4,7 @@ import axios from 'axios';
 const useGaragesByCharacterId = () => {
     const [garagesByCharacterId, setGaragesByCharacterId] = useState([]);
     const [updateGarageListByCharacterId, setUpdateGarageListByCharacterId] = useState(false);
-    const [garageByCharacterId, setGarageByCharacterId] = useState(0);
+    const [garageByCharacterId, setGarageByCharacterId] = useState(1);
 
     useEffect(() => {
         const fetchGarages = async () => {

@@ -27,11 +27,26 @@
 
 
 
+/* TITLE - MAIN */
+.title-character {
+  align-content: center;
+  text-align: center;
+
+  height: 8vh;
+
+  font-size: large;
+  font-weight: bold;
+  /* background: #0005; */
+}
+
+
+
 /* FORM - MAIN */
 .form-character {
   padding: 0 12px;
   width: 100%;
   height: 100%;
+  border-top: 1px solid var(--font-color);
 }
 .form-character form label {
   display: flex;

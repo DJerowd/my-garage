@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Styles.css';
 
-function Form({ characters, setUpdateCharacterList }) {
+function Form({ setUpdateCharactersListByUserId, loggedInUser }) {
   const [character, setCharacter] = useState({
     username: '',
     reputation: 0,
@@ -19,12 +19,13 @@ function Form({ characters, setUpdateCharacterList }) {
     } else {
       await axios
       .post("http://localhost:8800/characters", {
+        userId: loggedInUser.id,
         username: character.username,
         reputation: character.reputation,
         createDate: character.createDate,
       })
       .then(({ data }) => {
-        setUpdateCharacterList(prevState => !prevState);
+        setUpdateCharactersListByUserId(prevState => !prevState);
         toast.success(`Personagem ${character.username} ${character.reputation} ${character.createDate} salvo!`);
       })
       .catch(({ data }) => 

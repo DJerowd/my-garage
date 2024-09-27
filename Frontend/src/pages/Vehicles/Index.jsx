@@ -1,24 +1,31 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { getLoggedInUser } from '../../utils/auth.js';
-import useCharacters from '../../hooks/useCharacters';
-import useGarages from '../../hooks/useGarages';
-import useVehicles from '../../hooks/useVehicles';
-import useVehiclesByGarageId from '../../hooks/useVehiclesByGarageId';
+
+import useCharactersByUserId from '../../hooks/Characters/useCharactersByUserId.jsx';
+import useGaragesByCharacterId from '../../hooks/Garages/useGaragesByCharacterId.jsx';
+import useVehiclesByGarageId from '../../hooks/Vehicles/useVehiclesByGarageId.jsx';
+import useGarageOccupation from '../../hooks/Garages/useGarageOccupation.jsx';
+
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Form from './Form';
-import Filter from './Filter';
-import List from './List';
+import Filter from './Filter.jsx';
+import Form from './Form.jsx';
+import List from './List.jsx';
+
 import 'react-toastify/dist/ReactToastify.css';
 import './Styles.css';
 
 function Veiculo() {
-  const { characters, setUpdateCharacterList } = useCharacters();
-  const { garages, setUpdateGarageList } = useGarages();
-  const { vehicles, setUpdateVehicleList } = useVehicles();
-  const { vehiclesByGarageId, setUpdateVehicleListByGarageId, setVehicleByGarageId } = useVehiclesByGarageId();
   const loggedInUser = getLoggedInUser();
+  const { charactersByUserId, setUpdateCharactersListByUserId } = useCharactersByUserId();
+  const { garagesByCharacterId, setUpdateGarageListByCharacterId, setGarageByCharacterId } = useGaragesByCharacterId();
+  const { vehiclesByGarageId, setUpdateVehicleListByGarageId, setVehicleByGarageId } = useVehiclesByGarageId();
+  const { increaseOccupation, decreaseOccupation, loading, error } = useGarageOccupation();
+  const [ids, setIds] = useState({
+    characterId: "",
+    garageId: ""
+  });
 
   if (!loggedInUser) {
     return (
@@ -44,17 +51,22 @@ function Veiculo() {
 
           <div className='form-car'>
             <Form 
-              characters={characters}
-              garages={garages}
-              setUpdateVehicleList={setUpdateVehicleList}
+              ids={ids}
+              charactersByUserId={charactersByUserId}
+              garagesByCharacterId={garagesByCharacterId}
               setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
+              increaseOccupation={increaseOccupation}
             />
           </div>
         </main>
         <aside className='aside-car'>
           <div className='filter-car'>
             <Filter 
-              garages={garages}
+              setIds={setIds}
+              charactersByUserId={charactersByUserId}
+              garagesByCharacterId={garagesByCharacterId}
+              setUpdateGarageListByCharacterId={setUpdateGarageListByCharacterId}
+              setGarageByCharacterId={setGarageByCharacterId}
               setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
               setVehicleByGarageId={setVehicleByGarageId}
             />
@@ -62,8 +74,10 @@ function Veiculo() {
 
           <div className='list-car'>
             <List 
+              ids={ids}
               vehiclesByGarageId={vehiclesByGarageId}
               setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
+              decreaseOccupation={decreaseOccupation}
             />
           </div>
         </aside>
