@@ -4,7 +4,8 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import properties from '../../data/properties.json';
 
-import './Styles.css';
+import '../../Styles/layout.css';
+import '../../Styles/grid.css';
 
 function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId }) {
     const [slot, setSlot] = useState('arena');
@@ -12,7 +13,7 @@ function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId }) {
         characterId: '',
         slot: '',
         property: '',
-        ocupation: 0,
+        ocupation: '0',
         capacity: 0,
         location: '',
         price: ''
@@ -24,8 +25,13 @@ function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId }) {
         if (name == 'slot') {
             setSlot(value);
             setGarage(prevState => ({
-                ...prevState,
-                [name]: value
+                characterId: ids.characterId,
+                slot: value,
+                property: "",
+                ocupation: 0,
+                capacity: 0,
+                location: "",
+                price: ""
             }));
         } 
         if (name == 'property') {
@@ -50,11 +56,13 @@ function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId }) {
     };
 
     const handleSubmit = async (e) => {
-        const { name, value } = e.target;
+        const existingGarage = garagesByCharacterId.find(garage => garage.slot === slot);
         e.preventDefault();
         if (!ids.characterId) {
             toast.warn(`Selecione uma garagem primeiro!`);
-        } else if ( !garage.slot || !garage.property || !garage.capacity || !garage.location || !garage.price ) {
+        } else if (existingGarage) {
+            toast.error(`Já existe uma garagem com o slot ${JSON.stringify(garage.slot)}!`);
+        } else if ( !garage.slot || !garage.property || !garage.capacity || !garage.location ) {
             toast.warn(`Todos os campos devem ser preenchidos!`);
         } else {
             await axios
@@ -86,46 +94,33 @@ function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId }) {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Tipo de Propriedade:
-                    <select name="slot" onChange={handleChange}>
-                        <option value="">Nenhum</option>
-                        {Object.keys(properties).map((property) => (
-                            <option key={property} value={property}>
-                                {property}
-                            </option>
-                        ))}
-                    </select>
-                </label>
+        <form onSubmit={handleSubmit}>
+            <label>
+                Tipo de Propriedade:
+                <select name="slot" value={garage.slot} onChange={handleChange}>
+                    <option value="">Nenhum</option>
+                    {Object.keys(properties).map((property, index) => (
+                        <option key={property} value={property}>
+                            {index + 1} - {property}
+                        </option>
+                    ))}
+                </select>
+            </label>
 
-                <label>
-                    Agência:
-                    <select name="property" onChange={handleChange}>
-                        <option value="">Nenhum</option>
-                        {properties.agency.map((property) => (
-                            <option key={property.value} value={JSON.stringify(property)}>
-                                ({property.capacity} vagas) {property.property}
-                            </option>
-                        ))}
-                    </select>
-                </label>
+            <label>
+                Propriedade:
+                <select name="property" onChange={handleChange} disabled={!slot}>
+                    <option value="">Nenhum</option>
+                    {properties[slot] && properties[slot].map((property, index) => (
+                        <option key={property.value} value={JSON.stringify(property)}>
+                            {index + 1} - [{property.capacity} vagas] {property.property}
+                        </option>
+                    ))}
+                </select>
+            </label>
 
-                <div style={{display: 'flex', justifyContent: 'center', marginTop: 4}}>
-                    <button style={{paddingInline: 10}} type="submit">Salvar</button>
-                </div>
-            </form>
-            
-            <h4>{garage.characterId}</h4>
-            <h4>{garage.slot}</h4>
-            <h4>{garage.property}</h4>
-            <h4>{garage.ocupation}</h4>
-            <h4>{garage.capacity}</h4>
-            <h4>{garage.location}</h4>
-            <h4>{garage.price}</h4>
-            {ids.characterId}
-        </div>
+            <button type="submit">Salvar Garagem</button>
+        </form>
     );
 }
 

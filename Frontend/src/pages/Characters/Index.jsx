@@ -10,7 +10,8 @@ import Form from './Form.jsx';
 import List from './List.jsx';
 
 import 'react-toastify/dist/ReactToastify.css';
-import './Styles.css';
+import '../../Styles/layout.css';
+import '../../Styles/grid.css';
 
 function Personagem() {
   const loggedInUser = getLoggedInUser();
@@ -18,9 +19,9 @@ function Personagem() {
 
   if (!loggedInUser) {
     return (
-      <div className='container-car'>
+      <div className='container'>
         <Header />
-        <div className='content-car'>
+        <div className='content'>
           Faça login para acessar essa página.
         </div>
         <Footer/>
@@ -29,30 +30,23 @@ function Personagem() {
   }
 
   return (
-    <div className='container-character'>
+    <div className='container'>
       <Header />
-      <div className='content-character'>
+      <div className='content content-grid'>
 
-        <main className='main-character'>
-          <div className='title-character'>
-            Adicionar Novo Personagem:
-          </div>
-
-          <div className='form-character'>
-            <Form 
-              setUpdateCharactersListByUserId={setUpdateCharactersListByUserId}
-              loggedInUser={loggedInUser}
-            />
-          </div>
+        <main>
+          <h2>Adicionar Personagem:</h2>
+          <Form 
+            setUpdateCharactersListByUserId={setUpdateCharactersListByUserId}
+            loggedInUser={loggedInUser}
+          />
         </main>
 
-        <aside className='aside-character'>
-          <div className='list-character'>
-            <List 
-              charactersByUserId={charactersByUserId}
-              setUpdateCharactersListByUserId={setUpdateCharactersListByUserId}
-            />
-          </div>
+        <aside>
+          <List 
+            charactersByUserId={charactersByUserId}
+            setUpdateCharactersListByUserId={setUpdateCharactersListByUserId}
+          />
         </aside>
 
       </div>

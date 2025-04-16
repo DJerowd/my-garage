@@ -2,7 +2,8 @@ import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import './Styles.css';
+
+import '../../Styles/sign.css';
 
 function Form({users}) {
     const navigate = useNavigate();
@@ -46,7 +47,7 @@ function Form({users}) {
         localStorage.setItem('loggedInUser', loggedInUser);
         
         setError('');
-        navigate('/');
+        navigate('/home');
     };
 
 
@@ -55,20 +56,21 @@ function Form({users}) {
 
         <label>
             E-mail
-            <input type="email" name="email" onChange={handleChange} value={user.email} required/>
+            <input type="email" name="email" placeholder="E-mail cadastrado..." onChange={handleChange} value={user.email} required/>
         </label>
 
         <label>
             Senha
-            <input type="password" name="password" onChange={handleChange} value={user.password} required/>
-            <div>Esqueceu a senha?</div>
+            <input type={"password"}  name="password" placeholder="Senha de acesso..." onChange={handleChange} value={user.password} required/>
+            
+            <Link>Esqueceu a senha?</Link>
         </label>
         
         {error ? <h4 className='error'>{error}</h4> : null}
 
         <div className='buttonsBox'>
-            <button className='btnLogin' type='submit'>Fazer login</button>
-            <Link to="/register">Não possui conta? Criar conta</Link>
+            <button type='submit'>Fazer login</button>
+            <Link to="/signup">Não possui conta? Criar conta</Link>
         </div>
 
     </form>

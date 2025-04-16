@@ -1,7 +1,11 @@
 import { React } from 'react';
 import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { toast } from 'react-toastify';
+
 import axios from 'axios';
+
+import '../../Styles/layout.css';
+import '../../Styles/grid.css';
 
 function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreaseOccupation }) {
   
@@ -38,43 +42,42 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
   //  LISTA VAZIA PARA SER EXIBIDA QUANDO NÃO HOUVER NENHUM VEICULO NA GARAGEM SELECIONADA.
   if (JSON.stringify(vehiclesByGarageId) == '[]') {
     return (
-      <div>
-      <h3>
-        <a></a>
-        <a>Veículo</a>
-        <a>Cores do Veículo</a>
-        <a>Placa</a>
-        <a></a>
-      </h3>
-      <ul>
-        <div>
-          <a></a>
-          <a>Nenhum veículo.</a>
-          <a></a>
-          <a></a>
-          <a></a>
-        </div>
-      </ul>
-    </div>
+      <table>
+        {/* HEADER DA TABELA */}
+        <th>
+          <td></td>
+          <td>Placa</td>
+          <td>Veículo</td>
+          <td>Cores do Veículo</td>
+          <td></td>
+        </th>
+        {/* DADOS DA TABELA */}
+        <tr>
+          <td style={{background:'#f005'}}></td>
+          <td style={{background:'#0f05'}}></td>
+          <td style={{background:'#00f5'}}>Nenhum veículo.</td>
+          <td style={{background:'#ff05'}}></td>
+          <td style={{background:'#f0f5'}}></td>
+        </tr>
+      </table>
     );
   }
 
   return (
-    <div>
-      <h3>
+    <table>
+      <th>
         <a></a>
+        <a>Placa</a>
         <a>Veículo</a>
         <a>Cores do Veículo</a>
-        <a>Placa</a>
         <a></a>
-      </h3>
-
-      <ul>
+      </th>
+      <tr>
           {vehiclesByGarageId.map((vehicle, index) => (
           <div key={vehicle.id}  onClick={() => handleVehicleDetails(JSON.stringify(vehicle))} >
-              <a /*style={{background:'#f005'}}*/>{index + 1}</a>
-              <a /*</div>style={{background:'#0f05'}}*/>{`${vehicle.manufacturer} ${vehicle.model}`}</a>
-              <a /*style={{background:'#00f5'}}*/>
+              <a style={{background:'#f005'}}>{index + 1}</a>
+              <a style={{background:'#0f05'}}>{`${vehicle.manufacturer} ${vehicle.model}`}</a>
+              <a style={{background:'#00f5'}}>
               {['primaryColor', 'secundaryColor', 'pearlescentColor', 'interiorColor', 'dashboardColor', 'rimColor'].map(colorKey => (
                 <colorBlock
                   key={colorKey}
@@ -83,8 +86,8 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
                 />
               ))}
               </a>
-              <a /*style={{background:'#ff05'}}*/>{`${vehicle.plate}`}</a>
-              <a /*style={{background:'#f0f5'}}*/>
+              <a style={{background:'#ff05'}}>{`${vehicle.plate}`}</a>
+              <a style={{background:'#f0f5'}}>
                 <button onClick={() => handleEdit(vehicle.id)}>
                   <FaRegEdit/>
                 </button>
@@ -94,8 +97,8 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
               </a>
           </div>
           ))}
-      </ul>
-    </div>
+      </tr>
+    </table>
   );
 }
 

@@ -7,9 +7,10 @@ import colors from '../../data/colors.json';
 import rims from '../../data/rims.json';
 import windows from '../../data/windows.json';
 
-import './Styles.css';
+import '../../Styles/layout.css';
+import '../../Styles/grid.css';
 
-function Form({ ids, charactersByUserId, garagesByCharacterId, setUpdateVehicleListByGarageId, increaseOccupation }) {
+function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setUpdateVehicleListByGarageId, increaseOccupation }) {
   const [vehicle, setVehicle] = useState({
     manufacturer: '',
     model: '',
@@ -67,7 +68,9 @@ function Form({ ids, charactersByUserId, garagesByCharacterId, setUpdateVehicleL
   // FUNÇÃO PARA SALVAR AS INFORMAÇÕES DE VEÍCULO NO BANCO DE DADOS.
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!ids.characterId || !ids.garageId) {
+    if (garageLimit) {
+      toast.warn(`Limite da garagem atingido!`);
+    } else if (!ids.characterId || !ids.garageId) {
       toast.warn(`Selecione uma garagem primeiro!`);
     } else if (!vehicle.manufacturer || !vehicle.model || !vehicle.primaryColor || !vehicle.secundaryColor || !vehicle.pearlescentColor || !vehicle.interiorColor || !vehicle.dashboardColor || !vehicle.rimColor || !vehicle.rimsType || !vehicle.rims || !vehicle.windows || !vehicle.plate) {
       toast.warn(`Todos os campos devem ser preenchidos!`);
@@ -119,6 +122,8 @@ function Form({ ids, charactersByUserId, garagesByCharacterId, setUpdateVehicleL
   return (
     <form onSubmit={handleSubmit}>
 
+      {/* {JSON.stringify(garageLimit)} */}
+      
       <label>
         Marca:
         <select name="manufacturer" onChange={handleChange} value={vehicle.manufacturer} required>
@@ -143,7 +148,6 @@ function Form({ ids, charactersByUserId, garagesByCharacterId, setUpdateVehicleL
         </select>
       </label>
 
-      <a>______________________________________________</a>
 
       <label>
         Cor Primaria: 
@@ -217,7 +221,6 @@ function Form({ ids, charactersByUserId, garagesByCharacterId, setUpdateVehicleL
         </select>
       </label>
 
-      <a>______________________________________________</a>
 
       <label>
         Tipo das rodas:
@@ -255,17 +258,14 @@ function Form({ ids, charactersByUserId, garagesByCharacterId, setUpdateVehicleL
         </select>
       </label>
 
-      <a>______________________________________________</a>
 
       <label>
         Placa:
         <input type="text" name="plate" onChange={handleChange} value={vehicle.plate} disabled={!vehicle.manufacturer || !vehicle.model} required/>
       </label>
 
-      <a>______________________________________________</a>
 
       <button type="submit" disabled={!vehicle.manufacturer || !vehicle.model}>Salvar Veículo</button>
-
     </form>
   );
 }

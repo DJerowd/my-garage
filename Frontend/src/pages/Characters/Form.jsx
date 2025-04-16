@@ -1,7 +1,9 @@
 import { React, useState } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import './Styles.css';
+
+import '../../Styles/layout.css';
+import '../../Styles/grid.css';
 
 function Form({ setUpdateCharactersListByUserId, loggedInUser }) {
   const [character, setCharacter] = useState({
@@ -56,9 +58,7 @@ function Form({ setUpdateCharactersListByUserId, loggedInUser }) {
           <input type="date" value={character.createDate} onChange={(e) => setCharacter({ ...character, createDate: e.target.value })} />
       </label>
 
-      <a style={{justifyContent: 'center', marginTop: '10px', marginBottom: '8px'}}>
-        <button style={{paddingInline: '4px'}} type="submit">Adicionar Novo Personagem</button>
-      </a>
+      <button type="submit">Salvar Personagem</button>
     </form>
   );
 }

@@ -4,7 +4,8 @@ import { FaLinkedin, FaSquareGithub, FaSquareYoutube  } from "react-icons/fa6";
 import { FaHome, FaCar, FaClipboardList, FaUser, FaBars } from "react-icons/fa";
 import logo from '../../assets/icon.png';
 import Menu from '../Menu';
-import './Styles.css';
+
+import '../../Styles/components/header.css'
 
 function Header(){
     const [showMenu, setShowMenu] = useState(false);
@@ -14,16 +15,17 @@ function Header(){
     };
 
     return (
-        <header className='header'>
+        <header>
 
-            <div className='headerAside'>
+            <section>
                 <a href="http://localhost:5173/" target="_blank" rel="noopener noreferrer">
                     <img src={logo} alt="GTA Logo" className="logo" />
                 </a>
-            </div>
+            </section>
 
-            <div className='headerMain'>
-                <div className='headerTop'>
+            <main>
+
+                <div>
                     <a href="https://www.linkedin.com/in/djerowd-moreschi/" target="_blank" rel="noopener noreferrer">
                         <FaLinkedin title='Linkedin' alt='Linkedin'/>
                     </a>
@@ -34,17 +36,20 @@ function Header(){
                         <FaSquareYoutube title='Youtube' alt='Youtube'/>
                     </a>
                 </div>
-                <div className='headerBotton'>
-                    <Link to="/">Home</Link>
+
+                <div>
+                    <Link to="/home">Home</Link>
                     <Link to="/characters">Personagens</Link>
                     <Link to="/garages">Garagens</Link>
                     <Link to="/vehicles">Veículos</Link>
                 </div>
-            </div>
+                
+            </main>
 
-            <div className='headerAside'>
+            <section>
                 <button onClick={toggleMenu}><h3 className='menuIcon'>Menu<FaBars className='headerIcon'/></h3></button>
-            </div>
+            </section>
+
             {showMenu && <Menu/>}
 
         </header>

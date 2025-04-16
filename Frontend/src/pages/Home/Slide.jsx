@@ -2,9 +2,11 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import articles from './articles.json';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
-import './Styles.css';
+import '../../Styles/layout.css'
+import '../../Styles/home.css'
 
 const Slide = () => {
     return (

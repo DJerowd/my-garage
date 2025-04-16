@@ -5,19 +5,35 @@
 }
 
 :root {
+  /* VARIÁVEIS DE PALETA DE CORES */
+  --header-color: #000000CC;
+  --footer-color: #000000;
+
   --primary-color: #fda801;
   --secondary-color: #fc0184;
 
   --background-color: #242424;
-  --background-color-2: #340056;
+  --background-color-2: #131313;
+
+  --button-color: #340056;
 
   --transparent-background-color: #242424DD;
-  --transparent-background-color-2: #34005699;
+  --transparent-background-color-1: #34005699;
 
   --font-color: #FFFFFF;
   --font-color-2: #000000;
   
+  --box-shadow-color: #000000;
   --error-color: #C50000;
+
+  /* VARIÁVEIS DE TIPOS DE FONTES */
+  --font-family-1: 'Sawarabi Mincho', Cochin, Georgia, serif;
+  --font-family-2: Roboto, Arial, Times, serif;
+  --font-family-3: monospace, serif;
+
+  /* VARIÁVEIS DE FORMATAÇÂO DO HEADER */
+  --header-height: 96px;
+  --footer-height: 96px;
   
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -25,7 +41,7 @@
 
   color-scheme: light dark;
   color: var(--font-color);
-  background-color: #242424;
+  background-color: #F0F0F0;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -34,14 +50,9 @@
 }
 
 body {
-  margin: 0;
   display: flex;
-  /* place-items: center; */
+
   min-width: 320px;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  margin: 0;
 }

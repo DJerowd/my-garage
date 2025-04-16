@@ -4,18 +4,22 @@ import { getLoggedInUser } from '../../utils/auth.js';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-import '../../Styles/layout.css'
-import '../../Styles/profile.css'
+import '../../Styles/layout.css';
+import '../../Styles/settings.css';
 
-function Profile() {
+function Settings() {
   const loggedInUser = getLoggedInUser();
 
   if (!loggedInUser) {
     return (
     <div className='container'>
       <Header />
-      <div className='content'>
+      <div className='content content-settings'>
+
+      <main>
         Faça login para acessar essa página.
+      </main>
+
       </div>
       <Footer/>
     </div>
@@ -25,14 +29,10 @@ function Profile() {
   return (
     <div className='container'>
       <Header />
-      <div className='content content-profile'>
+      <div className='content content-settings'>
 
         <main>
-          <a className='banner'></a>
-          <svg className='svg-profile'></svg>
-          
-          <h2>{loggedInUser.username}</h2>
-          
+          <h2>Configurações:</h2>
         </main>
 
       </div>
@@ -41,4 +41,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Settings;

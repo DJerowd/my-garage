@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import characterRoutes from "./src/routes/characterRoutes.js";
 import garageRoutes from "./src/routes/garageRoutes.js";
-import userRoutes from "./src/routes/userRoutes.js"
-import vehicleRoutes from "./src/routes/vehicleRoutes.js"
+import userRoutes from "./src/routes/userRoutes.js";
+import vehicleRoutes from "./src/routes/vehicleRoutes.js";
 
 const app = express();
 

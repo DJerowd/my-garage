@@ -4,6 +4,9 @@ import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
+import '../../Styles/layout.css';
+import '../../Styles/grid.css';
+
 function List({ charactersByUserId, setUpdateCharactersListByUserId }) {
 
   // FUNÇÃO PARA EDITAR O PERSONAGEM.
@@ -30,35 +33,33 @@ function List({ charactersByUserId, setUpdateCharactersListByUserId }) {
   };
   
   return (
-    <div>
-      <h3>
-        <a></a>
-        <a>RP</a>
-        <a style={{ flex: 2,}}>Username</a>
-        <a>Data de Criação</a>
-        <a></a>
-      </h3>
-      <ul>
-        {charactersByUserId.map((character, index) => (
-          <us>
-            <div key={character.id}>
-              <a>{index + 1}</a>
-              <a>{character.reputation}</a>
-              <a style={{ flex: 2}}>{character.username}</a>
-              <a>{format(new Date(character.createDate), 'dd/MM/yyyy')}</a>
-              <a>
-                <button onClick={() => handleEdit(character.id)}>
-                  <FaRegEdit/>
-                </button>
-                <button onClick={() => handleDelete(character.id)}>
-                  <FaTrash/>
-                </button>
-              </a>
-            </div>
-          </us>
-        ))}
-      </ul>
-    </div>
+    <table>
+      {/* HEADER DA TABELA */}
+      <th>
+        <td></td>
+        <td>RP</td>
+        <td>Username</td>
+        <td>Data de Criação</td>
+        <td></td>
+      </th>
+      {/* DADOS DA TABELA */}
+      {charactersByUserId.map((character, index) => (
+        <tr key={character.id}>
+          <td>{index + 1}</td>
+          <td>{character.reputation}</td>
+          <td>{character.username}</td>
+          <td>{format(new Date(character.createDate), 'dd/MM/yyyy')}</td>
+          <td>
+            <button onClick={() => handleEdit(character.id)}>
+              <FaRegEdit/>
+            </button>
+            <button onClick={() => handleDelete(character.id)}>
+              <FaTrash/>
+            </button>
+          </td>
+        </tr>
+      ))}
+    </table>
   );
 }
 

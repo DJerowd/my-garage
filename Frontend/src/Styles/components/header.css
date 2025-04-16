@@ -1,0 +1,125 @@
+/* PRINCIPAL */
+header {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    position: fixed;
+    justify-content: center;
+    font-family: var(--font-family-1);
+    z-index: 1;
+
+    width: 100vw;
+    height: var(--header-height);
+
+
+    backdrop-filter: blur(20px);
+    box-shadow: #000000 0 1px 4px;
+    background-color: var(--header-color);
+}
+
+/* ITENS LATERAIS */
+header section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header section button {
+    display: flex;
+    background: none;
+    border: 0;
+}
+header section img {
+    align-self: center;
+
+    width: 86px;
+
+    transition: all 0.5s;
+}
+header section img:hover {
+    filter: drop-shadow(0 0 10px var(--secondary-color));
+    width: 96px;
+}
+
+/* ITENS CENTRAL */
+header main {
+    display: flex;
+    flex-direction: column;
+}
+header main div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* REDES SOCIAIS */
+header main div:first-child {
+    display: flex;
+    font-size: xx-large;
+    
+    height: 100%;
+    gap: 2vw;
+}
+header main div:first-child a {
+    display: flex;
+    transition: all 0.5s;
+
+    color: var(--font-color);
+}
+header main div:first-child a:hover {
+    color: var(--secondary-color);
+}
+
+/* NAVEGAÇÂO */
+header main div:last-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-weight: bold;
+    font-size: large;
+
+    height: 100%;
+}
+header main div:last-child a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    height: 100%;
+
+    transition: all 0.5s;
+
+    border-top: 2px solid var(--font-color);
+    color: var(--font-color);
+}
+header main div:last-child a:hover {
+    border-top: 4px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+
+
+.headerIcon {
+    font-size: x-large;
+    margin: 0 0 0 6px;
+}
+.menuIcon {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-family-1);
+
+    font-size: x-large;
+    transition: all 0.5s;
+    color: var(--font-color);
+}
+.menuIcon:hover {
+    color: var(--secondary-color);
+}
+
+/* FORMATAÇÂO MOBILE */
+@media (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr 1fr;
+    }
+    header main {
+        display: none;
+    }
+}

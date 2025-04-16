@@ -1,5 +1,8 @@
 import { React, useState } from 'react';
 
+import '../../Styles/layout.css';
+import '../../Styles/grid.css';
+
 function Filter({ setIds, charactersByUserId, setGarageByCharacterId, setUpdateGarageListByCharacterId }) {
   const [ character, setCharacter ] = useState([]);
 
@@ -15,9 +18,7 @@ function Filter({ setIds, charactersByUserId, setGarageByCharacterId, setUpdateG
 
   return (
     <div>
-      <h3>
-        Personagem:
-
+      <h3>Personagem:
         <select name="character" onChange={handleChange} value={character}>
           <option value="0">Selecione um personagem</option>
           {charactersByUserId.map((character, index) => (

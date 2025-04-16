@@ -12,7 +12,8 @@ import Form from './Form.jsx';
 import List from './List.jsx';
 
 import 'react-toastify/dist/ReactToastify.css';
-import './Styles.css';
+import '../../Styles/layout.css';
+import '../../Styles/grid.css';
 
 function Garagem() {
   const loggedInUser = getLoggedInUser();
@@ -24,9 +25,9 @@ function Garagem() {
 
   if (!loggedInUser) {
     return (
-      <div className='container-car'>
+      <div className='container'>
         <Header />
-        <div className='content-car'>
+        <div className='content'>
           Faça login para acessar essa página.
         </div>
         <Footer/>
@@ -35,46 +36,35 @@ function Garagem() {
   }
 
   return (
-    <div className='container-garage'>
+    <div className='container'>
       <Header />
-      <div className='content-garage'>
+      <div className='content content-grid'>
 
-
-      <main className='main-garage'>
-        <div className='title-garage'>
-          Adicionar Garagens:
-        </div>
-
-        <div className='form-garage'>
+        <main>
+          <h2>Adicionar Garagem:</h2>
+          
           <Form 
             ids={ids}
             garagesByCharacterId={garagesByCharacterId} 
             setUpdateGarageListByCharacterId={setUpdateGarageListByCharacterId} 
           />
-        </div>
+        </main>
 
-      </main>
-
-      <aside className='aside-garage'>
-        <div className='filter-garage'>
+        <aside>
           <Filter 
+            className='filter'
             setIds={setIds}
             charactersByUserId={charactersByUserId}
             setGarageByCharacterId={setGarageByCharacterId} 
             setUpdateGarageListByCharacterId={setUpdateGarageListByCharacterId} 
           />
-        </div>
 
-        <div className='list-garage'>
           <List
             garagesByCharacterId={garagesByCharacterId}
             setUpdateGarageListByCharacterId={setUpdateGarageListByCharacterId}
           />
-        </div>
-      </aside>
+        </aside>
       
-
-
       </div>
       <ToastContainer 
         className='toastContainer' 

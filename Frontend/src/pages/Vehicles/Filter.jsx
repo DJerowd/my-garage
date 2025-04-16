@@ -1,6 +1,9 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 
-function Filter({ setIds, charactersByUserId, garagesByCharacterId, setUpdateGarageListByCharacterId, setGarageByCharacterId, setUpdateVehicleListByGarageId, setVehicleByGarageId }) {
+import '../../Styles/layout.css';
+import '../../Styles/grid.css';
+
+function Filter({ setIds, setGarageLimit, charactersByUserId, garagesByCharacterId, setUpdateGarageListByCharacterId, setGarageByCharacterId, setUpdateVehicleListByGarageId, setVehicleByGarageId }) {
   const [ character, setCharacter ] = useState([]);
   const [ garage, setGarage ] = useState([]);
 
@@ -46,32 +49,40 @@ function Filter({ setIds, charactersByUserId, garagesByCharacterId, setUpdateGar
     setUpdateGarageListByCharacterId(prevState => !prevState);
     setUpdateVehicleListByGarageId(prevState => !prevState);
   };
+
+  useEffect(() => {
+    if (garage.ocupation == garage.capacity) {
+      setGarageLimit(true);
+    } else {
+      setGarageLimit(false);
+    }
+}, [garage]);
   
   return (
     <div>
-      Personagem:
-      <select name="character" onChange={handleChange}>
-        <option value="0">Selecione um personagem</option>
-        {charactersByUserId.map((character, index) => (
-          <option key={character.value} value={JSON.stringify(character)}>
-            {index + 1} - {character.username}
-          </option>
-        ))}
-      </select>
+      <h3>Personagem:
+        <select name="character" onChange={handleChange}>
+          <option value="0">Selecione um personagem</option>
+          {charactersByUserId.map((character, index) => (
+            <option key={character.value} value={JSON.stringify(character)}>
+              {index + 1} - {character.username}
+            </option>
+          ))}
+        </select>
+      </h3>
 
-      Garagem:
-      <select name="garage" onChange={handleChange}>
-        <option value="0">Selecione uma garagem</option>
-        {garagesByCharacterId.map((garage, index) => (
-          <option key={garage.value} value={JSON.stringify(garage)}>
-            {index + 1} - {garage.property}
-          </option>
-        ))}
-      </select>
+      <h3>Garagem:
+        <select name="garage" onChange={handleChange}>
+          <option value="0">Selecione uma garagem</option>
+          {garagesByCharacterId.map((garage, index) => (
+            <option key={garage.value} value={JSON.stringify(garage)}>
+              {index + 1} - {garage.property}
+            </option>
+          ))}
+        </select>
+      </h3>
 
       <a>{garage.ocupation !== undefined ? `${garage.ocupation}/${garage.capacity}` : '0/00'}</a>
-      {JSON.stringify(garagesByCharacterId[(garage.id - 1)])}
-
     </div>
   );
 }

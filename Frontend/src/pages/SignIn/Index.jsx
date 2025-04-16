@@ -5,26 +5,28 @@ import useUsers from '../../hooks/Users/useUsers.jsx';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Form from './Form';
-import 'react-toastify/dist/ReactToastify.css';
-import './Styles.css';
+import Form from './Form.jsx';
 
-function Register() {
+import 'react-toastify/dist/ReactToastify.css';
+import '../../Styles/layout.css';
+import '../../Styles/sign.css';
+
+function Login() {
     const { users, setUpdateUserList } = useUsers();
 
     return (
-        <div className='container-register'>
+        <div className='container'>
             <Header/>
+            <div className='content content-sign'>
 
-            <div className='content-register'>
-                <main>
-                    <div className='title-register'>
-                        <h2>Registre-se:</h2>
+                <main className='sign'>
+                  
+                    <div className='title'>
+                        <h2>Faça login:</h2>
                     </div>
-                    
-                    <div className='form-register'>
-                        <Form users={users} setUpdateUserList={setUpdateUserList}/>
-                    </div>
+
+                    <Form users={users} />
+
                 </main>
 
                 <ToastContainer 
@@ -35,11 +37,11 @@ function Register() {
                     position="bottom-left" 
                     theme="dark"
                 />
+                
             </div>
-
             <Footer/>
         </div>
     );
 }
 
-export default Register;
+export default Login;

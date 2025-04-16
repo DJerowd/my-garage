@@ -14,7 +14,8 @@ import Form from './Form.jsx';
 import List from './List.jsx';
 
 import 'react-toastify/dist/ReactToastify.css';
-import './Styles.css';
+import '../../Styles/layout.css';
+import '../../Styles/grid.css';
 
 function Veiculo() {
   const loggedInUser = getLoggedInUser();
@@ -22,16 +23,17 @@ function Veiculo() {
   const { garagesByCharacterId, setUpdateGarageListByCharacterId, setGarageByCharacterId } = useGaragesByCharacterId();
   const { vehiclesByGarageId, setUpdateVehicleListByGarageId, setVehicleByGarageId } = useVehiclesByGarageId();
   const { increaseOccupation, decreaseOccupation, loading, error } = useGarageOccupation();
+  const [garageLimit, setGarageLimit] = useState(false);
   const [ids, setIds] = useState({
-    characterId: "",
-    garageId: ""
+    characterId: 0,
+    garageId: 0
   });
 
   if (!loggedInUser) {
     return (
-      <div className='container-car'>
+      <div className='container'>
         <Header />
-        <div className='content-car'>
+        <div className='content'>
           Faça login para acessar essa página.
         </div>
         <Footer/>
@@ -40,46 +42,42 @@ function Veiculo() {
   }
 
   return (
-    <div className='container-car'>
+    <div className='container'>
       <Header />
-      <div className='content-car'>
+      <div className='content content-grid'>
 
-        <main className='main-car'>
-          <div className='title-car'>
-            Adicionar Veículo:
-          </div>
-
-          <div className='form-car'>
-            <Form 
-              ids={ids}
-              charactersByUserId={charactersByUserId}
-              garagesByCharacterId={garagesByCharacterId}
-              setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
-              increaseOccupation={increaseOccupation}
-            />
-          </div>
+        <main>
+          <h2>Adicionar Veículo:</h2>
+          
+          <Form 
+            ids={ids}
+            garageLimit={garageLimit}
+            charactersByUserId={charactersByUserId}
+            garagesByCharacterId={garagesByCharacterId}
+            setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
+            increaseOccupation={increaseOccupation}
+          />
         </main>
-        <aside className='aside-car'>
-          <div className='filter-car'>
-            <Filter 
-              setIds={setIds}
-              charactersByUserId={charactersByUserId}
-              garagesByCharacterId={garagesByCharacterId}
-              setUpdateGarageListByCharacterId={setUpdateGarageListByCharacterId}
-              setGarageByCharacterId={setGarageByCharacterId}
-              setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
-              setVehicleByGarageId={setVehicleByGarageId}
-            />
-          </div>
 
-          <div className='list-car'>
-            <List 
-              ids={ids}
-              vehiclesByGarageId={vehiclesByGarageId}
-              setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
-              decreaseOccupation={decreaseOccupation}
-            />
-          </div>
+        <aside>
+          <Filter 
+            className='filter'
+            setIds={setIds}
+            setGarageLimit={setGarageLimit}
+            charactersByUserId={charactersByUserId}
+            garagesByCharacterId={garagesByCharacterId}
+            setUpdateGarageListByCharacterId={setUpdateGarageListByCharacterId}
+            setGarageByCharacterId={setGarageByCharacterId}
+            setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
+            setVehicleByGarageId={setVehicleByGarageId}
+          />
+
+          <List 
+            ids={ids}
+            vehiclesByGarageId={vehiclesByGarageId}
+            setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
+            decreaseOccupation={decreaseOccupation}
+          />
         </aside>
 
       </div>

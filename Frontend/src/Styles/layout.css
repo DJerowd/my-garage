@@ -1,0 +1,67 @@
+/* CONTAINER */
+.container {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-family-2);
+
+    min-height: 100vh;
+}
+
+/* CONTEUDO */
+.content {
+    display: flex;
+
+    align-items: baseline;
+    justify-content: center;
+   
+    width: 100vw;
+    padding: calc(var(--header-height) + 16px) 16px 0 16px;
+    min-height: 100vh;
+    background-image: url('../assets/GTA6_background.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+.content-sign {
+    background-image: url('../assets/background-2.jpg');
+}
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+    gap: 12px;
+}
+
+.content-settings main, .content-profile main {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+
+    min-height: 80vh;
+    min-width: 100%;
+    border-radius: 8px;
+
+    background-color: var(--background-color);
+}
+.content-grid main, .content-grid aside {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+
+    min-height: 80vh;
+    border-radius: 8px;
+
+    background-color: var(--background-color);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .content-grid {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+    .content-grid main, .content-grid aside {
+        min-height: auto;
+        width: 100%;
+    }
+}

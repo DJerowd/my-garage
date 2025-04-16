@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './Styles.css';
+
+import '../../Styles/sign.css';
 
 function Form({ users, setUpdateUserList }) {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ function Form({ users, setUpdateUserList }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if ( !user.username || !user.email || !user.password ) {
+        if ( !user.username || !user.email || !user.password || !user.confirmPassword ) {
             toast.warn(`Todos os campos devem ser preenchidos!`);
         } else if ( user.confirmPassword != user.password ) {
             toast.warn(`A senha e confirmação não coincidem!`);
@@ -50,7 +51,7 @@ function Form({ users, setUpdateUserList }) {
                 password: '',
                 confirmPassword: ''
             });
-            navigate('/login');
+            navigate('/signin');
         }
         setUpdateUserList(prevState => !prevState);
     };
@@ -78,8 +79,8 @@ function Form({ users, setUpdateUserList }) {
             </label>
 
             <div className='buttonsBox'>
-                <button className='btnRegister' type="submit">Criar conta</button>
-                <Link to="/login">Já possui uma conta? Faça login</Link>
+                <button type="submit">Criar conta</button>
+                <Link to="/signin">Já possui uma conta? Faça login</Link>
             </div>
         </form>
   );
