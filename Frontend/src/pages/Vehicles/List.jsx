@@ -1,4 +1,5 @@
 import { React } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { toast } from 'react-toastify';
 
@@ -8,7 +9,8 @@ import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 
 function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreaseOccupation }) {
-  
+  const navigate = useNavigate();
+
   // FUNÇÃO PARA EDITAR O VEÍCULO.
   const handleEdit = (id) => {
     toast.success(`Veículo ${id} editado!`);
@@ -33,10 +35,10 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
     }
   };
 
-  // DIRECIONAR PARA A PAGINA DE DETALHES DO VEÍCULO SELECIONADO.
-  const handleVehicleDetails = (vehicle) => {
-    // history.push(`/vehicle/${vehicleId}`);
-    toast.warn(vehicle);
+  // DIRECIONA PARA A PAGINA DE DETALHES DO VEÍCULO SELECIONADO.
+  const handleVehicleDetails = (id) => {
+    navigate(`/vehicle/${id}`);
+    toast(`Veículo ${id}!`);
   };
 
   //  LISTA VAZIA PARA SER EXIBIDA QUANDO NÃO HOUVER NENHUM VEICULO NA GARAGEM SELECIONADA.
@@ -44,7 +46,7 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
     return (
       <table>
         {/* HEADER DA TABELA */}
-        <th>
+        <th id='vehicles-list'>
           <td></td>
           <td>Placa</td>
           <td>Veículo</td>
@@ -52,12 +54,8 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
           <td></td>
         </th>
         {/* DADOS DA TABELA */}
-        <tr>
-          <td style={{background:'#f005'}}></td>
-          <td style={{background:'#0f05'}}></td>
-          <td style={{background:'#00f5'}}>Nenhum veículo.</td>
-          <td style={{background:'#ff05'}}></td>
-          <td style={{background:'#f0f5'}}></td>
+        <tr id='none-list'>
+          <td>Nenhum veículo.</td>
         </tr>
       </table>
     );
@@ -65,39 +63,39 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
 
   return (
     <table>
-      <th>
-        <a></a>
-        <a>Placa</a>
-        <a>Veículo</a>
-        <a>Cores do Veículo</a>
-        <a></a>
+      {/* HEADER DA TABELA */}
+      <th id='vehicles-list'>
+        <td></td>
+        <td>Veículo</td>
+        <td>Cores do Veículo</td>
+        <td>Placa</td>
+        <td></td>
       </th>
-      <tr>
-          {vehiclesByGarageId.map((vehicle, index) => (
-          <div key={vehicle.id}  onClick={() => handleVehicleDetails(JSON.stringify(vehicle))} >
-              <a style={{background:'#f005'}}>{index + 1}</a>
-              <a style={{background:'#0f05'}}>{`${vehicle.manufacturer} ${vehicle.model}`}</a>
-              <a style={{background:'#00f5'}}>
-              {['primaryColor', 'secundaryColor', 'pearlescentColor', 'interiorColor', 'dashboardColor', 'rimColor'].map(colorKey => (
-                <colorBlock
-                  key={colorKey}
-                  className="colorblock"
-                  style={{ background: vehicle[colorKey]}}
-                />
-              ))}
-              </a>
-              <a style={{background:'#ff05'}}>{`${vehicle.plate}`}</a>
-              <a style={{background:'#f0f5'}}>
-                <button onClick={() => handleEdit(vehicle.id)}>
-                  <FaRegEdit/>
-                </button>
-                <button onClick={() => handleDelete(vehicle.id)}>
-                  <FaTrash/>
-                </button>
-              </a>
-          </div>
+      {/* DADOS DA TABELA */}
+      {vehiclesByGarageId.map((vehicle, index) => (
+        <tr key={vehicle.id} id='vehicles-list' onClick={() => handleVehicleDetails(vehicle.id)}>
+          <td>{index + 1}</td>
+          <td>{`${vehicle.manufacturer} ${vehicle.model}`}</td>
+          <td>
+          {['primaryColor', 'secundaryColor', 'pearlescentColor', 'interiorColor', 'dashboardColor', 'rimColor'].map(colorKey => (
+            <colorBlock
+              key={colorKey}
+              className="colorblock"
+              style={{ background: vehicle[colorKey]}}
+            />
           ))}
-      </tr>
+          </td>
+          <td>{`${vehicle.plate}`}</td>
+          <td>
+            <button onClick={() => handleEdit(vehicle.id)}>
+              <FaRegEdit/>
+            </button>
+            <button onClick={() => handleDelete(vehicle.id)}>
+              <FaTrash/>
+            </button>
+          </td>
+        </tr>
+      ))}
     </table>
   );
 }

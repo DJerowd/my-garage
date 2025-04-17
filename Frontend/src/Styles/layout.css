@@ -42,6 +42,19 @@
 
     background-color: var(--background-color);
 }
+.content-vehicle main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-self: flex-start;
+
+    min-height: 80vh;
+    min-width: 100%;
+    padding: 12px 1vw;
+    gap: 1vw;
+    border-radius: 8px;
+
+    background-color: var(--background-color);
+}
 .content-grid main, .content-grid aside {
     display: flex;
     flex-direction: column;

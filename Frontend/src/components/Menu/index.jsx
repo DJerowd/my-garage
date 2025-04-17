@@ -1,12 +1,19 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getLoggedInUser } from '../../utils/auth.js';
+import { Link } from 'react-router-dom';
 import { IoHome, IoSettingsSharp, IoBody, IoCar, IoLogOut } from "react-icons/io5";
 import { FaUser, FaWarehouse } from "react-icons/fa6";
 
 import '../../Styles/components/dropdown.css';
 
 function Menu(){
+    const navigate = useNavigate();
     const loggedInUser = getLoggedInUser();
+
+    const logoff = () => {
+        localStorage.setItem('loggedInUser', null);
+        navigate('/login');
+    };
 
     return (
         <div className='dropdown'>
@@ -27,7 +34,7 @@ function Menu(){
 
                 <Link to="/vehicles"><IoCar className='iconMenu'/>Veículos</Link>
 
-                <Link to="/login"><IoLogOut className='iconMenu'/>Sair</Link>
+                <Link to="/login" onClick={logoff} ><IoLogOut className='iconMenu'/>Sair</Link>
 
         </div>
     )

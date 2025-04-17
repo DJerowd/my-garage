@@ -22,7 +22,7 @@ function MainRoutes(){
             <Route path="/characters" element={<Characters />} />
             <Route path="/garages" element={<Garages />} />
             <Route path="/vehicles" element={<Vehicles />} />
-            <Route path="/vehicles/details" element={<VehicleDetails />} />
+            <Route path="/vehicle/:id" element={<VehicleDetails />} />
         </Routes>
     )
 }

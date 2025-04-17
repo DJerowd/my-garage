@@ -38,6 +38,9 @@ header section img:hover {
     filter: drop-shadow(0 0 10px var(--secondary-color));
     width: 96px;
 }
+header section button:disabled {
+    opacity: 50%;
+}
 
 /* ITENS CENTRAL */
 header main {
@@ -71,7 +74,7 @@ header main div:first-child a:hover {
 /* NAVEGAÇÂO */
 header main div:last-child {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     font-weight: bold;
     font-size: large;
 

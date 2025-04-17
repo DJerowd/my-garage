@@ -31,11 +31,31 @@ function List({ charactersByUserId, setUpdateCharactersListByUserId }) {
       );
     }
   };
+
+  //  LISTA VAZIA PARA SER EXIBIDA QUANDO NÃO HOUVER NENHUM PERSONAGEM.
+  if (JSON.stringify(charactersByUserId) == '[]') {
+    return (
+        <table>
+            {/* HEADER DA TABELA */}
+            <th id='characters-list'>
+              <td></td>
+              <td>RP</td>
+              <td>Username</td>
+              <td>Data de Criação</td>
+              <td></td>
+            </th>
+            {/* DADOS DA TABELA */}
+            <tr id='none-list'>
+                <td>Nenhum personagem.</td>
+            </tr>
+        </table>
+    );
+  }
   
   return (
     <table>
       {/* HEADER DA TABELA */}
-      <th>
+      <th id='characters-list'>
         <td></td>
         <td>RP</td>
         <td>Username</td>
@@ -44,7 +64,7 @@ function List({ charactersByUserId, setUpdateCharactersListByUserId }) {
       </th>
       {/* DADOS DA TABELA */}
       {charactersByUserId.map((character, index) => (
-        <tr key={character.id}>
+        <tr key={character.id} id='characters-list'>
           <td>{index + 1}</td>
           <td>{character.reputation}</td>
           <td>{character.username}</td>
