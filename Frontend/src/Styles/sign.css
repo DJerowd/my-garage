@@ -2,6 +2,7 @@
 .sign {
     display: flex;
     flex-direction: column;
+    font-family: var(--font-family-1);
 
     min-width: 30vw;
     padding: 20px;
@@ -15,6 +16,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-size: 1.2rem;
 
     padding: 8px 0.5vw;
 }
@@ -30,9 +32,11 @@
 .sign form label{
     display: flex;
     flex-direction: column;
-    font-size: medium;
+    font-size: 1.2rem;
 }
 .sign form label input{
+    font-size: 1.0rem;
+    font-family: var(--font-family-2);
     transition: all 0.5s;
     
     padding: 8px 6px;
@@ -55,6 +59,8 @@
 .sign form label a {
     transition: all 0.5s;
     text-decoration: none;
+    font-size: 1.0rem;
+    font-family: var(--font-family-2);
 
     margin: 0 12px;
 
@@ -67,11 +73,14 @@
 /* MENSAGEM DE ERRO */
 .sign .error {
     text-align: center;
+    font-size: 1.0rem;
+    font-family: var(--font-family-2);
 
     border-radius: 8px;
 
     border: 2px solid var(--error-color);
     color: var(--error-color);
+    background-color: color-mix(in srgb, currentColor 50%, #FFFFFF 50%);
 }
 
 /* SELEÇÂO AÇÕES */
@@ -94,7 +103,8 @@
 
 /* BOTÃO DE ENVIO */
 .sign form div button {
-    font-size: medium;
+    font-size: 1.0rem;
+    font-family: var(--font-family-1);
     transition: all 0.5s;
     text-transform: uppercase;
 

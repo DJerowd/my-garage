@@ -11,15 +11,15 @@ function List({ garagesByCharacterId, setUpdateGarageListByCharacterId }) {
             <table>
                 {/* HEADER DA TABELA */}
                 <th id='garages-list'>
-                    <td></td>
-                    <td>Slot</td>
-                    <td>Propriedade</td>
-                    <td>Ocup.</td>
-                    <td>Capac.</td>
+                    <td id="index"></td>
+                    <td id="slot">Slot</td>
+                    <td id="property">Propriedade</td>
+                    <td id="ocupation">Ocup.</td>
+                    <td id="capacity">Capac.</td>
                 </th>
                 {/* DADOS DA TABELA */}
                 <tr id='none-list'>
-                    <td>Nenhuma garagem.</td>
+                    <td>Nenhuma garagem encontrada.</td>
                 </tr>
             </table>
         );
@@ -29,20 +29,20 @@ function List({ garagesByCharacterId, setUpdateGarageListByCharacterId }) {
         <table>
             {/* HEADER DA TABELA */}
             <th id='garages-list'>
-                <td></td>
-                <td>Slot</td>
-                <td>Propriedade</td>
-                <td>Ocup.</td>
-                <td>Capac.</td>
+                <td id="index"></td>
+                <td id="slot">Slot</td>
+                <td id="property">Propriedade</td>
+                <td id="ocupation">Ocup.</td>
+                <td id="capacity">Capac.</td>
             </th>
             {/* DADOS DA TABELA */}
             {garagesByCharacterId.map((garage, index) => (
                 <tr key={garage.id} id='garages-list'>
-                    <td>{index + 1}</td>
-                    <td>{garage.slot}</td>
-                    <td>{garage.property}</td>
-                    <td>{garage.ocupation}</td>
-                    <td>{garage.capacity}</td>
+                    <td id="index">{index + 1}</td>
+                    <td id="slot">{garage.slot}</td>
+                    <td id="property">{garage.property}</td>
+                    <td id="ocupation">{garage.ocupation}</td>
+                    <td id="capacity">{garage.capacity}</td>
                 </tr>
             ))}
         </table>

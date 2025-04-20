@@ -61,7 +61,6 @@ function Veiculo() {
 
         <aside>
           <Filter 
-            className='filter'
             setIds={setIds}
             setGarageLimit={setGarageLimit}
             charactersByUserId={charactersByUserId}

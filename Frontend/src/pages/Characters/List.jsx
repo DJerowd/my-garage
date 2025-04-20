@@ -46,7 +46,7 @@ function List({ charactersByUserId, setUpdateCharactersListByUserId }) {
             </th>
             {/* DADOS DA TABELA */}
             <tr id='none-list'>
-                <td>Nenhum personagem.</td>
+                <td>Nenhum personagem encontrado.</td>
             </tr>
         </table>
     );
@@ -56,20 +56,20 @@ function List({ charactersByUserId, setUpdateCharactersListByUserId }) {
     <table>
       {/* HEADER DA TABELA */}
       <th id='characters-list'>
-        <td></td>
-        <td>RP</td>
-        <td>Username</td>
-        <td>Data de Criação</td>
-        <td></td>
+        <td id="index"></td>
+        <td id="rp">RP</td>
+        <td id="name">Username</td>
+        <td id="date">Data de Criação</td>
+        <td id="btn"></td>
       </th>
       {/* DADOS DA TABELA */}
       {charactersByUserId.map((character, index) => (
         <tr key={character.id} id='characters-list'>
-          <td>{index + 1}</td>
-          <td>{character.reputation}</td>
-          <td>{character.username}</td>
-          <td>{format(new Date(character.createDate), 'dd/MM/yyyy')}</td>
-          <td>
+          <td id="index">{index + 1}</td>
+          <td id="rp">{character.reputation}</td>
+          <td id="name">{character.username}</td>
+          <td id="date">{format(new Date(character.createDate), 'dd/MM/yyyy')}</td>
+          <td id="btn">
             <button onClick={() => handleEdit(character.id)}>
               <FaRegEdit/>
             </button>

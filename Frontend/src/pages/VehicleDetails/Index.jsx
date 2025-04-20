@@ -59,24 +59,46 @@ function VehicleDetails() {
             </section>
           
             <section>
-              {/* <h3>{JSON.stringify(vehicle)}</h3> */}
+              
+              <h3>{vehicle.characterId} - {vehicle.garageId} - {vehicle.model} </h3>
+
+              <div className="vehicle-colors">
+                <h3>Cores do veículo:</h3>
+
+                <label className="color-box">
+                  Primária:
+                  <span style={{ backgroundColor: vehicle.primaryColor }}></span>
+                </label>
+
+                <label className="color-box">
+                  Secundária:
+                  <span style={{ backgroundColor: vehicle.secundaryColor }}></span>
+                </label>
+
+                <label>
+                  Perolado:
+                  <span style={{ backgroundColor: vehicle.pearlescentColor }}></span>
+                </label>
+
+                <label>
+                  Interior:
+                  <span style={{ backgroundColor: vehicle.interiorColor }}></span>
+                </label>
+
+                <label>
+                  Detalhes:
+                  <span style={{ backgroundColor: vehicle.dashboardColor }}></span>
+                </label>
+              </div>
+              
               <dl>
-                <dt>Personagem:</dt>
-                <dd>{vehicle.characterId}</dd>
+                <dt>Rodas:</dt>
+                <dd>{vehicle.rimsType} - {vehicle.rims}</dd>
 
-                <dt>Garagem:</dt>
-                <dd>{vehicle.garageId}</dd>
-                
-                <dt>Tipo de rodas:</dt>
-                <dd>{vehicle.rimsType}</dd>
-
-                <dt>Modelo de rodas:</dt>
-                <dd>{vehicle.rims}</dd>
-
-                <dt>Vidros:</dt>
+                <dt>Vidro:</dt>
                 <dd>{vehicle.windows}</dd>
 
-                <dt>Placas:</dt>
+                <dt>Placa:</dt>
                 <dd>{vehicle.plate}</dd>
               </dl>
             </section>

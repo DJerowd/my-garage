@@ -47,15 +47,15 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
       <table>
         {/* HEADER DA TABELA */}
         <th id='vehicles-list'>
-          <td></td>
-          <td>Placa</td>
-          <td>Veículo</td>
-          <td>Cores do Veículo</td>
-          <td></td>
+        <td id="index"></td>
+        <td id="vehicle">Veículo</td>
+        <td id="color">Cores do Veículo</td>
+        <td id="plate">Placa</td>
+        <td id="btn"></td>
         </th>
         {/* DADOS DA TABELA */}
         <tr id='none-list'>
-          <td>Nenhum veículo.</td>
+          <td>Nenhum veículo encontrado.</td>
         </tr>
       </table>
     );
@@ -65,28 +65,26 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
     <table>
       {/* HEADER DA TABELA */}
       <th id='vehicles-list'>
-        <td></td>
-        <td>Veículo</td>
-        <td>Cores do Veículo</td>
-        <td>Placa</td>
-        <td></td>
+        <td id="index"></td>
+        <td id="vehicle">Veículo</td>
+        <td id="color">Cores do Veículo</td>
+        <td id="plate">Placa</td>
+        <td id="btn"></td>
       </th>
       {/* DADOS DA TABELA */}
       {vehiclesByGarageId.map((vehicle, index) => (
         <tr key={vehicle.id} id='vehicles-list' onClick={() => handleVehicleDetails(vehicle.id)}>
-          <td>{index + 1}</td>
-          <td>{`${vehicle.manufacturer} ${vehicle.model}`}</td>
-          <td>
+          <td id="index">{index + 1}</td>
+          <td id="vehicle">{`${vehicle.manufacturer} ${vehicle.model}`}</td>
+          <td id="color">
           {['primaryColor', 'secundaryColor', 'pearlescentColor', 'interiorColor', 'dashboardColor', 'rimColor'].map(colorKey => (
-            <colorBlock
-              key={colorKey}
-              className="colorblock"
+            <span
               style={{ background: vehicle[colorKey]}}
-            />
+            ></span>
           ))}
           </td>
-          <td>{`${vehicle.plate}`}</td>
-          <td>
+          <td id="plate">{`${vehicle.plate}`}</td>
+          <td id="btn">
             <button onClick={() => handleEdit(vehicle.id)}>
               <FaRegEdit/>
             </button>

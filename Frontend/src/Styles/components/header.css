@@ -97,6 +97,10 @@ header main div:last-child a:hover {
     border-top: 4px solid var(--secondary-color);
     color: var(--secondary-color);
 }
+header main div:last-child a:active {
+    border-top: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
 
 
 

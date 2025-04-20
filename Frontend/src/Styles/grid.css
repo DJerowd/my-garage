@@ -24,39 +24,27 @@
     padding: 12px 1vw;
     gap: 12px;
 }
-.content-grid main form label {
+.content-grid main form h3 {
+    display: flex;
+    align-self: center;
+    font-family: var(--font-family-3);
+
+    width: fit-content;
+    padding: 4px 6px;
+    border-radius: 8px;
+
+    border: 2px solid currentColor;
+    color: var(--secondary-color);
+    background-color: color-mix(in srgb, currentColor 30%, #FFFFFF 70%);
+}
+.content-grid main label {
     display: flex;
     flex-direction: column;
     font-size: larger;
     font-weight: bold;
 }
-.content-grid main form label:first-child {
+.content-grid main label:first-child {
     border-top: 1px solid var(--background-color-2);
-}
-
-.content-grid main form label input, .content-grid main form label select{
-    font-family: var(--font-family-2);
-    font-size: medium;
-    text-overflow: ellipsis; 
-    transition: all 0.5s;
-
-    padding: 8px 6px;
-    width: 100%;
-    border-radius: 8px;
-
-    border: 2px solid currentColor;
-    color: var(--font-color);
-    background: var(--background-color-2);
-}
-.content-grid main form label input:focus, .content-grid main form label select:focus {
-    outline: 0;
-    border: 2px ridge var(--primary-color);
-}
-.content-grid main form label input:disabled, .content-grid main form label select:disabled{
-    opacity: 50%;
-}
-.content-grid main form select option {
-    text-shadow: 0 0 2px var(--box-shadow-color);
 }
 
 /* BOTÃO DE ENVIO */
@@ -71,7 +59,8 @@
     border-radius: 8px;
 
     border: none;
-    background: linear-gradient(0deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--button-color) 100%);
+    background: linear-gradient(135deg, #1a0033, #4b005f); 
+    /* background: linear-gradient(0deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--button-color) 100%); */
 }
 .content-grid main form button:hover {
     filter: brightness(150%);
@@ -103,12 +92,14 @@
 
     padding: 12px 1vw;
     border-radius: 8px;
-    gap: 8px;
+    gap: 12px;
     
     background: var(--background-color-2);
 }
-.content-grid aside div h3, .content-grid aside div a {
+.content-grid aside h3, .content-grid aside a {
     display: flex;
+    align-items: center;
+
     gap: 8px;
 }
 .content-grid aside div a {
@@ -122,50 +113,38 @@
 
     border: 2px solid var(--font-color);
 }
-.content-grid aside div select {
-    font-family: var(--font-family-2);
-    font-size: medium;
-    transition: all 0.5s;
-
-    padding: 6px 4px;
-    border-radius: 8px;
-
-    border: 2px solid currentColor;
-    color: var(--font-color);
-    background: var(--background-color-2);
-}
 
 /* TABELA */
 .content-grid aside table {
     display: flex;
     flex-direction: column;
+    font-size: 1.2rem;
     overflow-y: scroll;
 }
 .content-grid aside table th, .content-grid aside table tr {
     display: grid;
 }
 .content-grid #characters-list {
-    grid-template-columns: 1fr 4fr 8fr 6fr 2fr;
+    grid-template-columns: 2rem 8rem 1fr 12rem 8rem;
 }
 .content-grid #garages-list {
-    grid-template-columns: 1fr 6fr 11fr 2fr 2fr;
+    grid-template-columns: 2rem 1fr 2fr 4rem 4rem;
 }
 .content-grid #vehicles-list {
-    grid-template-columns: 1fr 8fr 8fr 3fr 2fr;
+    grid-template-columns: 2rem 1fr 1fr 8rem 8rem;
 }
 .content-grid #none-list {
     grid-template-columns: 1fr;
 }
 /* HEADER DA TABELA */
 .content-grid aside table th {
+    text-align: start;
     border-radius: 8px;
 
     background-color: var(--background-color-2);
 }
 /* LINHAS DA TABELA */
 .content-grid aside table tr {
-    text-align: center;
-    font-size: large;
     transition: all 0.2s;
 
     border-bottom: 1px solid var(--background-color-2);
@@ -179,17 +158,88 @@
 .content-grid aside table td {
     padding: 12px 0;
 }
+.content-grid #index {
+    text-shadow: 1px     1px 2px var(--secondary-color);
+}
+.content-grid #index, .content-grid #btn, .content-grid #rp, .content-grid #date, .content-grid #ocupation, .content-grid #capacity, .content-grid #color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.content-grid #name, .content-grid #slot, .content-grid #property, .content-grid #vehicle, .content-grid #plate {
+    text-indent: 1rem;
+}
+.content-grid #slot, .content-grid #vehicle {
+    text-transform: capitalize;
+}
+.content-grid #color {
+    display: flex;
+    gap: 0.2rem;
+}
+.content-grid #color span {
+    display: inline-block;
+
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+
+    border: 2px solid currentColor;
+    box-shadow: inset 0 0 2px var(--box-shadow-color);
+}
+.content-grid #btn {
+    display: flex;
+    justify-content: space-evenly;
+}
 /* BOTÕES DE AÇÃO DA TABELA */
-.content-grid aside table tr button {
-    font-size: large;
-    transition: all 0.2s;
+.content-grid #btn button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    transition: all 0.4s;
 
-    width: 50%;
     border: 0;
-
     color: var(--font-color);
     background: none;
 }
-.content-grid aside table tr button:hover {
+.content-grid #btn button:hover {
     color: var(--font-color-2);
+}
+
+
+/* IMPUT E SELECT */
+.content-grid input, .content-grid select {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-family-1);
+    font-size: medium;
+    text-overflow: ellipsis; 
+  
+    padding: 0.4rem;
+    width: 100%;
+    border-radius: 8px;
+    
+    border: 2px solid var(--secondary-color);
+    text-shadow: 0 0 2px var(--box-shadow-color);
+    background-color: var(--background-color-2);
+    color: var(--font-color);
+  }
+.content-grid select:hover, .content-grid input:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 4px var(--secondary-color);
+}
+.content-grid select:focus, .content-grid input:focus {
+    outline: 0;
+    border: 2px solid var(--font-color);
+    box-shadow: none;
+}
+.content-grid select:disabled, .content-grid input:disabled{
+    opacity: 50%;
+}
+.content-grid select option {
+    font-family: var(--font-family-2);
+
+    color: var(--font-color);
+    text-shadow: 0 1px 1px var(--font-color);
 }

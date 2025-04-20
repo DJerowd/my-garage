@@ -93,11 +93,19 @@ function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId }) {
         }
     };
 
+    if (!ids.characterId) {
+        return (
+            <form onSubmit={handleSubmit}>
+                <h3>Primeiro selecione um personagem</h3>
+            </form>
+        );
+    }
+
     return (
         <form onSubmit={handleSubmit}>
             <label>
                 Tipo de Propriedade:
-                <select name="slot" value={garage.slot} onChange={handleChange}>
+                <select name="slot" value={garage.slot} onChange={handleChange} disabled={!ids.characterId}>
                     <option value="">Nenhum</option>
                     {Object.keys(properties).map((property, index) => (
                         <option key={property} value={property}>

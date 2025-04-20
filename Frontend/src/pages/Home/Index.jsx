@@ -10,11 +10,11 @@ function Home() {
   return (
     <div className='container'>
       <Header />
-      <div className='content'>
+      <div className='content content-home'>
 
         <main className='home'>
           <Article/>
-          <Slide/>
+          {/* <Slide/> */}
         </main>
 
       </div>

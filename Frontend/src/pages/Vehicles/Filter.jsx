@@ -4,8 +4,8 @@ import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 
 function Filter({ setIds, setGarageLimit, charactersByUserId, garagesByCharacterId, setUpdateGarageListByCharacterId, setGarageByCharacterId, setUpdateVehicleListByGarageId, setVehicleByGarageId }) {
-  const [ character, setCharacter ] = useState([]);
-  const [ garage, setGarage ] = useState([]);
+  const [ character, setCharacter ] = useState(0);
+  const [ garage, setGarage ] = useState(0);
 
   // ATUALIZA A LISTA DE VEÍCULOS DE ACORDO COM A GARAGEM SELECIONADA.
   const handleChange = (e) => {
@@ -72,7 +72,7 @@ function Filter({ setIds, setGarageLimit, charactersByUserId, garagesByCharacter
       </h3>
 
       <h3>Garagem:
-        <select name="garage" onChange={handleChange}>
+        <select name="garage" onChange={handleChange} disabled={!character}>
           <option value="0">Selecione uma garagem</option>
           {garagesByCharacterId.map((garage, index) => (
             <option key={garage.value} value={JSON.stringify(garage)}>

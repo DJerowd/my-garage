@@ -119,18 +119,24 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
     }
   };
 
+  if (!ids.characterId || !ids.garageId) {
+    return (
+        <form onSubmit={handleSubmit}>
+            <h3>Primeiro selecione uma garagem</h3>
+        </form>
+    );
+  }
+
   return (
     <form onSubmit={handleSubmit}>
 
-      {/* {JSON.stringify(garageLimit)} */}
-      
       <label>
         Marca:
-        <select name="manufacturer" onChange={handleChange} value={vehicle.manufacturer} required>
+        <select name="manufacturer" onChange={handleChange} value={vehicle.manufacturer} disabled={!ids.characterId || !ids.garageId} required>
           <option value="">Selecione uma marca</option>
           {manufacturers.map((manufacturer, index) => (
-            <option key={index} value={manufacturer}>
-              {index + 1} - {manufacturer.charAt(0).toUpperCase() + manufacturer.slice(1)}
+            <option key={index} value={manufacturer.name}>
+              {index + 1} - {manufacturer.displayName}
             </option>
           ))}
         </select>
@@ -151,11 +157,11 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Cor Primaria: 
-        <select style={{background: vehicle.primaryColor}} name="primaryColor" onChange={handleChange} value={vehicle.primaryColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select style={{color: vehicle.primaryColor}} name="primaryColor" onChange={handleChange} value={vehicle.primaryColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
-            <option key={index} value={color.hex} style={{background:`${color.hex}`}}>
-              {index + 1} - {color.description}
+            <option key={index} value={color.hex} style={{color:`${color.hex}`}}>
+              {index + 1} - {color.name}
             </option>
           ))}
         </select>
@@ -163,11 +169,11 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Cor Secundaria: 
-        <select style={{background: vehicle.secundaryColor}} name="secundaryColor" onChange={handleChange} value={vehicle.secundaryColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select style={{color: vehicle.secundaryColor}} name="secundaryColor" onChange={handleChange} value={vehicle.secundaryColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
-            <option key={index} value={color.hex} style={{background:`${color.hex}`}}>
-              {index + 1} - {color.description}
+            <option key={index} value={color.hex} style={{color:`${color.hex}`}}>
+              {index + 1} - {color.name}
             </option>
           ))}
         </select>
@@ -175,11 +181,11 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Cor do Perolado: 
-        <select style={{background: vehicle.pearlescentColor}} name="pearlescentColor" onChange={handleChange} value={vehicle.pearlescentColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select style={{color: vehicle.pearlescentColor}} name="pearlescentColor" onChange={handleChange} value={vehicle.pearlescentColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
-            <option key={index} value={color.hex} style={{background:`${color.hex}`}}>
-              {index + 1} - {color.description}
+            <option key={index} value={color.hex} style={{color:`${color.hex}`}}>
+              {index + 1} - {color.name}
             </option>
           ))}
         </select>
@@ -187,11 +193,11 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Cor do Interior: 
-        <select style={{background: vehicle.interiorColor}} name="interiorColor" onChange={handleChange} value={vehicle.interiorColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select style={{color: vehicle.interiorColor}} name="interiorColor" onChange={handleChange} value={vehicle.interiorColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
-            <option key={index} value={color.hex} style={{background:`${color.hex}`}}>
-              {index + 1} - {color.description}
+            <option key={index} value={color.hex} style={{color:`${color.hex}`}}>
+              {index + 1} - {color.name}
             </option>
           ))}
         </select>
@@ -199,11 +205,11 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Cor dos Detalhes: 
-        <select style={{background: vehicle.dashboardColor}} name="dashboardColor" onChange={handleChange} value={vehicle.dashboardColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select style={{color: vehicle.dashboardColor}} name="dashboardColor" onChange={handleChange} value={vehicle.dashboardColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
-            <option key={index} value={color.hex} style={{background:`${color.hex}`}}>
-              {index + 1} - {color.description}
+            <option key={index} value={color.hex} style={{color:`${color.hex}`}}>
+              {index + 1} - {color.name}
             </option>
           ))}
         </select>
@@ -211,11 +217,11 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Cor das Rodas: 
-        <select style={{background: vehicle.rimColor}} name="rimColor" onChange={handleChange} value={vehicle.rimColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select style={{color: vehicle.rimColor}} name="rimColor" onChange={handleChange} value={vehicle.rimColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
-            <option key={index} value={color.hex} style={{background:`${color.hex}`}}>
-              {index + 1} - {color.description}
+            <option key={index} value={color.hex} style={{color:`${color.hex}`}}>
+              {index + 1} - {color.name}
             </option>
           ))}
         </select>
@@ -251,19 +257,17 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
         <select name="windows" onChange={handleChange} value={vehicle.windows} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione um modelo de rodas</option>
           {windows.map((window, index) => (
-            <option key={index} value={window}>
-              {index + 1} - {window}
+            <option key={index} value={window.name}>
+              {index + 1} - {window.name}
             </option>
           ))}
         </select>
       </label>
 
-
       <label>
         Placa:
-        <input type="text" name="plate" onChange={handleChange} value={vehicle.plate} disabled={!vehicle.manufacturer || !vehicle.model} required/>
+        <input type="text" name="plate" onChange={handleChange} minLength={7} value={vehicle.plate} disabled={!vehicle.manufacturer || !vehicle.model} required/>
       </label>
-
 
       <button type="submit" disabled={!vehicle.manufacturer || !vehicle.model}>Salvar Veículo</button>
     </form>

@@ -31,12 +31,13 @@
 .dropdown a:hover {
     scale: 1.1;
 
+    color: var(--secondary-color);
     background: var(--background-color-2);
 }
 .dropdown a:active {
     scale: 0.9;
 
-    color: var(--font-color-2);
+    color: var(--primary-color);
 }
 
 .iconMenu {

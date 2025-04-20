@@ -3,7 +3,7 @@ import { getLoggedInUser } from '../../utils/auth.js';
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaSquareGithub, FaSquareYoutube  } from "react-icons/fa6";
 import { FaHome, FaCar, FaClipboardList, FaUser, FaBars } from "react-icons/fa";
-import logo from '../../assets/icon.png';
+import logo from '../../assets/Sunshine-Garage.png';
 import Menu from '../Menu';
 
 import '../../Styles/components/header.css'

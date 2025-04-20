@@ -1,8 +1,8 @@
 [
-    "Nenhum",
-    "Fumê Claro",
-    "Fumê Intermediario",
-    "Fumê Escuro",
-    "Cristal",
-    "Verde Claro"
+    {"id": 0, "name": "Nenhum"},
+    {"id": 1, "name": "Fumê Claro"},
+    {"id": 2, "name": "Fumê Intermediario"},
+    {"id": 3, "name": "Fumê Escuro"},
+    {"id": 4, "name": "Cristal"},
+    {"id": 5, "name": "Verde Claro"}
 ]

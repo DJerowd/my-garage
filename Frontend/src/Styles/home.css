@@ -1,57 +1,48 @@
-/* MAIN */
-.home {
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    align-content: flex-end;
+/* ARTIGO */
+.article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 
-    width: 90vw;
-    height: 70vh;
-    padding: 8px;
-    border-radius: 10px;
-    
-    color: var(--font-color);
-    background: var(--transparent-background-color);
+  gap: 2vw;
 }
+/* ARTIGOS INDIVIDUAIS */
+.article div {
+  overflow: scroll;
+  transition: transform 0.2s ease;
 
-/* SLIDE */
-.home .swiper {
-  width: 100%;
+  height: 14svw;
+  border-radius: 8px;
+  
+  box-shadow: 0 4px 4px var(--box-shadow-color);
 }
-.home .swiper a {
-  height: 100%;
-  transition: transform 0.3s ease-in-out;
-  text-decoration: none;
-  color: var(--font-color);
-}
-.home .swiper a h3 {
-  position: absolute;
-  text-align: center;
-  text-shadow: 0 0 2px var(--font-color-2);
-  font-size: medium;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-.home .swiper a img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
-.home .swiper-slide {
-  border-radius: 10px;
-  align-content: center;
-  text-align: center;
-  background: var(--primary-color);
-}
-
-/* ARTICULO */
-.home .article-slide:hover {
+.article div:hover {
   transform: scale(1.05);
 }
+/* IMAGEM DO ARTIGO */
+.article div img {
+  display: block;
+  object-fit: cover;
+  
+  width: 100%;
+  height: 100%;
+}
+/* TITULO DO ARTIGO */
+.article .article-title-overlay {
+  position: absolute;
+  text-align: center;
+  transition: opacity 0.2s ease;
+  
+  bottom: 0;
+  width: 100%;
+  padding: 0.5rem;
+  opacity: 0;
 
-
+  color: var(--font-color);
+  background: var(--background-color-2);
+}
+.article div:hover .article-title-overlay {
+  opacity: 1;
+}
 
 
 @media (max-width: 768px) {
