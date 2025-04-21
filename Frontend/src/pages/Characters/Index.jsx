@@ -1,11 +1,13 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { getLoggedInUser } from '../../utils/auth.js';
+import { Link } from 'react-router-dom';
 
 import useCharactersByUserId from '../../hooks/Characters/useCharactersByUserId.jsx';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Pagination from '../../components/Pagination/Index.jsx';
 import Loading from '../../components/Loading/Index.jsx';
 import Form from './Form.jsx';
 import List from './List.jsx';
@@ -19,12 +21,16 @@ function Personagem() {
   const loggedInUser = getLoggedInUser();
   const { charactersByUserId, setUpdateCharactersListByUserId, loading, errors } = useCharactersByUserId();
 
+  // PAGINAÇÃO
+  const itemsPerPage = 6;
+  const [currentPage, setCurrentPage] = useState(1);
+
   if (!loggedInUser) {
     return (
       <div className='container'>
         <Header />
         <div className='content'>
-          Faça login para acessar essa página.
+          <h2>Faça <Link to="/signin">login</Link> para acessar essa página.</h2>
         </div>
         <Footer/>
       </div>
@@ -32,7 +38,15 @@ function Personagem() {
   }
 
   // TELA DE LOADING
-  if (loading) { return <Loading/>; }
+  if (loading) { 
+    return (
+      <div className='container'>
+        <Header />
+          <Loading/>
+        <Footer/>
+      </div> 
+    ); 
+  }
 
   return (
     <div className='container'>
@@ -51,6 +65,15 @@ function Personagem() {
           <List 
             charactersByUserId={charactersByUserId}
             setUpdateCharactersListByUserId={setUpdateCharactersListByUserId}
+            currentPage={currentPage} 
+            itemsPerPage={itemsPerPage}
+          />
+
+          <Pagination 
+            itens={charactersByUserId} 
+            currentPage={currentPage} 
+            setCurrentPage={setCurrentPage} 
+            itemsPerPage={itemsPerPage} 
           />
         </aside>
 

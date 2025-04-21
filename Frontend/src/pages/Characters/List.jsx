@@ -8,7 +8,13 @@ import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 import '../../Styles/responsive.css';
 
-function List({ charactersByUserId, setUpdateCharactersListByUserId }) {
+function List({ charactersByUserId, setUpdateCharactersListByUserId, currentPage, itemsPerPage }) {
+
+  // OBTÉM OS USUÁRIOS PARA A PÁGINA ATUAL
+  const currentcharacters = charactersByUserId.slice(
+      (currentPage - 1) * itemsPerPage,
+      currentPage * itemsPerPage
+  );
 
   // FUNÇÃO PARA EDITAR O PERSONAGEM.
   const handleEdit = (id) => {
@@ -64,7 +70,7 @@ function List({ charactersByUserId, setUpdateCharactersListByUserId }) {
         <td id="btn"></td>
       </th>
       {/* DADOS DA TABELA */}
-      {charactersByUserId.map((character, index) => (
+      {currentcharacters.map((character, index) => (
         <tr key={character.id} id='characters-list'>
           <td id="index">{index + 1}</td>
           <td id="rp">{character.reputation}</td>

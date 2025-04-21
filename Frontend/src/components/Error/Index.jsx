@@ -12,8 +12,8 @@ function Error() {
                 <main className='error'>
 
                     <h2>Página não encontrada</h2>
-                    <p>A página que você está procurando não foi encontrada.</p>
-                    <p>Volte para a página anterior.</p>
+                    <p>A página que você está procurando não foi encontrada</p>
+                    <p>Volte para a página inicial</p>
                     
                     <Link className='error-btn' to="/">
                         <svg class="svgIcon" viewBox="0 0 384 512">
