@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../../Styles/layout.css';
 
 function Register() {
-    const { users, setUpdateUserList } = useUsers();
+    const { users, setUpdateUserList, loading, errors } = useUsers();
 
     return (
         <div className='container'>

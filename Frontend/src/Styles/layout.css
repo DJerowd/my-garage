@@ -66,20 +66,3 @@
     display: flex;
     flex-direction: column;
 }
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .content-grid {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-    }
-    .content-grid main, .content-grid aside {
-        min-height: auto;
-        width: 100%;
-    }
-    .content-vehicle main {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-}

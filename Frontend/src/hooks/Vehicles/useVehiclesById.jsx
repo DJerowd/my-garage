@@ -4,9 +4,9 @@ import axios from 'axios';
 const useVehiclesById = () => {
     const [ vehicle, setVehicle ] = useState([]);
     const [ updateList, setUpdateList ] = useState(false);
+    const [ vehicleId, setVehicleId ] = useState(0);
     const [ loading, setLoading ] = useState(true);
     const [ errors, setErrors ] = useState(null);
-    const [ vehicleId, setVehicleId ] = useState(0);
 
     useEffect(() => {
         const fetchVehicle = async () => {
@@ -25,7 +25,7 @@ const useVehiclesById = () => {
         fetchVehicle();
     }, [updateList]);
 
-    return { vehicle, setUpdateList, loading, errors, setVehicleId };
+    return { vehicle, setUpdateList, setVehicleId, loading, errors };
 };
 
 export default useVehiclesById;

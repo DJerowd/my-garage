@@ -9,6 +9,7 @@ import useGarageOccupation from '../../hooks/Garages/useGarageOccupation.jsx';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Pagination from '../../components/Pagination/Index.jsx';
 import Filter from './Filter.jsx';
 import Form from './Form.jsx';
 import List from './List.jsx';
@@ -16,6 +17,7 @@ import List from './List.jsx';
 import 'react-toastify/dist/ReactToastify.css';
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
+import '../../Styles/responsive.css';
 
 function Veiculo() {
   const loggedInUser = getLoggedInUser();
@@ -28,6 +30,10 @@ function Veiculo() {
     characterId: 0,
     garageId: 0
   });
+
+  // PAGINAÇÃO
+  const itemsPerPage = 6;
+  const [currentPage, setCurrentPage] = useState(1);
 
   if (!loggedInUser) {
     return (
@@ -76,6 +82,15 @@ function Veiculo() {
             vehiclesByGarageId={vehiclesByGarageId}
             setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
             decreaseOccupation={decreaseOccupation}
+            currentPage={currentPage} 
+            itemsPerPage={itemsPerPage}
+          />
+
+          <Pagination 
+            itens={vehiclesByGarageId} 
+            currentPage={currentPage} 
+            setCurrentPage={setCurrentPage} 
+            itemsPerPage={itemsPerPage} 
           />
         </aside>
 

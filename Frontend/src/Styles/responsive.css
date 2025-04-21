@@ -1,0 +1,33 @@
+/* FORMATAÇÂO MOBILE */
+@media (max-width: 700px) {
+
+    /* HEADER */
+    header {
+        grid-template-columns: 1fr 1fr;
+    }
+    header main {
+        display: none;
+    }
+    
+    /* CONTEUDO */
+    .content-grid {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+    /* CONTEUDO PRINCIPAL */
+    .content-grid main, .content-grid aside {
+        min-height: auto;
+        width: 100%;
+    }
+    .content-vehicle main {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    /* FILTRO DA TABELA*/
+    .content-grid aside h3 {
+        flex-direction: column;
+    }
+}
+  

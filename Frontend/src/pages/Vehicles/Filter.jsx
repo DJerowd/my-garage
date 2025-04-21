@@ -2,6 +2,7 @@ import { React, useEffect, useState } from 'react';
 
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
+import '../../Styles/responsive.css';
 
 function Filter({ setIds, setGarageLimit, charactersByUserId, garagesByCharacterId, setUpdateGarageListByCharacterId, setGarageByCharacterId, setUpdateVehicleListByGarageId, setVehicleByGarageId }) {
   const [ character, setCharacter ] = useState(0);
@@ -59,7 +60,7 @@ function Filter({ setIds, setGarageLimit, charactersByUserId, garagesByCharacter
 }, [garage]);
   
   return (
-    <div>
+    <div className="filter">
       <h3>Personagem:
         <select name="character" onChange={handleChange}>
           <option value="0">Selecione um personagem</option>

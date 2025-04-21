@@ -8,8 +8,14 @@ import axios from 'axios';
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 
-function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreaseOccupation }) {
+function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreaseOccupation, currentPage, itemsPerPage }) {
   const navigate = useNavigate();
+
+  // OBTÉM OS USUÁRIOS PARA A PÁGINA ATUAL
+  const currentVehicles = vehiclesByGarageId.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   // FUNÇÃO PARA EDITAR O VEÍCULO.
   const handleEdit = (id) => {
@@ -72,7 +78,7 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
         <td id="btn"></td>
       </th>
       {/* DADOS DA TABELA */}
-      {vehiclesByGarageId.map((vehicle, index) => (
+      {currentVehicles.map((vehicle, index) => (
         <tr key={vehicle.id} id='vehicles-list' onClick={() => handleVehicleDetails(vehicle.id)}>
           <td id="index">{index + 1}</td>
           <td id="vehicle">{`${vehicle.manufacturer} ${vehicle.model}`}</td>

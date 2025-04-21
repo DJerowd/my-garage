@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
+import '../../Styles/responsive.css';
 
 function Form({ setUpdateCharactersListByUserId, loggedInUser }) {
   const [character, setCharacter] = useState({

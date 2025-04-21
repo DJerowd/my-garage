@@ -20,6 +20,7 @@
     justify-content: start;
     align-items: center;
     text-decoration: none;
+    font-size: 1.0rem;
     transition: all 0.2s;
 
     padding: 12px;
@@ -40,7 +41,12 @@
     color: var(--primary-color);
 }
 
-.iconMenu {
-    font-size: larger;
-    width: 16%;
+.dropdown .iconMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.4rem;
+
+    width: 1.4rem;
 }

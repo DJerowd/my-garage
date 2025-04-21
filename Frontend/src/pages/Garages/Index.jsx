@@ -7,6 +7,7 @@ import useGaragesByCharacterId from '../../hooks/Garages/useGaragesByCharacterId
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Pagination from '../../components/Pagination/Index.jsx';
 import Filter from './Filter.jsx';
 import Form from './Form.jsx';
 import List from './List.jsx';
@@ -22,6 +23,10 @@ function Garagem() {
   const [ids, setIds] = useState({
     characterId: ""
   });
+
+  // PAGINAÇÃO
+  const itemsPerPage = 6;
+  const [currentPage, setCurrentPage] = useState(1);
 
   if (!loggedInUser) {
     return (
@@ -52,7 +57,6 @@ function Garagem() {
 
         <aside>
           <Filter 
-            className='filter'
             setIds={setIds}
             charactersByUserId={charactersByUserId}
             setGarageByCharacterId={setGarageByCharacterId} 
@@ -62,6 +66,15 @@ function Garagem() {
           <List
             garagesByCharacterId={garagesByCharacterId}
             setUpdateGarageListByCharacterId={setUpdateGarageListByCharacterId}
+            currentPage={currentPage} 
+            itemsPerPage={itemsPerPage}
+          />
+
+          <Pagination 
+            itens={garagesByCharacterId} 
+            currentPage={currentPage} 
+            setCurrentPage={setCurrentPage} 
+            itemsPerPage={itemsPerPage} 
           />
         </aside>
       

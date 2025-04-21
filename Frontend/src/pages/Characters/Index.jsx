@@ -6,16 +6,18 @@ import useCharactersByUserId from '../../hooks/Characters/useCharactersByUserId.
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Loading from '../../components/Loading/Index.jsx';
 import Form from './Form.jsx';
 import List from './List.jsx';
 
 import 'react-toastify/dist/ReactToastify.css';
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
+import '../../Styles/responsive.css';
 
 function Personagem() {
   const loggedInUser = getLoggedInUser();
-  const { charactersByUserId, setUpdateCharactersListByUserId } = useCharactersByUserId();
+  const { charactersByUserId, setUpdateCharactersListByUserId, loading, errors } = useCharactersByUserId();
 
   if (!loggedInUser) {
     return (
@@ -28,6 +30,9 @@ function Personagem() {
       </div>
     );
   }
+
+  // TELA DE LOADING
+  if (loading) { return <Loading/>; }
 
   return (
     <div className='container'>

@@ -1,10 +1,10 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Article from './Article';
-import Slide from './Slide';
 
 import '../../Styles/layout.css'
 import '../../Styles/home.css'
+import '../../Styles/responsive.css'
 
 function Home() {
   return (
@@ -14,7 +14,6 @@ function Home() {
 
         <main className='home'>
           <Article/>
-          {/* <Slide/> */}
         </main>
 
       </div>

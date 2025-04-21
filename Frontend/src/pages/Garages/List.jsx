@@ -3,7 +3,13 @@ import { React } from 'react';
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 
-function List({ garagesByCharacterId, setUpdateGarageListByCharacterId }) {
+function List({ garagesByCharacterId, setUpdateGarageListByCharacterId, currentPage, itemsPerPage }) {
+
+    // OBTÉM OS USUÁRIOS PARA A PÁGINA ATUAL
+    const currentGarages = garagesByCharacterId.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
 
     //  LISTA VAZIA PARA SER EXIBIDA QUANDO NÃO HOUVER NENHUMA GARAGEM NO PERSONAGEM SELECIONADO.
     if (JSON.stringify(garagesByCharacterId) == '[]') {
@@ -36,7 +42,7 @@ function List({ garagesByCharacterId, setUpdateGarageListByCharacterId }) {
                 <td id="capacity">Capac.</td>
             </th>
             {/* DADOS DA TABELA */}
-            {garagesByCharacterId.map((garage, index) => (
+            {currentGarages.map((garage, index) => (
                 <tr key={garage.id} id='garages-list'>
                     <td id="index">{index + 1}</td>
                     <td id="slot">{garage.slot}</td>

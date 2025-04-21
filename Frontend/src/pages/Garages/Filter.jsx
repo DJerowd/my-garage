@@ -17,7 +17,7 @@ function Filter({ setIds, charactersByUserId, setGarageByCharacterId, setUpdateG
   };
 
   return (
-    <div>
+    <div className="filter">
       <h3>Personagem:
         <select name="character" onChange={handleChange} value={character}>
           <option value="0">Selecione um personagem</option>

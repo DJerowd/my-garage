@@ -39,6 +39,7 @@
 
   color: var(--font-color);
   background: var(--background-color-2);
+  backdrop-filter: blur(2px);
 }
 .article div:hover .article-title-overlay {
   opacity: 1;

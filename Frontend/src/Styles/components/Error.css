@@ -1,0 +1,87 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    gap: 1rem;
+}
+.error h2 {
+    font-size: xx-large;
+    font-weight: bold;
+}
+.error p {
+    font-size: larger;
+    font-weight: normal;
+}
+.error div {
+    margin: 12px 0 0 0;
+}
+.error div a {
+    transition: all 0.25s ease;
+    text-decoration: none;
+    font-size: larger;
+
+    padding: 8px 10px;
+    border-radius: 8px;
+
+    border: 2px solid currentColor;
+    color: var(--font-color);
+}
+.error div a:hover {
+    border: 2px solid var(--button-color);
+    color: var(--font-color);
+    background-color: var(--button-color);
+}
+
+
+.error-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition-duration: 0.3s;
+  
+    width: 50px;
+    height: 50px;
+    font-weight: 600;
+    border-radius: 50%;
+    
+    border: none;
+    box-shadow: 0px 0px 0px 4px var(--button-color);
+    background-color: #0000;
+  }
+  .error-btn:hover {
+    width: 280px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: var(--button-selected-color);
+    align-items: center;
+  }
+  .error-btn::before {
+    position: absolute;
+    bottom: -20px;
+    content: "Voltar para a home";
+    color: var(--font-color);
+    font-size: 0px;
+  }
+  .error-btn:hover::before {
+    font-size: large;
+    opacity: 1;
+    bottom: unset;
+    transition-duration: 0.3s;
+  }
+
+  .error-btn .svgIcon {
+    width: 12px;
+    transition-duration: 0.3s;
+  }
+  .error-btn .svgIcon path {
+    fill: var(--font-color-2);
+  }
+  .error-btn:hover .svgIcon {
+    transition-duration: 0.3s;
+    transform: translateY(-200%);
+  }

@@ -82,12 +82,12 @@
 }
 
 /* FILTRO DA TABELA*/
-.content-grid aside div {
+.content-grid aside .filter {
     display: grid;
     grid-template-columns: repeat(2, 3fr) 1fr;
     justify-content: center;
     align-items: center;
-    font-size: large;
+    font-size: 1.2rem;
     font-weight: bold;
 
     padding: 12px 1vw;
@@ -96,13 +96,13 @@
     
     background: var(--background-color-2);
 }
-.content-grid aside h3, .content-grid aside a {
+.content-grid aside .filter h3, .content-grid aside .filter a {
     display: flex;
     align-items: center;
 
     gap: 8px;
 }
-.content-grid aside div a {
+.content-grid aside .filter a {
     justify-content: center;
     align-items: center;
     
@@ -207,7 +207,6 @@
     color: var(--font-color-2);
 }
 
-
 /* IMPUT E SELECT */
 .content-grid input, .content-grid select {
     cursor: pointer;
@@ -243,3 +242,38 @@
     color: var(--font-color);
     text-shadow: 0 1px 1px var(--font-color);
 }
+
+/* PAGINAÇÃO */
+.pagination {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    gap: 0.4rem;
+}
+.pagination button {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.0rem;
+    font-family: var(--font-family-1);
+    transition: all 0.25s;
+
+    padding: 0.4rem 12px;
+    border-radius: 8px;
+
+    border: none;
+    background: var(--background-color-2);
+}
+.pagination button.active {
+    color: var(--primary-color);
+}
+.pagination button:disabled {
+    cursor: not-allowed;
+    opacity: 50%;
+}
+.pagination button:hover:not(:disabled) {
+    scale: 1.1;
+    color: var(--secondary-color);
+} 

@@ -13,7 +13,7 @@ import '../../Styles/vehicle.css';
 
 function VehicleDetails() {
   const { id } = useParams();
-  const { vehicle, setUpdateList, loading, errors, setVehicleId } = useVehiclesById();
+  const { vehicle, setUpdateList, setVehicleId, loading, errors } = useVehiclesById();
   const loggedInUser = getLoggedInUser();
   const navigate = useNavigate();
 

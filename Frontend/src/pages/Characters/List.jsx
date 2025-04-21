@@ -6,6 +6,7 @@ import axios from 'axios';
 
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
+import '../../Styles/responsive.css';
 
 function List({ charactersByUserId, setUpdateCharactersListByUserId }) {
 

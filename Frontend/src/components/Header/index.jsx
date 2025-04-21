@@ -3,10 +3,12 @@ import { getLoggedInUser } from '../../utils/auth.js';
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaSquareGithub, FaSquareYoutube  } from "react-icons/fa6";
 import { FaHome, FaCar, FaClipboardList, FaUser, FaBars } from "react-icons/fa";
+
 import logo from '../../assets/Sunshine-Garage.png';
 import Menu from '../Menu';
 
-import '../../Styles/components/header.css'
+import '../../Styles/components/header.css';
+import '../../Styles/responsive.css';
 
 function Header(){
     const loggedInUser = getLoggedInUser();
@@ -37,13 +39,10 @@ function Header(){
                         </a>
                     </div>
                     <div>
-                        <Link to="/home">Home</Link>
-                        <Link to="/signin">Entrar</Link>
-                        <Link to="/signup">Cadastrar</Link>
                     </div>
                 </main>
                 <section>
-                    <button disabled ><h3 className='menuIcon'>Menu<FaBars className='headerIcon'/></h3></button>
+                    <button className='menuIcon' onClick={toggleMenu}><FaBars className='headerIcon'/></button>
                 </section>
 
                 {showMenu && <Menu/>}
@@ -85,7 +84,7 @@ function Header(){
             </main>
 
             <section>
-                <button onClick={toggleMenu}><h3 className='menuIcon'>Menu<FaBars className='headerIcon'/></h3></button>
+                <button className='menuIcon' onClick={toggleMenu}><FaBars className='headerIcon'/></button>
             </section>
 
             {showMenu && <Menu/>}

@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import Error from "./components/Error/Index.jsx";
 import Home from "./pages/Home/Index.jsx";
 import SignIn from "./pages/SignIn/Index.jsx";
 import SignUp from "./pages/SignUp/Index.jsx";
@@ -13,7 +14,8 @@ import VehicleDetails from "./pages/VehicleDetails/Index.jsx";
 function MainRoutes(){
     return (
         <Routes>
-            <Route path="*" element={<SignIn />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/*" element={<Error />} />
             <Route path="/home" element={<Home />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
