@@ -1,15 +1,23 @@
 import { React } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 
 function List({ garagesByCharacterId, setUpdateGarageListByCharacterId, currentPage, itemsPerPage }) {
+    const navigate = useNavigate();
 
     // OBTÉM OS USUÁRIOS PARA A PÁGINA ATUAL
     const currentGarages = garagesByCharacterId.slice(
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
     );
+
+    // DIRECIONA PARA A PAGINA DE DETALHES DO VEÍCULO SELECIONADO.
+    const handleGarageDetails = (id) => {
+        navigate(`/garage/${id}`);
+        toast(`Garagem ${id}!`);
+    };
 
     //  LISTA VAZIA PARA SER EXIBIDA QUANDO NÃO HOUVER NENHUMA GARAGEM NO PERSONAGEM SELECIONADO.
     if (JSON.stringify(garagesByCharacterId) == '[]') {
@@ -43,7 +51,7 @@ function List({ garagesByCharacterId, setUpdateGarageListByCharacterId, currentP
             </th>
             {/* DADOS DA TABELA */}
             {currentGarages.map((garage, index) => (
-                <tr key={garage.id} id='garages-list'>
+                <tr key={garage.id} id='garages-list' onClick={() => handleGarageDetails(garage.id)}>
                     <td id="index">{index + 1}</td>
                     <td id="slot">{garage.slot}</td>
                     <td id="property">{garage.property}</td>

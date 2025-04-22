@@ -31,7 +31,7 @@
     gap: 12px;
 }
 /* CONTEUDO PRINCIPAL */
-.content-home main, .content-settings main, .content-profile main, .content-vehicle main, .content-grid main, .content-grid aside {
+.content-home main, .content-settings main, .content-profile main, .content-garage main, .content-vehicle main, .content-grid main, .content-grid aside {
     align-self: flex-start;
 
     min-height: 80vh;
@@ -54,14 +54,23 @@
 
     min-width: 100%;
 }
-.content-vehicle main {
+.content-vehicle main, .content-garage main {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+    min-width: 100%;
+    padding: 12px 1vw;
+    gap: 1vw;
+}
+/* .content-vehicle main {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
     min-width: 100%;
     padding: 12px 1vw;
     gap: 1vw;
-}
+} */
 .content-grid main, .content-grid aside {
     display: flex;
     flex-direction: column;

@@ -161,7 +161,7 @@
 .content-grid #index {
     text-shadow: 1px     1px 2px var(--secondary-color);
 }
-.content-grid #index, .content-grid #btn, .content-grid #rp, .content-grid #date, .content-grid #ocupation, .content-grid #capacity, .content-grid #color {
+.content-grid #index, .content-grid #btn, .content-grid #rp, .content-grid #date, .content-grid #ocupation, .content-grid #capacity, .content-grid #color, .content-grid #none-list {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -242,38 +242,3 @@
     color: var(--font-color);
     text-shadow: 0 1px 1px var(--font-color);
 }
-
-/* PAGINAÇÃO */
-.pagination {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-
-    gap: 0.4rem;
-}
-.pagination button {
-    display: flex;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.0rem;
-    font-family: var(--font-family-1);
-    transition: all 0.25s;
-
-    padding: 0.4rem 12px;
-    border-radius: 8px;
-
-    border: none;
-    background: var(--background-color-2);
-}
-.pagination button.active {
-    color: var(--primary-color);
-}
-.pagination button:disabled {
-    cursor: not-allowed;
-    opacity: 50%;
-}
-.pagination button:hover:not(:disabled) {
-    scale: 1.1;
-    color: var(--secondary-color);
-} 

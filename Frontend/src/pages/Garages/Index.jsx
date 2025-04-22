@@ -7,6 +7,7 @@ import useGaragesByCharacterId from '../../hooks/Garages/useGaragesByCharacterId
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Loading from '../../components/Loading/Index.jsx';
 import Pagination from '../../components/Pagination/Index.jsx';
 import Filter from './Filter.jsx';
 import Form from './Form.jsx';
@@ -18,8 +19,8 @@ import '../../Styles/grid.css';
 
 function Garagem() {
   const loggedInUser = getLoggedInUser();
-  const { charactersByUserId, setUpdateCharactersListByUserId } = useCharactersByUserId();
-  const { garagesByCharacterId, setUpdateGarageListByCharacterId, setGarageByCharacterId } = useGaragesByCharacterId();
+  const { charactersByUserId, setUpdateCharactersListByUserId, loading:loadingCharacters , errors:errorsCharacters } = useCharactersByUserId();
+  const { garagesByCharacterId, setUpdateGarageListByCharacterId, setGarageByCharacterId, loading:loadingGarages, errors:errorsGarages } = useGaragesByCharacterId();
   const [ids, setIds] = useState({
     characterId: ""
   });
@@ -28,16 +29,28 @@ function Garagem() {
   const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
 
+  // TELA LOGIN NECESSÁRIO
   if (!loggedInUser) {
     return (
       <div className='container'>
         <Header />
         <div className='content'>
-          Faça login para acessar essa página.
+          <h2>Faça <Link to="/signin">login</Link> para acessar essa página.</h2>
         </div>
         <Footer/>
       </div>
     );
+  }
+
+  // TELA DE LOADING
+  if (loadingCharacters || loadingGarages) { 
+    return (
+      <div className='container'>
+        <Header />
+          <Loading/>
+        <Footer/>
+      </div> 
+    ); 
   }
 
   return (

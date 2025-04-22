@@ -7,8 +7,8 @@ import useCharactersByUserId from '../../hooks/Characters/useCharactersByUserId.
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Pagination from '../../components/Pagination/Index.jsx';
 import Loading from '../../components/Loading/Index.jsx';
+import Pagination from '../../components/Pagination/Index.jsx';
 import Form from './Form.jsx';
 import List from './List.jsx';
 
@@ -25,6 +25,7 @@ function Personagem() {
   const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
 
+  // TELA LOGIN NECESSÁRIO
   if (!loggedInUser) {
     return (
       <div className='container'>

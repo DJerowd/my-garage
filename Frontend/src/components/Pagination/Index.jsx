@@ -1,7 +1,6 @@
 import { React } from 'react';
 
-import '../../Styles/layout.css';
-import '../../Styles/grid.css';
+import '../../Styles/components/pagination.css';
 
 function Pagination({ itens, currentPage, setCurrentPage, itemsPerPage }) {
 

@@ -16,7 +16,7 @@ const useVehiclesById = () => {
                 const res = await axios.get(`http://localhost:8800/vehicles/` + vehicleId);
                 setVehicle(res.data.sort((a, b) => (a.createDate > b.createDate ? 1 : -1)));
             } catch (error) {
-                setErrors('Erro ao carregar usuários');
+                setErrors('Erro ao carregar veículos');
             } finally {
                 setLoading(false);
             }

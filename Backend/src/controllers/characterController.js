@@ -11,6 +11,17 @@ export const getCharacters = (_, res) => {
     });
 };
 
+// REQUISIÇÃO DE PERSONAGENS PELO ID.
+export const getCharactersById = (req, res) => {
+    const q = "SELECT * FROM characters WHERE `id` = ?";
+
+    db.query(q, [req.params.id], (err, data) => {
+        if (err) return res.json(err);
+
+        return res.status(200).json(data);
+    });
+};
+
 // REQUISIÇÃO DE PERSONAGENS PELO ID DE USUÁRIO.
 export const getCharactersByUserId = (req, res) => {
     const q = "SELECT * FROM characters WHERE `userId` = ?";

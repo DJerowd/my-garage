@@ -9,6 +9,7 @@ import useGarageOccupation from '../../hooks/Garages/useGarageOccupation.jsx';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Loading from '../../components/Loading/Index.jsx';
 import Pagination from '../../components/Pagination/Index.jsx';
 import Filter from './Filter.jsx';
 import Form from './Form.jsx';
@@ -21,9 +22,9 @@ import '../../Styles/responsive.css';
 
 function Veiculo() {
   const loggedInUser = getLoggedInUser();
-  const { charactersByUserId, setUpdateCharactersListByUserId } = useCharactersByUserId();
-  const { garagesByCharacterId, setUpdateGarageListByCharacterId, setGarageByCharacterId } = useGaragesByCharacterId();
-  const { vehiclesByGarageId, setUpdateVehicleListByGarageId, setVehicleByGarageId } = useVehiclesByGarageId();
+  const { charactersByUserId, setUpdateCharactersListByUserId, loading:loadingCharacters , errors:errorsCharacters } = useCharactersByUserId();
+  const { garagesByCharacterId, setUpdateGarageListByCharacterId, setGarageByCharacterId, loading:loadingGarages, errors:errorsGarages } = useGaragesByCharacterId();
+  const { vehiclesByGarageId, setUpdateVehicleListByGarageId, setVehicleByGarageId, loading:loadingVehicles, errors:errorsVehicles } = useVehiclesByGarageId();
   const { increaseOccupation, decreaseOccupation, loading, error } = useGarageOccupation();
   const [garageLimit, setGarageLimit] = useState(false);
   const [ids, setIds] = useState({
@@ -35,16 +36,28 @@ function Veiculo() {
   const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
 
+  // TELA LOGIN NECESSÁRIO
   if (!loggedInUser) {
     return (
       <div className='container'>
         <Header />
         <div className='content'>
-          Faça login para acessar essa página.
+          <h2>Faça <Link to="/signin">login</Link> para acessar essa página.</h2>
         </div>
         <Footer/>
       </div>
-    );
+    );s
+  }
+
+  // TELA DE LOADING
+  if (loadingCharacters || loadingGarages || loadingVehicles) { 
+    return (
+      <div className='container'>
+        <Header />
+          <Loading/>
+        <Footer/>
+      </div> 
+    ); 
   }
 
   return (

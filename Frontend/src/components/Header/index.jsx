@@ -5,7 +5,8 @@ import { FaLinkedin, FaSquareGithub, FaSquareYoutube  } from "react-icons/fa6";
 import { FaHome, FaCar, FaClipboardList, FaUser, FaBars } from "react-icons/fa";
 
 import logo from '../../assets/Sunshine-Garage.png';
-import Menu from '../Menu';
+
+import Dropdown from '../Dropdown';
 
 import '../../Styles/components/header.css';
 import '../../Styles/responsive.css';
@@ -23,7 +24,7 @@ function Header(){
             <header>
                 <section>
                     <a href="http://localhost:5173/home" target="_self" rel="noopener noreferrer">
-                        <img src={logo} alt="GTA Logo" className="logo" />
+                        <img src={logo} alt="GTA Logo" />
                     </a>
                 </section>
                 <main>
@@ -45,7 +46,7 @@ function Header(){
                     <button className='menuIcon' onClick={toggleMenu}><FaBars className='headerIcon'/></button>
                 </section>
 
-                {showMenu && <Menu/>}
+                {showMenu && <Dropdown/>}
 
             </header>
         );
@@ -87,7 +88,7 @@ function Header(){
                 <button className='menuIcon' onClick={toggleMenu}><FaBars className='headerIcon'/></button>
             </section>
 
-            {showMenu && <Menu/>}
+            {showMenu && <Dropdown/>}
 
         </header>
     )

@@ -4,37 +4,64 @@ import { useParams } from "react-router";
 import { getLoggedInUser } from '../../utils/auth.js';
 
 import useVehiclesById from '../../hooks/Vehicles/useVehiclesById';
+import useGarageById from '../../hooks/Garages/useGaragesById.jsx';
+import useCharactersById from '../../hooks/Characters/useGaragesById.jsx';
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Loading from '../../components/Loading/Index.jsx';
 
 import '../../Styles/layout.css';
 import '../../Styles/vehicle.css';
 
 function VehicleDetails() {
   const { id } = useParams();
-  const { vehicle, setUpdateList, setVehicleId, loading, errors } = useVehiclesById();
+  const { vehicle, setUpdateList:setUpdateListVehicle, setVehicleId, loading:loadingVehicle, errors:errorsVehicle } = useVehiclesById();
+  const { garage, setUpdateList:setUpdateListGarage, setGarageId, loading:loadingGarage, errors:errorsGarage } = useGarageById();
+  const { character, setUpdateList:setUpdateListCharacter, setCharacterId, loading:loadingCharacter, errors:errorsCharacter } = useCharactersById();
   const loggedInUser = getLoggedInUser();
   const navigate = useNavigate();
 
-  // CARREGA DADOS DO USUÁRIO
+  // CARREGA DADOS DO VEÍCULO
   useEffect(() => {
     const fetchVehicle = async () => {
       setVehicleId(id)
     };
     fetchVehicle();
-    setUpdateList(prevState => !prevState);
-  }, [loading]);
+    setUpdateListVehicle(prevState => !prevState);
+  }, [loadingVehicle]);
+
+  // CARREGA DADOS DO PERSONAGEM E GARAGEM QUANDO O VEÍCULO FOR CARREGADO
+    useEffect(() => {
+      if (vehicle.length > 0) {
+        const characterId = vehicle[0].characterId;
+        const garageId = vehicle[0].garageId;
+        if (characterId) {
+          setCharacterId(characterId);
+          setUpdateListCharacter(prev => !prev);
+        }
+        if (garageId) {
+          setGarageId(garageId);
+          setUpdateListGarage(prev => !prev);
+        }
+      }
+    }, [vehicle]);
 
   // TELA DE LOADING
-  if (loading) { return ( <div>carregando</div> ); }
+  if (loadingVehicle) { return (
+    <div className='container'>
+      <Header />
+        <Loading/>
+      <Footer/>
+    </div> 
+  );  }
 
   // TELA DE VEHICULO INEXISTENTE
-  if (!loading && errors) { 
+  if (!loadingVehicle && errorsVehicle) { 
     return (
       <div className='container'>
         <Header/>
-        <div className='content content-profile'>
+        <div className='content content-vehicle'>
 
             <h2>{errors}</h2>
             <h3>O vehiculo de ID: {id} não foi encontrado.</h3>
@@ -54,16 +81,12 @@ function VehicleDetails() {
           <main key={vehicle.id}> 
 
             <section>
+
               <h2>{`${vehicle.manufacturer} ${vehicle.model}`}</h2> 
               <a className='vehicle-preview'></a>
-            </section>
-          
-            <section>
-              
-              <h3>{vehicle.characterId} - {vehicle.garageId} - {vehicle.model} </h3>
 
+              <h3>Cores do veículo:</h3>
               <div className="vehicle-colors">
-                <h3>Cores do veículo:</h3>
 
                 <label className="color-box">
                   Primária:
@@ -90,17 +113,35 @@ function VehicleDetails() {
                   <span style={{ backgroundColor: vehicle.dashboardColor }}></span>
                 </label>
               </div>
-              
+          
+              <h3>Informações de Veículo</h3>
               <dl>
+                <dt>Dono:</dt>
+                {character[0] ? 
+                  <dd>{character[0].username}</dd>
+                : 
+                  <dd>{vehicle.characterId}</dd>
+                }
+
+                <dt>Garagem:</dt>
+                {garage[0] ? 
+                  <dd>{garage[0].property}</dd>
+                : 
+                  <dd>{vehicle.garageId}</dd>
+                }
+
                 <dt>Rodas:</dt>
                 <dd>{vehicle.rimsType} - {vehicle.rims}</dd>
 
                 <dt>Vidro:</dt>
                 <dd>{vehicle.windows}</dd>
-
-                <dt>Placa:</dt>
-                <dd>{vehicle.plate}</dd>
               </dl>
+
+              <label>
+                Placa:
+                <a id='license-plate'>{vehicle.plate}</a>
+              </label>
+
             </section>
               
           </main>

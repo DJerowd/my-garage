@@ -30,13 +30,13 @@ header section button {
 header section img {
     align-self: center;
 
-    width: 86px;
+    max-width: 200px;
+    max-height: calc(var(--header-height) - 10px);
 
     transition: all 0.5s;
 }
 header section img:hover {
-    filter: drop-shadow(0 0 10px var(--secondary-color));
-    width: 96px;
+    filter: drop-shadow(0 1px 4px var(--tertiary-color));
 }
 header section button:disabled {
     opacity: 50%;
@@ -101,8 +101,6 @@ header main div:last-child a:active {
     border-top: 2px solid var(--primary-color);
     color: var(--primary-color);
 }
-
-
 
 .menuIcon {
     display: flex;
