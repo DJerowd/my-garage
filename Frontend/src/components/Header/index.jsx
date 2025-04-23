@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { getLoggedInUser } from '../../utils/auth.js';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaLinkedin, FaSquareGithub, FaSquareYoutube  } from "react-icons/fa6";
-import { FaHome, FaCar, FaClipboardList, FaUser, FaBars } from "react-icons/fa";
+import { IoLogIn } from "react-icons/io5";
+import { FaBars } from "react-icons/fa";
 
 import logo from '../../assets/Sunshine-Garage.png';
 
@@ -13,6 +14,7 @@ import '../../Styles/responsive.css';
 
 function Header(){
     const loggedInUser = getLoggedInUser();
+    const location = useLocation();
     const [showMenu, setShowMenu] = useState(false);
 
     const toggleMenu = () => {
@@ -43,7 +45,9 @@ function Header(){
                     </div>
                 </main>
                 <section>
-                    <button className='menuIcon' onClick={toggleMenu}><FaBars className='headerIcon'/></button>
+                    <Link to="/signin" className={(location.pathname === "/signin") ? 'active' : ''}>
+                        <IoLogIn  className='iconMenu'/>Entrar
+                    </Link>
                 </section>
 
                 {showMenu && <Dropdown/>}

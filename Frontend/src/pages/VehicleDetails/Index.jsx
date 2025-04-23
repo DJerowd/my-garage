@@ -10,9 +10,11 @@ import useCharactersById from '../../hooks/Characters/useGaragesById.jsx';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Loading from '../../components/Loading/Index.jsx';
+import plateModels from '../../data/license-plates.json';
 
 import '../../Styles/layout.css';
 import '../../Styles/vehicle.css';
+import { toast } from 'react-toastify';
 
 function VehicleDetails() {
   const { id } = useParams();
@@ -46,6 +48,14 @@ function VehicleDetails() {
         }
       }
     }, [vehicle]);
+
+    // DEFINE A COR DO TEXTO DA PLACA
+    const getPlateTextColor = (plateModelId) => {
+      if (plateModelId === 3 || plateModelId === 4 || plateModelId === 10 || plateModelId === 11) return "#DDC25A";
+      if (plateModelId === 6 || plateModelId === 12) return "#FFFFFF";
+      if (plateModelId === 5) return "#000000";
+      return "#25295F";
+    };
 
   // TELA DE LOADING
   if (loadingVehicle) { return (
@@ -85,7 +95,7 @@ function VehicleDetails() {
               <h2>{`${vehicle.manufacturer} ${vehicle.model}`}</h2> 
               <a className='vehicle-preview'></a>
 
-              <h3>Cores do veículo:</h3>
+              <h3>Cores do veículo</h3>
               <div className="vehicle-colors">
 
                 <label className="color-box">
@@ -139,7 +149,10 @@ function VehicleDetails() {
 
               <label>
                 Placa:
-                <a id='license-plate'>{vehicle.plate}</a>
+                <a id="license-plate" className="license-plate">
+                  <img src={plateModels[vehicle.plateModel].image} alt="Smiley face"/> 
+                  <span className="plate-text" style={{ color: getPlateTextColor(vehicle.plateModel) }}>{vehicle.plate}</span>
+                </a>
               </label>
 
             </section>

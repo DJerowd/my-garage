@@ -6,6 +6,7 @@
     align-items: center;
 
     width: max-content;
+    max-width: 100%;
     gap: 1em 0;
 }
 
@@ -59,6 +60,7 @@
     align-items: center;
     gap: 0.4rem;
     
+    max-width: 100%;
     border-radius: 8px;
     padding: 0.4rem;
 
@@ -100,16 +102,21 @@
     display: flex;
     justify-content: center;
     align-items: start;
-    font-size: 2.2rem;
-    font-family: var(--font-family-1);
 
     width: 150px;
     height: 76.2px;
-    padding: 22px 0 0 0;
+}
+.content-vehicle #license-plate img {
+    position: relative;
+    width: 150px;
+    height: 76.2px;
     border-radius: 6px;
+}
+.content-vehicle #license-plate span {
+    display: flex;
+    position: absolute;
+    font-size: 2.2rem;
+    font-family: var(--font-family-1);
 
-    color: #000000;
-    background-image: url('../assets/licence_plates/GTAV-YanktonPlate.png');
-    background-size: cover;
-    background-position: center;
+    padding: 22px 0 0 0;
 }

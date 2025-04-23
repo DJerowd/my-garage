@@ -41,6 +41,42 @@ header section img:hover {
 header section button:disabled {
     opacity: 50%;
 }
+header section a {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: all 0.2s;
+
+    gap: 12px;
+    border-radius: 8px;
+
+    color: var(--font-color);
+}
+header section a.active {
+    color: var(--primary-color);
+}
+header section a:hover {
+    scale: 1.1;
+    color: var(--secondary-color);
+}
+header section a:active {
+    scale: 0.9;
+    color: var(--primary-color);
+}
+header section .iconMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2.0rem;
+
+    padding: 0.2rem;
+    border-radius: 8px;
+
+    outline: 2px solid currentColor;
+}
 
 /* ITENS CENTRAL */
 header main {

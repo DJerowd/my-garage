@@ -54,7 +54,7 @@ export const getVehiclesByGarageId = (req, res) => {
 
 // ADICIONAR NOVO VEÍCULO.
 export const addVehicle = (req, res) => {
-    const q = "INSERT INTO vehicles(`characterId`, `garageId`, `manufacturer`, `model`, `primaryColor`, `secundaryColor`, `pearlescentColor`, `interiorColor`, `dashboardColor`, `rimColor`, `rimsType`, `rims`, `windows`, `plate`) VALUES (?)";
+    const q = "INSERT INTO vehicles(`characterId`, `garageId`, `manufacturer`, `model`, `primaryColor`, `secundaryColor`, `pearlescentColor`, `interiorColor`, `dashboardColor`, `rimColor`, `rimsType`, `rims`, `windows`, `plateModel`, `plate`) VALUES (?)";
 
     const values = [
         req.body.characterId,
@@ -70,6 +70,7 @@ export const addVehicle = (req, res) => {
         req.body.rimsType,
         req.body.rims,
         req.body.windows,
+        req.body.plateModel,
         req.body.plate,
     ];
 

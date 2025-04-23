@@ -15,17 +15,7 @@ function Menu(){
 
     if (!loggedInUser) {
         return (
-            <div className='dropdown'>
-                <Link to="/home" className={(location.pathname === "/home") ? 'active' : ''}>
-                    <IoHome className='iconMenu'/>Home
-                </Link>
-                <Link to="/signin" className={(location.pathname === "/signin") ? 'active' : ''}>
-                    <IoLogIn  className='iconMenu'/>Entrar
-                </Link>
-                <Link to="/signup" className={(location.pathname === "/signup") ? 'active' : ''}>
-                    <IoPersonAdd  className='iconMenu'/>Cadastrar
-                </Link>
-            </div>
+            <div></div>
         );
     }
 
