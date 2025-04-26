@@ -1,15 +1,15 @@
 [
-    {"id": 0, "name": "azul-no-branco-1", "image": "/licence_plates/azul-no-branco-1.png"},
-    {"id": 1, "name": "azul-no-branco-2", "image": "/licence_plates/azul-no-branco-2.png"},
-    {"id": 2, "name": "azul-no-branco-3", "image": "/licence_plates/azul-no-branco-3.png"},
-    {"id": 3, "name": "amarela-no-azul", "image": "/licence_plates/amarela-no-azul.png"},
-    {"id": 4, "name": "amarela-no-preto", "image": "/licence_plates/amarela-no-preto.png"},
-    {"id": 5, "name": "yankton", "image": "/licence_plates/yankton.png"},
-    {"id": 6, "name": "ecola", "image": "/licence_plates/ecola.png"},
-    {"id": 7, "name": "las-venturas", "image": "/licence_plates/las-venturas.png"},
-    {"id": 8, "name": "liberty-city", "image": "/licence_plates/liberty-city.png"},
-    {"id": 9, "name": "ls-car-meet", "image": "/licence_plates/ls-car-meet.png"},
-    {"id": 10, "name": "panic", "image": "/licence_plates/panic.png"},
-    {"id": 11, "name": "pounders", "image": "/licence_plates/pounders.png"},
-    {"id": 12, "name": "sprunk", "image": "/licence_plates/sprunk.png"}
+    {"id": 0, "name": "Azul no branco 1", "image": "/licence_plates/azul-no-branco-1.png"},
+    {"id": 1, "name": "Azul no branco 2", "image": "/licence_plates/azul-no-branco-2.png"},
+    {"id": 2, "name": "Azul no branco 3", "image": "/licence_plates/azul-no-branco-3.png"},
+    {"id": 3, "name": "Amarela no azul", "image": "/licence_plates/amarela-no-azul.png"},
+    {"id": 4, "name": "Amarela no preto", "image": "/licence_plates/amarela-no-preto.png"},
+    {"id": 5, "name": "Yankton", "image": "/licence_plates/yankton.png"},
+    {"id": 6, "name": "E-cola", "image": "/licence_plates/ecola.png"},
+    {"id": 7, "name": "Las Venturas", "image": "/licence_plates/las-venturas.png"},
+    {"id": 8, "name": "Liberty City", "image": "/licence_plates/liberty-city.png"},
+    {"id": 9, "name": "Ls Car Meet", "image": "/licence_plates/ls-car-meet.png"},
+    {"id": 10, "name": "Panic", "image": "/licence_plates/panic.png"},
+    {"id": 11, "name": "Pounders", "image": "/licence_plates/pounders.png"},
+    {"id": 12, "name": "Sprunk", "image": "/licence_plates/sprunk.png"}
 ]

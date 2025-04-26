@@ -1,0 +1,47 @@
+/* TITULOS */
+.details h2 {
+    display: flex;
+    justify-content: center;
+    font-family: var(--font-family-3);
+    font-size: 2.4rem;
+    text-transform: capitalize;
+    text-overflow: ellipsis; 
+
+    width: 100%;
+
+    color: var(--tertiary-color);
+}
+.details h3 {
+    display: flex;
+    
+    width: 100%;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+
+    background-color: var(--background-color-2);
+}
+
+/* INFORMAÇÕES */
+.details dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    font-size: 1.2rem;
+
+    width: 100%;
+    gap: 0 1rem;
+}
+.details dt {
+    overflow: hidden;
+    font-weight: bold; 
+    text-indent: 1rem;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    color: var(--font-color-2);
+}
+.details dd {
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+}

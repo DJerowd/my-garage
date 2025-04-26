@@ -1,5 +1,6 @@
 import { React } from 'react';
 import { getLoggedInUser } from '../../utils/auth.js';
+import { Link } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -10,19 +11,16 @@ import '../../Styles/settings.css';
 function Settings() {
   const loggedInUser = getLoggedInUser();
 
+  // TELA LOGIN NECESSÁRIO
   if (!loggedInUser) {
     return (
-    <div className='container'>
-      <Header />
-      <div className='content content-settings'>
-
-      <main>
-        Faça login para acessar essa página.
-      </main>
-
+      <div className='container'>
+        <Header />
+        <div className='content'>
+          <h2>Faça <Link to="/signin">login</Link> para acessar essa página.</h2>
+        </div>
+        <Footer/>
       </div>
-      <Footer/>
-    </div>
     );
   }
 

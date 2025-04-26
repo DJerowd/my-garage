@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { getLoggedInUser } from '../../utils/auth.js';
 import { Link, useLocation } from 'react-router-dom';
 import { FaLinkedin, FaSquareGithub, FaSquareYoutube  } from "react-icons/fa6";
-import { IoLogIn } from "react-icons/io5";
+import { IoLogIn, IoPersonAdd } from "react-icons/io5";
 import { FaBars } from "react-icons/fa";
 
 import logo from '../../assets/Sunshine-Garage.png';
@@ -24,34 +24,20 @@ function Header(){
     if (!loggedInUser) {
         return (
             <header>
-                <section>
-                    <a href="http://localhost:5173/home" target="_self" rel="noopener noreferrer">
-                        <img src={logo} alt="GTA Logo" />
-                    </a>
-                </section>
-                <main>
-                    <div>
-                        <a href="https://www.linkedin.com/in/djerowd-moreschi/" target="_blank" rel="noopener noreferrer">
-                            <FaLinkedin title='Linkedin' alt='Linkedin'/>
-                        </a>
-                        <a href="https://github.com/DJerowd/my-garage" target="_blank" rel="noopener noreferrer">
-                            <FaSquareGithub title='Github' alt='Github'/>
-                        </a>
-                        <a href="https://www.youtube.com/@DJ_Moreschi" target="_blank" rel="noopener noreferrer">
-                            <FaSquareYoutube title='Youtube' alt='Youtube'/>
-                        </a>
-                    </div>
-                    <div>
-                    </div>
-                </main>
-                <section>
-                    <Link to="/signin" className={(location.pathname === "/signin") ? 'active' : ''}>
-                        <IoLogIn  className='iconMenu'/>Entrar
-                    </Link>
-                </section>
-
+                <a href="http://localhost:5173/home" target="_self" rel="noopener noreferrer">
+                    <img src={logo} alt="GTA Logo" />
+                </a>
+            
                 {showMenu && <Dropdown/>}
 
+                <a>
+                    <Link to="/signin" title='Entrar' className={(location.pathname === "/signin") ? 'sign-btn active' : 'sign-btn'}>
+                        <IoLogIn  className='sign-icon'/>Entrar
+                    </Link>
+                    <Link to="/signup" title='Cadastrar' className={(location.pathname === "/signup") ? 'sign-btn active' : 'sign-btn'}>
+                        <IoPersonAdd  className='sign-icon'/>Cadastrar
+                    </Link>
+                </a>
             </header>
         );
     }
@@ -59,40 +45,14 @@ function Header(){
     return (
         <header>
 
-            <section>
             <a href="http://localhost:5173/home" target="_self" rel="noopener noreferrer">
-                    <img src={logo} alt="GTA Logo" className="logo" />
-                </a>
-            </section>
-
-            <main>
-
-                <div>
-                    <a href="https://www.linkedin.com/in/djerowd-moreschi/" target="_blank" rel="noopener noreferrer">
-                        <FaLinkedin title='Linkedin' alt='Linkedin'/>
-                    </a>
-                    <a href="https://github.com/DJerowd/my-garage" target="_blank" rel="noopener noreferrer">
-                        <FaSquareGithub title='Github' alt='Github'/>
-                    </a>
-                    <a href="https://www.youtube.com/@DJ_Moreschi" target="_blank" rel="noopener noreferrer">
-                        <FaSquareYoutube title='Youtube' alt='Youtube'/>
-                    </a>
-                </div>
-
-                <div>
-                    <Link to="/home">Home</Link>
-                    <Link to="/characters">Personagens</Link>
-                    <Link to="/garages">Garagens</Link>
-                    <Link to="/vehicles">Veículos</Link>
-                </div>
-                
-            </main>
-
-            <section>
-                <button className='menuIcon' onClick={toggleMenu}><FaBars className='headerIcon'/></button>
-            </section>
-
+                <img src={logo} alt="GTA Logo" className="logo" />
+            </a>
+            
             {showMenu && <Dropdown/>}
+
+            <button className='menu-btn' onClick={toggleMenu}><FaBars className='headerIcon'/></button>
+
 
         </header>
     )

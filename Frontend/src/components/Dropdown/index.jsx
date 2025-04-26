@@ -13,12 +13,6 @@ function Menu(){
         localStorage.setItem('loggedInUser', null);
     };
 
-    if (!loggedInUser) {
-        return (
-            <div></div>
-        );
-    }
-
     return (
         <div className='dropdown'>
             {/* {loggedInUser.role == 1 ? 
@@ -27,25 +21,25 @@ function Menu(){
                 <></>
             } */}
             <Link to="/home" className={(location.pathname === "/home") ? 'active' : ''}>
-                <IoHome className='iconMenu'/>Home
+                <IoHome className='iconOption'/>Home
             </Link>
             <Link to="/user_profile" className={(location.pathname === "/user_profile") ? 'active' : ''}>
-                <FaUser className='iconMenu'/>Perfil
-            </Link>
-            <Link to="/settings" className={(location.pathname === "/settings") ? 'active' : ''}>
-                <IoSettingsSharp className='iconMenu'/>Configurações
+                <FaUser className='iconOption'/>Perfil
             </Link>
             <Link to="/characters" className={(location.pathname === "/characters") ? 'active' : ''}>
-                <IoBody className='iconMenu'/>Personagens
+                <IoBody className='iconOption'/>Personagens
             </Link>
             <Link to="/garages" className={(location.pathname === "/garages") ? 'active' : ''}>
-                <FaWarehouse className='iconMenu'/>Garagens
+                <FaWarehouse className='iconOption'/>Garagens
             </Link>
             <Link to="/vehicles" className={(location.pathname === "/vehicles") ? 'active' : ''}>
-                <IoCar className='iconMenu'/>Veículos
+                <IoCar className='iconOption'/>Veículos
+            </Link>
+            <Link to="/settings" className={(location.pathname === "/settings") ? 'active' : ''}>
+                <IoSettingsSharp className='iconOption'/>Configurações
             </Link>
             <Link to="/signin" onClick={logoff} >
-                <IoLogOut className='iconMenu'/>Sair
+                <IoLogOut className='iconOption'/>Sair
             </Link>
         </div>
     )

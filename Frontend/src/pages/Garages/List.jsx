@@ -52,7 +52,7 @@ function List({ garagesByCharacterId, setUpdateGarageListByCharacterId, currentP
             {/* DADOS DA TABELA */}
             {currentGarages.map((garage, index) => (
                 <tr key={garage.id} id='garages-list' onClick={() => handleGarageDetails(garage.id)}>
-                    <td id="index">{index + 1}</td>
+                    <td id="index">{index + 1 + ((currentPage - 1) * itemsPerPage)}</td>
                     <td id="slot">{garage.slot}</td>
                     <td id="property">{garage.property}</td>
                     <td id="ocupation">{garage.ocupation}</td>

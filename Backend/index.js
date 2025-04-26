@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import characterRoutes from "./src/routes/characterRoutes.js";
 import garageRoutes from "./src/routes/garageRoutes.js";
+import modelRoutes from "./src/routes/modelRoutes.js";
 import userRoutes from "./src/routes/userRoutes.js";
 import vehicleRoutes from "./src/routes/vehicleRoutes.js";
 
@@ -12,6 +13,7 @@ app.use(cors());
 
 app.use("/characters", characterRoutes)
 app.use("/garages", garageRoutes)
+app.use("/models", modelRoutes)
 app.use("/users", userRoutes)
 app.use("/vehicles", vehicleRoutes)
 

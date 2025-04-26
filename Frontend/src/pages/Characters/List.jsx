@@ -72,7 +72,7 @@ function List({ charactersByUserId, setUpdateCharactersListByUserId, currentPage
       {/* DADOS DA TABELA */}
       {currentcharacters.map((character, index) => (
         <tr key={character.id} id='characters-list'>
-          <td id="index">{index + 1}</td>
+          <td id="index">{index + 1 + ((currentPage - 1) * itemsPerPage)}</td>
           <td id="rp">{character.reputation}</td>
           <td id="name">{character.username}</td>
           <td id="date">{format(new Date(character.createDate), 'dd/MM/yyyy')}</td>

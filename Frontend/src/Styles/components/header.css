@@ -1,157 +1,94 @@
-/* PRINCIPAL */
+/* HEADER */
 header {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    position: fixed;
-    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-family: var(--font-family-1);
+    position: fixed;
     z-index: 1;
 
     width: 100vw;
     height: var(--header-height);
+    padding: 0 4vw;
 
 
     backdrop-filter: blur(20px);
     box-shadow: #000000 0 1px 4px;
+    color: var(--font-color);
     background-color: var(--header-color);
 }
 
-/* ITENS LATERAIS */
-header section {
+/* ICONE */
+header a {
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-header section button {
-    display: flex;
-    background: none;
-    border: 0;
-}
-header section img {
     align-self: center;
-
-    max-width: 200px;
-    max-height: calc(var(--header-height) - 10px);
-
     transition: all 0.5s;
+
+    gap: 1rem;
+
+    max-height: calc(var(--header-height) - 10px);
 }
-header section img:hover {
-    filter: drop-shadow(0 1px 4px var(--tertiary-color));
-}
-header section button:disabled {
-    opacity: 50%;
-}
-header section a {
+header img {
     display: flex;
-    justify-content: start;
-    align-items: center;
-    text-decoration: none;
-    font-size: 1.4rem;
-    transition: all 0.2s;
+    justify-content: center;
+    align-self: center;
+    transition: all 0.5s;
 
-    gap: 12px;
-    border-radius: 8px;
-
-    color: var(--font-color);
+    max-height: calc(var(--header-height) - 10px);
 }
-header section a.active {
-    color: var(--primary-color);
-}
-header section a:hover {
+header img:hover {
     scale: 1.1;
-    color: var(--secondary-color);
 }
-header section a:active {
-    scale: 0.9;
-    color: var(--primary-color);
-}
-header section .iconMenu {
+
+/* BOTÃO DE LOGIN */
+.sign-btn {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 2.0rem;
+    text-decoration: none;
+    font-size: 1.0rem;
 
-    padding: 0.2rem;
+    padding: 0.4rem 0.8rem;
+    gap: 0.4rem;
     border-radius: 8px;
 
-    outline: 2px solid currentColor;
-}
-
-/* ITENS CENTRAL */
-header main {
-    display: flex;
-    flex-direction: column;
-}
-header main div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* REDES SOCIAIS */
-header main div:first-child {
-    display: flex;
-    font-size: xx-large;
-    
-    height: 100%;
-    gap: 2vw;
-}
-header main div:first-child a {
-    display: flex;
-    transition: all 0.5s;
-
+    border: 2px solid currentColor;
     color: var(--font-color);
 }
-header main div:first-child a:hover {
+.sign-btn:hover {
+    scale: 1.1;
     color: var(--secondary-color);
 }
-
-/* NAVEGAÇÂO */
-header main div:last-child {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    font-weight: bold;
-    font-size: large;
-
-    height: 100%;
-}
-header main div:last-child a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-
-    height: 100%;
-
-    transition: all 0.5s;
-
-    border-top: 2px solid var(--font-color);
-    color: var(--font-color);
-}
-header main div:last-child a:hover {
-    border-top: 4px solid var(--secondary-color);
-    color: var(--secondary-color);
-}
-header main div:last-child a:active {
-    border-top: 2px solid var(--primary-color);
+.sign-btn:active {
+    scale: 0.9;
     color: var(--primary-color);
 }
+.sign-btn.active {
+    color: var(--primary-color);
+}
+.sign-btn .sign-icon {
+    font-size: 1.4em;
+}
 
-.menuIcon {
+/* BOTÃO DE MENU */
+.menu-btn {
     display: flex;
     align-items: center;
     font-size: 2.0rem;
     font-family: var(--font-family-1);
     transition: all 0.5s;
 
+    border: 0;
+    background: none;
     color: var(--font-color);
 }
-.menuIcon:hover {
+.menu-btn:hover {
     scale: 1.1;
     color: var(--secondary-color);
 }
-.menuIcon:active {
+.menu-btn:active {
     scale: 0.9;
     color: var(--primary-color);
 }

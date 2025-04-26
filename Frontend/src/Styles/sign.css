@@ -8,6 +8,7 @@
     padding: 20px;
     border-radius: 20px;
 
+    box-shadow: var(--box-shadow-color) 0 4px 10px;
     background-color: var(--background-color);
 }
 
@@ -45,6 +46,9 @@
     color: var(--font-color);
     background-color: var(--background-color-2);
     border: 1px solid currentColor;
+}
+.sign form label input:hover {
+    border: 1px ridge var(--secondary-color);
 }
 .sign form label input:focus {
     outline: 0;

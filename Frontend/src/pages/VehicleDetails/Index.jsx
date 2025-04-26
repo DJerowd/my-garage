@@ -1,7 +1,10 @@
-import { React, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { React, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useParams } from "react-router";
+import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { getLoggedInUser } from '../../utils/auth.js';
+
+import axios from 'axios';
 
 import useVehiclesById from '../../hooks/Vehicles/useVehiclesById';
 import useGarageById from '../../hooks/Garages/useGaragesById.jsx';
@@ -14,9 +17,11 @@ import plateModels from '../../data/license-plates.json';
 
 import '../../Styles/layout.css';
 import '../../Styles/vehicle.css';
+import '../../Styles/details.css';
 import { toast } from 'react-toastify';
 
 function VehicleDetails() {
+  const [load, setLoad] = useState(false);
   const { id } = useParams();
   const { vehicle, setUpdateList:setUpdateListVehicle, setVehicleId, loading:loadingVehicle, errors:errorsVehicle } = useVehiclesById();
   const { garage, setUpdateList:setUpdateListGarage, setGarageId, loading:loadingGarage, errors:errorsGarage } = useGarageById();
@@ -26,12 +31,10 @@ function VehicleDetails() {
 
   // CARREGA DADOS DO VEÍCULO
   useEffect(() => {
-    const fetchVehicle = async () => {
-      setVehicleId(id)
-    };
-    fetchVehicle();
+    setVehicleId(id)
     setUpdateListVehicle(prevState => !prevState);
-  }, [loadingVehicle]);
+    setLoad(true);
+  }, [load]);
 
   // CARREGA DADOS DO PERSONAGEM E GARAGEM QUANDO O VEÍCULO FOR CARREGADO
     useEffect(() => {
@@ -49,13 +52,48 @@ function VehicleDetails() {
       }
     }, [vehicle]);
 
-    // DEFINE A COR DO TEXTO DA PLACA
-    const getPlateTextColor = (plateModelId) => {
-      if (plateModelId === 3 || plateModelId === 4 || plateModelId === 10 || plateModelId === 11) return "#DDC25A";
-      if (plateModelId === 6 || plateModelId === 12) return "#FFFFFF";
-      if (plateModelId === 5) return "#000000";
-      return "#25295F";
-    };
+    // FUNÇÃO PARA EDITAR O VEÍCULO.
+  const handleEdit = (id) => {
+  };
+
+  // FUNÇÃO PARA EXCLUIR O VEICULO.
+  const handleDelete = async (id) => {
+    const confirm = window.confirm("Tem certeza de que deseja excluir este veículo? Todas as informações serão perdidas.");
+    if (!confirm) {
+      toast.error(`Exclusão cancelada!`);
+      return;
+    } else {
+      await axios
+      .delete("http://localhost:8800/vehicles/" + id)
+      .then(({ data }) => {
+        setUpdateListVehicle(prevState => !prevState);
+        navigate(-1);
+      })
+      .catch(({ data }) => toast.error(data)
+      );
+    }
+  };
+
+  // DEFINE A COR DO TEXTO DA PLACA
+  const getPlateTextColor = (plateModelId) => {
+    if (plateModelId === 3 || plateModelId === 4 || plateModelId === 10 || plateModelId === 11) return "#DDC25A";
+    if (plateModelId === 6 || plateModelId === 12) return "#FFFFFF";
+    if (plateModelId === 5) return "#000000";
+    return "#25295F";
+  };
+
+  // TELA LOGIN NECESSÁRIO
+  if (!loggedInUser) {
+    return (
+      <div className='container'>
+        <Header />
+        <div className='content'>
+          <h2>Faça <Link to="/signin">login</Link> para acessar essa página.</h2>
+        </div>
+        <Footer/>
+      </div>
+    );
+  }
 
   // TELA DE LOADING
   if (loadingVehicle) { return (
@@ -67,15 +105,12 @@ function VehicleDetails() {
   );  }
 
   // TELA DE VEHICULO INEXISTENTE
-  if (!loadingVehicle && errorsVehicle) { 
+  if (!loadingVehicle && vehicle == '' && errorsVehicle) { 
     return (
       <div className='container'>
         <Header/>
         <div className='content content-vehicle'>
-
-            <h2>{errors}</h2>
-            <h3>O vehiculo de ID: {id} não foi encontrado.</h3>
-
+          <h2 className='error'>{errorsVehicle} {errorsGarage} {errorsCharacter}</h2>
         </div>
         <Footer/>
       </div>
@@ -88,12 +123,14 @@ function VehicleDetails() {
       <div className='content content-vehicle'>
 
         {vehicle.map((vehicle, index) => (
-          <main key={vehicle.id}> 
+          <main key={vehicle.id} className='details'> 
 
             <section>
-
               <h2>{`${vehicle.manufacturer} ${vehicle.model}`}</h2> 
-              <a className='vehicle-preview'></a>
+              
+              <a className='vehicle-preview'>
+                <img src={`/vehicle_preview/${vehicle.model}.png`} alt={`${vehicle.model}`} onError={(e) => {e.target.onerror = null; e.target.src = '/default.png'; }}/>
+              </a>
 
               <h3>Cores do veículo</h3>
               <div className="vehicle-colors">
@@ -122,9 +159,14 @@ function VehicleDetails() {
                   Detalhes:
                   <span style={{ backgroundColor: vehicle.dashboardColor }}></span>
                 </label>
+
+                <label>
+                  Rodas:
+                  <span style={{ backgroundColor: vehicle.rimColor }}></span>
+                </label>
               </div>
           
-              <h3>Informações de Veículo</h3>
+              <h3>Informações do Veículo</h3>
               <dl>
                 <dt>Dono:</dt>
                 {character[0] ? 
@@ -147,14 +189,20 @@ function VehicleDetails() {
                 <dd>{vehicle.windows}</dd>
               </dl>
 
-              <label>
-                Placa:
-                <a id="license-plate" className="license-plate">
-                  <img src={plateModels[vehicle.plateModel].image} alt="Smiley face"/> 
-                  <span className="plate-text" style={{ color: getPlateTextColor(vehicle.plateModel) }}>{vehicle.plate}</span>
-                </a>
-              </label>
+              <a id="license-plate" className="license-plate">
+                <img src={plateModels[vehicle.plateModel].image}/> 
+                <span className="plate-text" style={{ color: getPlateTextColor(vehicle.plateModel) }}>{vehicle.plate}</span>
+              </a>
 
+              <div>
+                <button onClick={() => handleEdit(vehicle.id)}>
+                  <FaRegEdit/>Editar
+                </button>
+                <button onClick={() => handleDelete(vehicle.id)}>
+                  <FaTrash/>Excluir
+                </button>
+              </div>
+                
             </section>
               
           </main>

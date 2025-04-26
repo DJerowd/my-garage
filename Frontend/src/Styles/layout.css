@@ -30,8 +30,16 @@
 
     gap: 12px;
 }
+.content-garage , .content-vehicle {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    gap: 1rem;
+}
 /* CONTEUDO PRINCIPAL */
-.content-home main, .content-settings main, .content-profile main, .content-garage main, .content-vehicle main, .content-grid main, .content-grid aside {
+.content-home main, .content-settings main, .content-profile main, .content-grid main, .content-grid aside {
     align-self: flex-start;
 
     min-height: 80vh;
@@ -53,16 +61,6 @@
     flex-direction: column;
 
     min-width: 100%;
-}
-.content-vehicle main, .content-garage main {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-
-    width: max-content;
-    max-width: 100%;
-    padding: 12px 1vw;
-    gap: 1vw;
 }
 /* .content-vehicle main {
     display: grid;

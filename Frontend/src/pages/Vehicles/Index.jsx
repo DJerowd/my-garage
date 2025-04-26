@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { getLoggedInUser } from '../../utils/auth.js';
+import { Link } from 'react-router-dom';
 
 import useCharactersByUserId from '../../hooks/Characters/useCharactersByUserId.jsx';
 import useGaragesByCharacterId from '../../hooks/Garages/useGaragesByCharacterId.jsx';
@@ -46,7 +47,7 @@ function Veiculo() {
         </div>
         <Footer/>
       </div>
-    );s
+    );
   }
 
   // TELA DE LOADING
@@ -75,12 +76,16 @@ function Veiculo() {
             garagesByCharacterId={garagesByCharacterId}
             setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
             increaseOccupation={increaseOccupation}
+            errorsCharacters={errorsCharacters}
+            errorsGarages={errorsGarages}
+            errorsVehicles={errorsVehicles}
           />
         </main>
 
         <aside>
           <Filter 
             setIds={setIds}
+            vehiclesByGarageId={vehiclesByGarageId}
             setGarageLimit={setGarageLimit}
             charactersByUserId={charactersByUserId}
             garagesByCharacterId={garagesByCharacterId}

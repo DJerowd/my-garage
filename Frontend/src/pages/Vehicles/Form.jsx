@@ -6,11 +6,12 @@ import manufacturers from '../../data/manufacturers.json';
 import colors from '../../data/colors.json';
 import rims from '../../data/rims.json';
 import windows from '../../data/windows.json';
+import licensePlates from '../../data/license-plates.json';
 
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 
-function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setUpdateVehicleListByGarageId, increaseOccupation }) {
+function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setUpdateVehicleListByGarageId, increaseOccupation, errorsCharacters, errorsGarages, errorsVehicles }) {
   const [vehicle, setVehicle] = useState({
     manufacturer: '',
     model: '',
@@ -23,6 +24,7 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
     rimsType: '',
     rims: '',
     windows: '',
+    plateModel: '',
     plate: ''
   });
   const [models, setModels] = useState([]);
@@ -90,6 +92,7 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
         rimsType: vehicle.rimsType,
         rims: vehicle.rims,
         windows: vehicle.windows,
+        plateModel: vehicle.plateModel,
         plate: vehicle.plate,
       })
       .then(({ data }) => {
@@ -114,6 +117,7 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
         rimsType: '',
         rims: '',
         windows: '',
+        plateModel: '',
         plate: ''
       });
     }
@@ -132,11 +136,11 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Marca:
-        <select name="manufacturer" onChange={handleChange} value={vehicle.manufacturer} disabled={!ids.characterId || !ids.garageId} required>
+        <select id="select-select-manufacturer" name="manufacturer" onChange={handleChange} value={vehicle.manufacturer} disabled={!ids.characterId || !ids.garageId} required>
           <option value="">Selecione uma marca</option>
           {manufacturers.map((manufacturer, index) => (
-            <option key={index} value={manufacturer.name}>
-              {index + 1} - {manufacturer.displayName}
+            <option key={index} value={manufacturer.brand}>
+              {index + 1} - {manufacturer.name}
             </option>
           ))}
         </select>
@@ -144,7 +148,7 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Modelo:
-        <select name="model" onChange={handleChange} value={vehicle.model} disabled={!vehicle.manufacturer} required>
+        <select id="select-model" name="model" onChange={handleChange} value={vehicle.model} disabled={!vehicle.manufacturer} required>
           <option value="">Selecione um modelo</option>
           {models.map((model, index) => (
             <option key={index} value={model}>
@@ -157,7 +161,7 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Cor Primaria: 
-        <select style={{color: vehicle.primaryColor}} name="primaryColor" onChange={handleChange} value={vehicle.primaryColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select id="select-primaryColor" name="primaryColor" style={{color: vehicle.primaryColor}} onChange={handleChange} value={vehicle.primaryColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
             <option key={index} value={color.hex} style={{color:`${color.hex}`}}>
@@ -169,9 +173,9 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Cor Secundaria: 
-        <select style={{color: vehicle.secundaryColor}} name="secundaryColor" onChange={handleChange} value={vehicle.secundaryColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select id="select-secundaryColor" name="secundaryColor" style={{color: vehicle.secundaryColor}} onChange={handleChange} value={vehicle.secundaryColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione uma cor</option>
-          {colors.map((color, index) => (
+          {colors.sort((a, b) => a.name.localeCompare(b.name)).map((color, index) => (
             <option key={index} value={color.hex} style={{color:`${color.hex}`}}>
               {index + 1} - {color.name}
             </option>
@@ -181,7 +185,7 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Cor do Perolado: 
-        <select style={{color: vehicle.pearlescentColor}} name="pearlescentColor" onChange={handleChange} value={vehicle.pearlescentColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select id="select-pearlescentColor" name="pearlescentColor" style={{color: vehicle.pearlescentColor}} onChange={handleChange} value={vehicle.pearlescentColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
             <option key={index} value={color.hex} style={{color:`${color.hex}`}}>
@@ -193,7 +197,7 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Cor do Interior: 
-        <select style={{color: vehicle.interiorColor}} name="interiorColor" onChange={handleChange} value={vehicle.interiorColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select id="select-interiorColor" name="interiorColor" style={{color: vehicle.interiorColor}} onChange={handleChange} value={vehicle.interiorColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
             <option key={index} value={color.hex} style={{color:`${color.hex}`}}>
@@ -205,7 +209,7 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Cor dos Detalhes: 
-        <select style={{color: vehicle.dashboardColor}} name="dashboardColor" onChange={handleChange} value={vehicle.dashboardColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select id="select-dashboardColor" name="dashboardColor" style={{color: vehicle.dashboardColor}} onChange={handleChange} value={vehicle.dashboardColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
             <option key={index} value={color.hex} style={{color:`${color.hex}`}}>
@@ -217,7 +221,7 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Cor das Rodas: 
-        <select style={{color: vehicle.rimColor}} name="rimColor" onChange={handleChange} value={vehicle.rimColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select id="select-rimColor" name="rimColor" style={{color: vehicle.rimColor}} onChange={handleChange} value={vehicle.rimColor} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione uma cor</option>
           {colors.map((color, index) => (
             <option key={index} value={color.hex} style={{color:`${color.hex}`}}>
@@ -230,7 +234,7 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Tipo das rodas:
-        <select name="rimsType" onChange={handleChange} value={vehicle.rimsType} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select id="select-rimsType" name="rimsType" onChange={handleChange} value={vehicle.rimsType} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione um tipo de rodas</option>
           {Object.keys(rims).map((rimType, index) => (
             <option key={index} value={rimType}>
@@ -242,7 +246,7 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Rodas:
-        <select name="rims" onChange={handleChange} value={vehicle.rims} disabled={!vehicle.manufacturer || !vehicle.model || !vehicle.rimsType} required>
+        <select id="select-rims" name="rims" onChange={handleChange} value={vehicle.rims} disabled={!vehicle.manufacturer || !vehicle.model || !vehicle.rimsType} required>
           <option value="">Selecione um modelo de rodas</option>
           {filteredRims.map((rim, index) => (
             <option key={index} value={rim.model}>
@@ -254,11 +258,23 @@ function Form({ ids, garageLimit, charactersByUserId, garagesByCharacterId, setU
 
       <label>
         Vidros:
-        <select name="windows" onChange={handleChange} value={vehicle.windows} disabled={!vehicle.manufacturer || !vehicle.model} required>
+        <select id="select-windows" name="windows" onChange={handleChange} value={vehicle.windows} disabled={!vehicle.manufacturer || !vehicle.model} required>
           <option value="">Selecione um modelo de rodas</option>
           {windows.map((window, index) => (
             <option key={index} value={window.name}>
               {index + 1} - {window.name}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <label>
+        Modelo da Placa:
+        <select id="select-plateModel" name="plateModel" onChange={handleChange} value={vehicle.plateModel} disabled={!vehicle.manufacturer || !vehicle.model} required>
+          <option value="">Selecione um modelo de placa</option>
+          {licensePlates.map((plate, index) => (
+            <option key={index} value={plate.id}>
+              {index + 1} - {plate.name}
             </option>
           ))}
         </select>

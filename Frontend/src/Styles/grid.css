@@ -123,6 +123,7 @@
 }
 .content-grid aside table th, .content-grid aside table tr {
     display: grid;
+    
 }
 .content-grid #characters-list {
     grid-template-columns: 2rem 8rem 1fr 12rem 8rem;
@@ -156,6 +157,10 @@
 }
 /* DADOS DA TABELA */
 .content-grid aside table td {
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+
     padding: 12px 0;
 }
 .content-grid #index {
@@ -170,7 +175,7 @@
 .content-grid #name, .content-grid #slot, .content-grid #property, .content-grid #vehicle, .content-grid #plate {
     text-indent: 1rem;
 }
-.content-grid #slot, .content-grid #vehicle {
+.content-grid #slot, .content-grid #select-slot, .content-grid #vehicle {
     text-transform: capitalize;
 }
 .content-grid #color {
@@ -197,14 +202,24 @@
     justify-content: center;
     align-items: center;
     font-size: 1.4rem;
+    cursor: pointer;
     transition: all 0.4s;
+
+    padding: 0.2rem;
+    border-radius: 8px;
 
     border: 0;
     color: var(--font-color);
     background: none;
 }
 .content-grid #btn button:hover {
-    color: var(--font-color-2);
+    scale: 1.1;
+    color: var(--secondary-color);
+    background-color: var(--background-color-2);
+}
+.content-grid #btn button:active {
+    scale: 0.9;
+    color: var(--primary-color);
 }
 
 /* IMPUT E SELECT */

@@ -4,7 +4,7 @@ import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 import '../../Styles/responsive.css';
 
-function Filter({ setIds, setGarageLimit, charactersByUserId, garagesByCharacterId, setUpdateGarageListByCharacterId, setGarageByCharacterId, setUpdateVehicleListByGarageId, setVehicleByGarageId }) {
+function Filter({ setIds, vehiclesByGarageId, setGarageLimit, charactersByUserId, garagesByCharacterId, setUpdateGarageListByCharacterId, setGarageByCharacterId, setUpdateVehicleListByGarageId, setVehicleByGarageId }) {
   const [ character, setCharacter ] = useState(0);
   const [ garage, setGarage ] = useState(0);
 
@@ -51,13 +51,14 @@ function Filter({ setIds, setGarageLimit, charactersByUserId, garagesByCharacter
     setUpdateVehicleListByGarageId(prevState => !prevState);
   };
 
+  // DEFINE SE A GARAGEM ATINGIU O LIMITE OU NÃO
   useEffect(() => {
-    if (garage.ocupation == garage.capacity) {
+    if (vehiclesByGarageId.length == garage.capacity) {
       setGarageLimit(true);
     } else {
       setGarageLimit(false);
     }
-}, [garage]);
+  }, [vehiclesByGarageId]);
   
   return (
     <div className="filter">
@@ -83,7 +84,7 @@ function Filter({ setIds, setGarageLimit, charactersByUserId, garagesByCharacter
         </select>
       </h3>
 
-      <a>{garage.ocupation !== undefined ? `${garage.ocupation}/${garage.capacity}` : '0/00'}</a>
+      <a>{garage.ocupation !== undefined ? `${vehiclesByGarageId.length}/${garage.capacity}` : '0/00'}</a>
     </div>
   );
 }

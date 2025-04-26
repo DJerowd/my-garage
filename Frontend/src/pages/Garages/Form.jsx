@@ -105,7 +105,7 @@ function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId }) {
         <form onSubmit={handleSubmit}>
             <label>
                 Tipo de Propriedade:
-                <select name="slot" value={garage.slot} onChange={handleChange} disabled={!ids.characterId}>
+                <select id="select-slot" name="slot" value={garage.slot} onChange={handleChange} disabled={!ids.characterId}>
                     <option value="">Nenhum</option>
                     {Object.keys(properties).map((property, index) => (
                         <option key={property} value={property}>
@@ -117,11 +117,11 @@ function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId }) {
 
             <label>
                 Propriedade:
-                <select name="property" onChange={handleChange} disabled={!slot}>
+                <select id="select-property" name="property" onChange={handleChange} disabled={!slot}>
                     <option value="">Nenhum</option>
                     {properties[slot] && properties[slot].map((property, index) => (
                         <option key={property.value} value={JSON.stringify(property)}>
-                            {index + 1} - [{property.capacity} vagas] {property.property}
+                            {index + 1} - [{property.capacity} vagas] {property.name}
                         </option>
                     ))}
                 </select>

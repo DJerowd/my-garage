@@ -44,7 +44,6 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
   // DIRECIONA PARA A PAGINA DE DETALHES DO VEÍCULO SELECIONADO.
   const handleVehicleDetails = (id) => {
     navigate(`/vehicle/${id}`);
-    toast(`Veículo ${id}!`);
   };
 
   //  LISTA VAZIA PARA SER EXIBIDA QUANDO NÃO HOUVER NENHUM VEICULO NA GARAGEM SELECIONADA.
@@ -80,7 +79,7 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
       {/* DADOS DA TABELA */}
       {currentVehicles.map((vehicle, index) => (
         <tr key={vehicle.id} id='vehicles-list' onClick={() => handleVehicleDetails(vehicle.id)}>
-          <td id="index">{index + 1}</td>
+          <td id="index">{index + 1 + ((currentPage - 1) * itemsPerPage)}</td>
           <td id="vehicle">{`${vehicle.manufacturer} ${vehicle.model}`}</td>
           <td id="color">
           {['primaryColor', 'secundaryColor', 'pearlescentColor', 'interiorColor', 'dashboardColor', 'rimColor'].map(colorKey => (
