@@ -3,10 +3,19 @@
 
     /* HEADER */
     header {
-        grid-template-columns: 1fr 1fr;
+        flex-direction: row;
+        justify-content: space-around;
     }
-    header main {
+    header img {
+        max-height: calc(var(--header-height) / 2);
+    }
+    header a a:last-child {
         display: none;
+    }
+
+    /* CONTEUDO */
+    .content {
+        padding: calc(var(--header-height) + 4px) 2px 2px 2px;
     }
     
     /* CONTEUDO */
@@ -14,7 +23,10 @@
         display: flex;
         flex-direction: column;
         justify-content: start;
+
+        gap: 2px;
     }
+    
     /* CONTEUDO PRINCIPAL */
     .content-grid main, .content-grid aside {
         min-height: auto;
@@ -23,11 +35,6 @@
     .content-vehicle main {
         display: grid;
         grid-template-columns: 1fr;
-    }
-
-    /* FILTRO DA TABELA*/
-    .content-grid aside h3 {
-        flex-direction: column;
     }
 }
   

@@ -7,8 +7,6 @@ import { getLoggedInUser } from '../../utils/auth.js';
 import axios from 'axios';
 
 import useVehiclesById from '../../hooks/Vehicles/useVehiclesById';
-import useGarageById from '../../hooks/Garages/useGaragesById.jsx';
-import useCharactersById from '../../hooks/Characters/useGaragesById.jsx';
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -18,14 +16,11 @@ import plateModels from '../../data/license-plates.json';
 import '../../Styles/layout.css';
 import '../../Styles/vehicle.css';
 import '../../Styles/details.css';
-import { toast } from 'react-toastify';
 
 function VehicleDetails() {
   const [load, setLoad] = useState(false);
   const { id } = useParams();
   const { vehicle, setUpdateList:setUpdateListVehicle, setVehicleId, loading:loadingVehicle, errors:errorsVehicle } = useVehiclesById();
-  const { garage, setUpdateList:setUpdateListGarage, setGarageId, loading:loadingGarage, errors:errorsGarage } = useGarageById();
-  const { character, setUpdateList:setUpdateListCharacter, setCharacterId, loading:loadingCharacter, errors:errorsCharacter } = useCharactersById();
   const loggedInUser = getLoggedInUser();
   const navigate = useNavigate();
 
@@ -36,24 +31,8 @@ function VehicleDetails() {
     setLoad(true);
   }, [load]);
 
-  // CARREGA DADOS DO PERSONAGEM E GARAGEM QUANDO O VEÍCULO FOR CARREGADO
-    useEffect(() => {
-      if (vehicle.length > 0) {
-        const characterId = vehicle[0].characterId;
-        const garageId = vehicle[0].garageId;
-        if (characterId) {
-          setCharacterId(characterId);
-          setUpdateListCharacter(prev => !prev);
-        }
-        if (garageId) {
-          setGarageId(garageId);
-          setUpdateListGarage(prev => !prev);
-        }
-      }
-    }, [vehicle]);
-
-    // FUNÇÃO PARA EDITAR O VEÍCULO.
-  const handleEdit = (id) => {
+  // FUNÇÃO PARA EDITAR O VEÍCULO.
+    const handleEdit = (id) => {
   };
 
   // FUNÇÃO PARA EXCLUIR O VEICULO.
@@ -110,7 +89,7 @@ function VehicleDetails() {
       <div className='container'>
         <Header/>
         <div className='content content-vehicle'>
-          <h2 className='error'>{errorsVehicle} {errorsGarage} {errorsCharacter}</h2>
+          <h2 className='error'>{errorsVehicle}</h2>
         </div>
         <Footer/>
       </div>
@@ -129,7 +108,7 @@ function VehicleDetails() {
               <h2>{`${vehicle.manufacturer} ${vehicle.model}`}</h2> 
               
               <a className='vehicle-preview'>
-                <img src={`/vehicle_preview/${vehicle.model}.png`} alt={`${vehicle.model}`} onError={(e) => {e.target.onerror = null; e.target.src = '/default.png'; }}/>
+                <img src={`/vehicle_preview/${vehicle.model}.png`} alt={`${vehicle.model}`} onError={(e) => {e.target.onerror = null; e.target.src = '/vehicle_preview/default.png'; }}/>
               </a>
 
               <h3>Cores do veículo</h3>
@@ -169,18 +148,10 @@ function VehicleDetails() {
               <h3>Informações do Veículo</h3>
               <dl>
                 <dt>Dono:</dt>
-                {character[0] ? 
-                  <dd>{character[0].username}</dd>
-                : 
-                  <dd>{vehicle.characterId}</dd>
-                }
+                  <dd>{vehicle.username}</dd>
 
                 <dt>Garagem:</dt>
-                {garage[0] ? 
-                  <dd>{garage[0].property}</dd>
-                : 
-                  <dd>{vehicle.garageId}</dd>
-                }
+                  <dd>{vehicle.property}</dd>
 
                 <dt>Rodas:</dt>
                 <dd>{vehicle.rimsType} - {vehicle.rims}</dd>

@@ -2,17 +2,19 @@ import {db} from "../db.js";
 
 // REQUISIÇÃO DE VEÍCULOS.
 export const getVehicles = (_, res) => {
-    const q = "SELECT * FROM vehicles";
+    const q = "SELECT vehicles.id, vehicles.characterId, username, vehicles.garageId, property, manufacturer, model, primaryColor, secundaryColor, pearlescentColor, interiorColor, dashboardColor, rimColor, rimsType, rims, windows, plateModel, plate FROM ((vehicles LEFT JOIN characters ON vehicles.characterId = characters.id) LEFT JOIN garages ON vehicles.garageId = garages.id)";
+    // const q = "SELECT * FROM vehicles";
     db.query(q, (err, data) => {
         if (err) return res.status(500).json(err.code);
-        if (data.length === 0) return res.status(204).json("Não há veículos cadastrados");
+        // if (data.length === 0) return res.status(204).json("Não há veículos cadastrados");
         return res.status(200).json(data);
     });
 };
 
 // REQUISIÇÃO DE VEÍCULOS POR ID.
 export const getVehiclesById = (req, res) => {
-    const q = "SELECT * FROM vehicles WHERE `id` = ?";
+    const q = "SELECT vehicles.id, vehicles.characterId, username, vehicles.garageId, property, manufacturer, model, primaryColor, secundaryColor, pearlescentColor, interiorColor, dashboardColor, rimColor, rimsType, rims, windows, plateModel, plate FROM ((vehicles LEFT JOIN characters ON vehicles.characterId = characters.id) LEFT JOIN garages ON vehicles.garageId = garages.id) WHERE vehicles.id = ?";
+    // const q = "SELECT * FROM vehicles WHERE `id` = ?";
     db.query(q, [req.params.id], (err, data) => {
         if (err) return res.status(500).json(err.code);
         // if (data.length === 0) return res.status(404).json("Nenhum modelo encontrado");
@@ -22,7 +24,8 @@ export const getVehiclesById = (req, res) => {
 
 // REQUISIÇÃO DE VEÍCULOS POR ID DO USUÁRIO.
 export const getVehiclesByCharacterId = (req, res) => {
-    const q = "SELECT * FROM vehicles WHERE `characterId` = ?";
+    const q = "SELECT vehicles.id, vehicles.characterId, username, vehicles.garageId, property, manufacturer, model, primaryColor, secundaryColor, pearlescentColor, interiorColor, dashboardColor, rimColor, rimsType, rims, windows, plateModel, plate FROM ((vehicles LEFT JOIN characters ON vehicles.characterId = characters.id) LEFT JOIN garages ON vehicles.garageId = garages.id) WHERE vehicles.characterId = ?";
+    // const q = "SELECT * FROM vehicles WHERE `characterId` = ?";
     if (!req.params.id) return res.status(400).json("É necessário informar a ID do personagem");
     db.query(q, [req.params.id], (err, data) => {
         if (err) return res.status(500).json(err.code);
@@ -33,7 +36,8 @@ export const getVehiclesByCharacterId = (req, res) => {
 
 // REQUISIÇÃO DE VEÍCULOS PELO ID DA GARAGEM.
 export const getVehiclesByGarageId = (req, res) => {
-    const q = "SELECT * FROM vehicles WHERE `garageId` = ?";
+    const q = "SELECT vehicles.id, vehicles.characterId, username, vehicles.garageId, property, manufacturer, model, primaryColor, secundaryColor, pearlescentColor, interiorColor, dashboardColor, rimColor, rimsType, rims, windows, plateModel, plate FROM ((vehicles LEFT JOIN characters ON vehicles.characterId = characters.id) LEFT JOIN garages ON vehicles.garageId = garages.id) WHERE vehicles.garageId = ?";
+    // const q = "SELECT * FROM vehicles WHERE `garageId` = ?";
     if (!req.params.id) return res.status(400).json("É necessário informar a ID da garagem");
     db.query(q, [req.params.id], (err, data) => {
         if (err) return res.status(500).json(err.code);

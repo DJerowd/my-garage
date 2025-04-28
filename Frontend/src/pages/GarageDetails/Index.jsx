@@ -1,10 +1,12 @@
 import { React, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useParams } from "react-router";
+import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { getLoggedInUser } from '../../utils/auth.js';
 
+import axios from 'axios';
+
 import useGarageById from '../../hooks/Garages/useGaragesById.jsx';
-import useCharactersById from '../../hooks/Characters/useGaragesById.jsx';
 import useVehiclesByGarageId from '../../hooks/Vehicles/useVehiclesByGarageId.jsx';
 
 import Header from "../../components/Header";
@@ -20,7 +22,6 @@ function GarageDetails() {
   const [load, setLoad] = useState(false);
   const { id } = useParams();
   const { garage, setUpdateList:setUpdateListGarage, setGarageId, loading:loadingGarage, errors:errorsGarage } = useGarageById();
-  const { character, setUpdateList:setUpdateListCharacter, setCharacterId, loading:loadingCharacter, errors:errorsCharacter } = useCharactersById();
   const { vehiclesByGarageId, setUpdateVehicleListByGarageId, setVehicleByGarageId, loading:loadingVehicles, errors:errorsVehicles } = useVehiclesByGarageId();
   const loggedInUser = getLoggedInUser();
   const navigate = useNavigate();
@@ -37,13 +38,33 @@ function GarageDetails() {
     if (garage.length > 0) {
       const characterId = garage[0].characterId;
       if (characterId) {
-        setCharacterId(characterId);
-        setUpdateListCharacter(prev => !prev);
         setVehicleByGarageId(garage[0].id)
         setUpdateVehicleListByGarageId(prev => !prev);
       }
     }
   }, [garage]);
+
+  // FUNÇÃO PARA EDITAR A GARAGEM.
+  const handleEdit = (id) => {
+  };
+
+  // FUNÇÃO PARA EXCLUIR A GARAGEM.
+  const handleDelete = async (id) => {
+    const confirm = window.confirm("Tem certeza de que deseja excluir esta garagem? Todas as informações serão perdidas.");
+    if (!confirm) {
+      toast.error(`Exclusão cancelada!`);
+      return;
+    } else {
+      await axios
+      .delete("http://localhost:8800/garages/" + id)
+      .then(({ data }) => {
+        setUpdateListVehicle(prevState => !prevState);
+        navigate(-1);
+      })
+      .catch(({ data }) => toast.error(data)
+      );
+    }
+  };
 
   // DIRECIONA PARA A PAGINA DE DETALHES DO VEÍCULO SELECIONADO.
   const handleVehicleDetails = (id) => {
@@ -64,7 +85,7 @@ function GarageDetails() {
   }
 
   // TELA DE LOADING
-  if (loadingVehicles || loadingGarage || loadingCharacter || !garage || !character) { 
+  if (loadingVehicles || loadingGarage) { 
     return (
       <div className='container'>
         <Header />
@@ -100,15 +121,11 @@ function GarageDetails() {
 
               <h3>Informações da Propriedade</h3>
               <dl>
+                <dt>Dono:</dt>
+                <dd>{garage.username}</dd>
+
                 <dt>Tipo:</dt>
                 <dd>{garage.slot}</dd>
-
-                <dt>Dono:</dt>
-                {character[0] ?
-                  <dd>{character[0].username}</dd>
-                : 
-                  <dd>{garage.characterId}</dd>
-                }
 
                 <dt>Localização:</dt>
                 <dd>{garage.location}</dd>
@@ -119,6 +136,15 @@ function GarageDetails() {
                 <dt>Capacidade Máxima:</dt>
                 <dd>{vehiclesByGarageId.length}/{garage.capacity}</dd>
               </dl>
+
+              <div>
+                <button onClick={() => handleEdit(garage.id)}>
+                  <FaRegEdit/>Editar
+                </button>
+                <button onClick={() => handleDelete(garage.id)}>
+                  <FaTrash/>Excluir
+                </button>
+              </div>
             </section>
 
           </main>
@@ -131,7 +157,7 @@ function GarageDetails() {
               <section className="vehicle-item" onClick={() => handleVehicleDetails(vehicle.id)}>
                 <h3 className="article-title-overlay">{`${vehicle.manufacturer} ${vehicle.model}`}</h3>
                 <a className='vehicle-preview'>
-                <img src={`/vehicle_preview/${vehicle.model}.png`} alt={`${vehicle.model}`} onError={(e) => {e.target.onerror = null; e.target.src = '/default.png'; }}/>
+                <img src={`/vehicle_preview/${vehicle.model}.png`} alt={`${vehicle.model}`} onError={(e) => {e.target.onerror = null; e.target.src = '/vehicle_preview/default.png'; }}/>
                   <b>{index + 1}</b>
                 </a>
               </section>

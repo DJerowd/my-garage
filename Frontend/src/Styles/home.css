@@ -3,15 +3,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
-  gap: 2vw;
+  gap: 1.2vw;
 }
 /* ARTIGOS INDIVIDUAIS */
 .article div {
-  overflow: scroll;
+  overflow: hidden;
   transition: transform 0.2s ease;
 
   height: 14svw;
-  border-radius: 8px;
+  border-radius: 4px;
   
   box-shadow: 0 4px 4px var(--box-shadow-color);
 }

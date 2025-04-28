@@ -2,9 +2,10 @@ import {db} from "../db.js";
 
 // REQUISIÇÃO DE MODELOS.
 export const getModels = (_, res) => {
-    const q = "SELECT * FROM vehicle_models";
+    const q = "SELECT vehicle_models.id, class, manufacturer, model, hash, price, seats FROM ((vehicle_models INNER JOIN vehicle_classes ON vehicle_models.classId = vehicle_classes.id) INNER JOIN vehicle_manufacturers ON vehicle_models.manufacturerId = vehicle_manufacturers.id)";
+    // const q = "SELECT * FROM vehicle_models";
     db.query(q, (err, data) => {
-        if (err) return res.status(500).json(err.code);
+        if (err) return res.status(500).json(err);
         if (data.length === 0) return res.status(204).json("Não há modelos cadastrados");
         return res.status(200).json(data);
     });
@@ -12,7 +13,7 @@ export const getModels = (_, res) => {
 
 // REQUISIÇÃO DE MODELOS POR ID.
 export const getModelsById = (req, res) => {
-    const q = "SELECT * FROM vehicle_models WHERE `id` = ?";
+    const q = "SELECT vehicle_models.id, class, manufacturer, model, hash, price, seats FROM ((vehicle_models INNER JOIN vehicle_classes ON vehicle_models.classId = vehicle_classes.id) INNER JOIN vehicle_manufacturers ON vehicle_models.manufacturerId = vehicle_manufacturers.id) WHERE vehicle_models.id = ?";
     db.query(q, [req.params.id], (err, data) => {
         if (err) return res.status(500).json(err.code);
         if (data.length === 0) return res.status(404).json("Nenhum modelo encontrado");

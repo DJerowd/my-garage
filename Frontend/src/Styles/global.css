@@ -61,3 +61,9 @@ body {
   color: var(--font-color);
   background-color: #A0A0A0;
 }
+
+@media (max-width: 700px) {
+  :root {
+      --header-height: 128px; 
+  }
+}

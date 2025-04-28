@@ -4,7 +4,8 @@
     flex-direction: column;
     font-family: var(--font-family-1);
 
-    min-width: 30vw;
+    min-width: max-content;
+    width: 480px;
     padding: 20px;
     border-radius: 20px;
 

@@ -2,7 +2,8 @@ import {db} from "../db.js";
 
 // REQUISIÇÃO DE GARAGENS.
 export const getGarages = (_, res) => {
-    const q = "SELECT * FROM garages";
+    const q = "SELECT garages.id, characterId, username, slot, property, ocupation, capacity, location, price FROM garages LEFT JOIN characters ON garages.characterId = characters.id";
+    // const q = "SELECT * FROM garages";
     db.query(q, (err, data) => {
         if (err) return res.status(500).json(err.code);
         if (data.length === 0) return res.status(204).json("Não há garagens cadastrados");
@@ -12,7 +13,8 @@ export const getGarages = (_, res) => {
 
 // REQUISIÇÃO DE GARAGENS PELO ID.
 export const getGaragesById = (req, res) => {
-    const q = "SELECT * FROM garages WHERE `id` = ?";
+    const q = "SELECT garages.id, characterId, username, slot, property, ocupation, capacity, location, price FROM garages LEFT JOIN characters ON garages.characterId = characters.id WHERE garages.id = ?";
+    // const q = "SELECT * FROM garages WHERE `id` = ?";
     db.query(q, [req.params.id], (err, data) => {
         if (err) return res.status(500).json(err.code);
         // if (data.length === 0) return res.status(404).json("Nenhuma garagem encontrada");
@@ -22,7 +24,8 @@ export const getGaragesById = (req, res) => {
 
 // REQUISIÇÃO DE GARAGENS PELO ID DO PERSONAGEM.
 export const getGaragesByCharacterId = (req, res) => {
-    const q = "SELECT * FROM garages WHERE `characterId` = ?";
+    const q = "SELECT garages.id, characterId, username, slot, property, ocupation, capacity, location, price FROM garages LEFT JOIN characters ON garages.characterId = characters.id WHERE characterId = ?";
+    // const q = "SELECT * FROM garages WHERE `characterId` = ? ";
     if (!req.params.id) return res.status(400).json("É necessário informar a ID do personagem");
     db.query(q, [req.params.id], (err, data) => {
         if (err) return res.status(500).json(err.code);
