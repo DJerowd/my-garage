@@ -1,4 +1,5 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
+import { IoClose } from "react-icons/io5";
 import { toast } from 'react-toastify';
 
 import axios from 'axios';
@@ -7,7 +8,7 @@ import properties from '../../data/properties.json';
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 
-function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId }) {
+function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId, setShowAdd }) {
     const [slot, setSlot] = useState('arena');
     const [garage, setGarage] = useState({
         characterId: '',
@@ -47,7 +48,7 @@ function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId }) {
             const property = JSON.parse(value);
             setGarage(prevState => ({
                 ...prevState,
-                property: property.property,
+                property: property.name,
                 capacity: property.capacity,
                 location: property.location,
                 price: property.price
@@ -90,45 +91,56 @@ function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId }) {
                 location: "",
                 price: ""
             });
+            setShowAdd(false)
         }
     };
 
     if (!ids.characterId) {
         return (
-            <form onSubmit={handleSubmit}>
-                <h3>Primeiro selecione um personagem</h3>
-            </form>
+            <div className='content-modal'>
+                <form>
+                    <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
+                    <h3 className='error'>Primeiro selecione um personagem</h3>
+                </form>
+            </div>
         );
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Tipo de Propriedade:
-                <select id="select-slot" name="slot" value={garage.slot} onChange={handleChange} disabled={!ids.characterId}>
-                    <option value="">Nenhum</option>
-                    {Object.keys(properties).map((property, index) => (
-                        <option key={property} value={property}>
-                            {index + 1} - {property}
-                        </option>
-                    ))}
-                </select>
-            </label>
+        <div className='content-modal'>
+            <form onSubmit={handleSubmit}>
 
-            <label>
-                Propriedade:
-                <select id="select-property" name="property" onChange={handleChange} disabled={!slot}>
-                    <option value="">Nenhum</option>
-                    {properties[slot] && properties[slot].map((property, index) => (
-                        <option key={property.value} value={JSON.stringify(property)}>
-                            {index + 1} - [{property.capacity} vagas] {property.name}
-                        </option>
-                    ))}
-                </select>
-            </label>
+                <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
 
-            <button type="submit">Salvar Garagem</button>
-        </form>
+                <h2>Adicionar Garagem:</h2>
+                
+                <label>
+                    Tipo de Propriedade:
+                    <select className='list-select' id="select-slot" name="slot" value={garage.slot} onChange={handleChange} disabled={!ids.characterId}>
+                        <option value="">Nenhum</option>
+                        {Object.keys(properties).map((property, index) => (
+                            <option key={property} value={property}>
+                                {index + 1} - {property}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+
+                <label>
+                    Propriedade:
+                    <select className='list-select' id="select-property" name="property" onChange={handleChange} disabled={!slot}>
+                        <option value="">Nenhum</option>
+                        {properties[slot] && properties[slot].map((property, index) => (
+                            <option key={property.value} value={JSON.stringify(property)}>
+                                {index + 1} - [{property.capacity} vagas] {property.name}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+
+                <button className='form-btn' type="submit">Salvar Garagem</button>
+            </form>
+        </div>
     );
 }
 

@@ -166,10 +166,10 @@ function VehicleDetails() {
               </a>
 
               <div>
-                <button onClick={() => handleEdit(vehicle.id)}>
+                <button className='details-btn' onClick={() => handleEdit(vehicle.id)}>
                   <FaRegEdit/>Editar
                 </button>
-                <button onClick={() => handleDelete(vehicle.id)}>
+                <button className='details-btn' onClick={() => handleDelete(vehicle.id)}>
                   <FaTrash/>Excluir
                 </button>
               </div>

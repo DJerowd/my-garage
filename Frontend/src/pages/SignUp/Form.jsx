@@ -60,26 +60,26 @@ function Form({ users, setUpdateUserList }) {
         <form name="form-register" onSubmit={handleSubmit}>
             <label>
                 Nome de Usuário:
-                <input type="text" name="username" onChange={handleChange} value={user.username} autoComplete='off' required/>
+                <input className='sign-input' type="text" name="username" onChange={handleChange} value={user.username} autoComplete='off' required/>
             </label>
 
             <label>
                 E-mail:
-                <input type="email" name="email" onChange={handleChange} value={user.email} autoComplete='off' required/>
+                <input className='sign-input' type="email" name="email" onChange={handleChange} value={user.email} autoComplete='off' required/>
             </label>
 
             <label>
                 Senha:
-                <input type="password" name="password" onChange={handleChange} value={user.password} autoComplete='off' required/>
+                <input className='sign-input' type="password" name="password" onChange={handleChange} value={user.password} autoComplete='off' required/>
             </label>
 
             <label>
                 Confirmar Senha:
-                <input type="Password" name="confirmPassword" onChange={handleChange} value={user.confirmPassword} autoComplete='off' required/>
+                <input className='sign-input' type="Password" name="confirmPassword" onChange={handleChange} value={user.confirmPassword} autoComplete='off' required/>
             </label>
 
             <div className='buttonsBox'>
-                <button type="submit">Criar conta</button>
+                <button className='sign-btn' type="submit">Criar conta</button>
                 <Link to="/signin">Já possui uma conta? Faça login</Link>
             </div>
         </form>

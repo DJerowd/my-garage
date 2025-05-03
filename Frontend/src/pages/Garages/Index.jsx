@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { getLoggedInUser } from '../../utils/auth.js';
+import { FaPlus } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 import useCharactersByUserId from '../../hooks/Characters/useCharactersByUserId.jsx';
@@ -27,8 +28,11 @@ function Garagem() {
   });
 
   // PAGINAÇÃO
-  const itemsPerPage = 6;
+  const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
+
+  // MODAL DE ADICIONAR
+  const [showAdd, setShowAdd] = useState(false);
 
   // TELA LOGIN NECESSÁRIO
   if (!loggedInUser) {
@@ -57,19 +61,18 @@ function Garagem() {
   return (
     <div className='container'>
       <Header />
-      <div className='content content-grid'>
+      <div className='content content-display'>
 
         <main>
-          <h2>Adicionar Garagem:</h2>
-          
-          <Form 
-            ids={ids}
-            garagesByCharacterId={garagesByCharacterId} 
-            setUpdateGarageListByCharacterId={setUpdateGarageListByCharacterId} 
-          />
-        </main>
 
-        <aside>
+          <h2>
+            Garagens:
+            <button className="add-btn" onClick={() => setShowAdd(true)}>
+              <span>Novo</span>
+              <FaPlus />
+            </button>
+          </h2>
+
           <Filter 
             setIds={setIds}
             charactersByUserId={charactersByUserId}
@@ -82,6 +85,7 @@ function Garagem() {
             setUpdateGarageListByCharacterId={setUpdateGarageListByCharacterId}
             currentPage={currentPage} 
             itemsPerPage={itemsPerPage}
+            setShowAdd={setShowAdd}
           />
 
           <Pagination 
@@ -90,7 +94,16 @@ function Garagem() {
             setCurrentPage={setCurrentPage} 
             itemsPerPage={itemsPerPage} 
           />
-        </aside>
+        </main>
+
+        {showAdd &&
+          <Form 
+            ids={ids}
+            garagesByCharacterId={garagesByCharacterId} 
+            setUpdateGarageListByCharacterId={setUpdateGarageListByCharacterId} 
+            setShowAdd={setShowAdd}
+          />
+        }
       
       </div>
       <ToastContainer 

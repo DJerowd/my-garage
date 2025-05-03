@@ -5,7 +5,10 @@ export const getModels = (_, res) => {
     const q = "SELECT vehicle_models.id, class, manufacturer, model, hash, price, seats FROM ((vehicle_models INNER JOIN vehicle_classes ON vehicle_models.classId = vehicle_classes.id) INNER JOIN vehicle_manufacturers ON vehicle_models.manufacturerId = vehicle_manufacturers.id)";
     // const q = "SELECT * FROM vehicle_models";
     db.query(q, (err, data) => {
-        if (err) return res.status(500).json(err);
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         if (data.length === 0) return res.status(204).json("Não há modelos cadastrados");
         return res.status(200).json(data);
     });
@@ -15,7 +18,10 @@ export const getModels = (_, res) => {
 export const getModelsById = (req, res) => {
     const q = "SELECT vehicle_models.id, class, manufacturer, model, hash, price, seats FROM ((vehicle_models INNER JOIN vehicle_classes ON vehicle_models.classId = vehicle_classes.id) INNER JOIN vehicle_manufacturers ON vehicle_models.manufacturerId = vehicle_manufacturers.id) WHERE vehicle_models.id = ?";
     db.query(q, [req.params.id], (err, data) => {
-        if (err) return res.status(500).json(err.code);
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         if (data.length === 0) return res.status(404).json("Nenhum modelo encontrado");
         return res.status(200).json(data);
     });
@@ -32,8 +38,9 @@ export const addModel = (req, res) => {
         req.body.price,
         req.body.seats,
     ];
-    db.query(q, [values], (err) => {
+    db.query(q, [values], (err, result) => {
         if (err) { 
+            console.log(JSON.stringify(err));
             if (err.code === 'ER_DUP_ENTRY') { 
                 return res.status(400).json("Modelo já cadastrado");
             }
@@ -50,7 +57,10 @@ export const updateModel = (req, res) => {
         req.body
     ];
     db.query(q, [...values, req.params.id], (err, result) => {
-        if (err) return res.status(500).json(err.code);
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         if (result.affectedRows === 0) return res.status(404).json("Modelo não encontrado");
         return res.status(200).json("Modelo atualizado com sucesso");
     });
@@ -60,7 +70,10 @@ export const updateModel = (req, res) => {
 export const deleteModel = (req, res) => {
     const q = "DELETE FROM vehicle_models WHERE `id` = (?)";
     db.query(q, [req.params.id], (err, result) => {
-        if (err) return res.status(500).json(err.code);
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         if (result.affectedRows === 0) return res.status(404).json("Modelo não encontrado");
         return res.status(200).json("Modelo deletado com sucesso");
     });

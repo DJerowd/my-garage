@@ -1,0 +1,62 @@
+/* INPUT DE FORMULÁRIO DE ACESSO */
+.sign-input{
+    font-size: 1.0rem;
+    font-family: var(--font-family-2);
+    transition: all 0.5s;
+    
+    padding: 8px 6px;
+    border-radius: 8px;
+
+    color: var(--font-color);
+    background-color: var(--background-color-2);
+    border: 1px solid currentColor;
+}
+.sign-input:hover {
+    border: 1px ridge var(--secondary-color);
+}
+.sign-input:focus {
+    outline: 0;
+    border: 1px ridge var(--primary-color);
+}
+.sign-input::placeholder {
+    opacity: 60%;
+    color: var(--font-color);
+}
+
+
+/* IMPUT E SELECT DOS FORMULÁRIOS DE PERSONAGENS, GARAGENS E VEÍCULOS */
+.list-input, .list-select {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-family-1);
+    font-size: medium;
+    text-overflow: ellipsis; 
+  
+    padding: 0.4rem;
+    width: 100%;
+    border-radius: 8px;
+    
+    border: 2px solid var(--secondary-color);
+    text-shadow: 0 0 2px var(--box-shadow-color);
+    background-color: var(--background-color-2);
+    color: var(--font-color);
+}
+.list-input:hover, .list-select:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 4px var(--secondary-color);
+}
+.list-input:focus, .list-select:focus {
+    outline: 0;
+    border: 2px solid var(--font-color);
+    box-shadow: none;
+    color: var(--primary-color);
+}
+.list-input:disabled, .list-select:disabled{
+    opacity: 50%;
+}
+.list-select option {
+    font-family: var(--font-family-2);
+
+    color: var(--font-color);
+    text-shadow: 0 1px 1px var(--font-color);
+}

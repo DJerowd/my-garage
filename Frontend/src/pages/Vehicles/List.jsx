@@ -1,6 +1,5 @@
 import { React } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { toast } from 'react-toastify';
 
 import axios from 'axios';
@@ -49,56 +48,26 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
   //  LISTA VAZIA PARA SER EXIBIDA QUANDO NÃO HOUVER NENHUM VEICULO NA GARAGEM SELECIONADA.
   if (JSON.stringify(vehiclesByGarageId) == '[]') {
     return (
-      <table>
-        {/* HEADER DA TABELA */}
-        <th id='vehicles-list'>
-        <td id="index"></td>
-        <td id="vehicle">Veículo</td>
-        <td id="color">Cores do Veículo</td>
-        <td id="plate">Placa</td>
-        <td id="btn"></td>
-        </th>
-        {/* DADOS DA TABELA */}
-        <tr id='none-list'>
-          <td>Nenhum veículo encontrado.</td>
-        </tr>
+      <table className='table'>
+          <h3 className='error'>Nenhum veículo encontrado.</h3>
       </table>
     );
   }
 
   return (
-    <table>
-      {/* HEADER DA TABELA */}
-      <th id='vehicles-list'>
-        <td id="index"></td>
-        <td id="vehicle">Veículo</td>
-        <td id="color">Cores do Veículo</td>
-        <td id="plate">Placa</td>
-        <td id="btn"></td>
-      </th>
-      {/* DADOS DA TABELA */}
-      {currentVehicles.map((vehicle, index) => (
-        <tr key={vehicle.id} id='vehicles-list' onClick={() => handleVehicleDetails(vehicle.id)}>
-          <td id="index">{index + 1 + ((currentPage - 1) * itemsPerPage)}</td>
-          <td id="vehicle">{`${vehicle.manufacturer} ${vehicle.model}`}</td>
-          <td id="color">
-          {['primaryColor', 'secundaryColor', 'pearlescentColor', 'interiorColor', 'dashboardColor', 'rimColor'].map(colorKey => (
-            <span
-              style={{ background: vehicle[colorKey]}}
-            ></span>
-          ))}
-          </td>
-          <td id="plate">{`${vehicle.plate}`}</td>
-          <td id="btn">
-            <button onClick={() => handleEdit(vehicle.id)}>
-              <FaRegEdit/>
-            </button>
-            <button onClick={() => handleDelete(vehicle.id)}>
-              <FaTrash/>
-            </button>
-          </td>
-        </tr>
-      ))}
+    <table className='table'>
+
+      <div className='list' style={{gridTemplateColumns: `repeat(calc(${itemsPerPage} / 2), 1fr)`}}>
+        {currentVehicles.map((vehicle, index) => (
+          <section key={vehicle.id} className="item vehicle-item" onClick={() => handleVehicleDetails(vehicle.id)}>
+            <a className='img-preview vehicle-preview'>
+              <img src={`/vehicle_preview/${vehicle.model}.png`} alt={`${vehicle.model}`} onError={(e) => {e.target.onerror = null; e.target.src = '/vehicle_preview/default.png'; }}/>
+              <b>{vehicle.plate}</b>
+            </a>
+            <h3>{`${vehicle.manufacturer} ${vehicle.model}`}</h3>
+          </section>
+        ))}
+      </div>
     </table>
   );
 }

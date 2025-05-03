@@ -1,88 +1,30 @@
-/* GRADE */
-.content-grid main h2 {
+/* TITULO */
+.content-display h2 {
     display: flex;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-
-    padding: 12px;
-}
-
-/* MAIN */
-.content-grid main {
-    padding: 12px 0;
-}
-
-/* FORMULÁRIO */
-.content-grid main form {
-    display: flex;
-    flex-direction: column;
-    font-weight: bold;
-    overflow-y: scroll;
-
-    max-height: 66vh;
-    padding: 12px 1vw;
-    gap: 12px;
-}
-.content-grid main form h3 {
-    display: flex;
-    align-self: center;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
     font-family: var(--font-family-3);
 
-    width: fit-content;
-    padding: 4px 6px;
+    padding: 0.4rem 0.8rem;
     border-radius: 8px;
+    gap: 0.4rem;
 
-    border: 2px solid currentColor;
     color: var(--secondary-color);
-    background-color: color-mix(in srgb, currentColor 30%, #FFFFFF 70%);
+    background-color: var(--background-color-2);
 }
-.content-grid main label {
+
+/* TABELA */
+.table {
     display: flex;
     flex-direction: column;
-    font-size: larger;
-    font-weight: bold;
-}
-.content-grid main label:first-child {
-    border-top: 1px solid var(--background-color-2);
-}
-
-/* BOTÃO DE ENVIO */
-.content-grid main form button {
-    align-self: center;
-    font-size: medium;
-    font-weight: bold;
-    transition: all 0.5s;
-    text-transform: uppercase;
-
-    padding: 8px 12px;
-    border-radius: 8px;
-
-    border: none;
-    background: linear-gradient(135deg, #1a0033, #4b005f); 
-    /* background: linear-gradient(0deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--button-color) 100%); */
-}
-.content-grid main form button:hover {
-    filter: brightness(150%);
-}
-.content-grid main form button:active {
-    filter: brightness(50%);
-}
-.content-grid main form button:disabled {
-    filter: brightness(50%);
-    
-    color: var(--font-color);
-    background: var(--background-color-2);
-}
-
-/* ASIDE */
-.content-grid aside {
-    padding: 12px;
-    gap: 12px;
+    align-items: center;
+    font-size: 1.2rem;
+    overflow-y: visible;
 }
 
 /* FILTRO DA TABELA*/
-.content-grid aside .filter {
+.filter {
     display: grid;
     grid-template-columns: repeat(2, 3fr) 1fr;
     justify-content: center;
@@ -90,170 +32,104 @@
     font-size: 1.2rem;
     font-weight: bold;
 
-    padding: 12px 1vw;
+    padding: 0.4rem 0.8rem;
     border-radius: 8px;
-    gap: 12px;
+    gap: 0.4rem;
     
     background: var(--background-color-2);
 }
-.content-grid aside .filter h3, .content-grid aside .filter a {
+.filter h3 {
     display: flex;
     align-items: center;
 
     gap: 8px;
 }
-.content-grid aside .filter a {
+.filter a {
+    display: flex;
+    align-items: center;
     justify-content: center;
     align-items: center;
     
     width: max-content;
     padding: 0 8px;
     margin: 0;
+    gap: 8px;
     border-radius: 24px;
 
     border: 2px solid var(--font-color);
 }
 
-/* TABELA */
-.content-grid aside table {
-    display: flex;
-    flex-direction: column;
-    font-size: 1.2rem;
-    overflow-y: scroll;
-}
-.content-grid aside table th, .content-grid aside table tr {
+/* LISTAGEM DE OBJETOS */
+.list {
     display: grid;
+
+    width: 100%;
+    padding: 0.6rem 0;
+    gap: 1rem;
+}
+
+/* ITEM */
+.item {
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    transition: scale 0.4s;
+    cursor: pointer;
+
+    padding: 4px 4px 0 4px;
+    width: 100%;
+    border-radius: 4px;
     
-}
-.content-grid #characters-list {
-    grid-template-columns: 2rem 8rem 1fr 12rem 8rem;
-}
-.content-grid #garages-list {
-    grid-template-columns: 2rem 1fr 2fr 4rem 4rem;
-}
-.content-grid #vehicles-list {
-    grid-template-columns: 2rem 1fr 1fr 8rem 8rem;
-}
-.content-grid #none-list {
-    grid-template-columns: 1fr;
-}
-/* HEADER DA TABELA */
-.content-grid aside table th {
-    text-align: start;
-    border-radius: 8px;
-
-    background-color: var(--background-color-2);
-}
-/* LINHAS DA TABELA */
-.content-grid aside table tr {
-    transition: all 0.2s;
-
-    border-bottom: 1px solid var(--background-color-2);
+    box-shadow: 0 1px 4px var(--box-shadow-color);
     background-color: var(--background-color);
 }
-.content-grid aside table tr:hover {
-    cursor: pointer;
-    filter: brightness(150%);
+.item:hover {
+    scale: 1.04;
 }
-/* DADOS DA TABELA */
-.content-grid aside table td {
-    overflow: hidden;
-    text-wrap: nowrap;
-    text-overflow: ellipsis;
-
-    padding: 12px 0;
-}
-.content-grid #index {
-    text-shadow: 1px     1px 2px var(--secondary-color);
-}
-.content-grid #index, .content-grid #btn, .content-grid #rp, .content-grid #date, .content-grid #ocupation, .content-grid #capacity, .content-grid #color, .content-grid #none-list {
-    display: flex;
-    justify-content: center;
+.item h3 {
+    justify-content: start;
     align-items: center;
     text-align: center;
-}
-.content-grid #name, .content-grid #slot, .content-grid #property, .content-grid #vehicle, .content-grid #plate {
-    text-indent: 1rem;
-}
-.content-grid #slot, .content-grid #select-slot, .content-grid #vehicle {
     text-transform: capitalize;
-}
-.content-grid #color {
-    display: flex;
-    gap: 0.2rem;
-}
-.content-grid #color span {
-    display: inline-block;
+    text-overflow: ellipsis; 
+    text-wrap: nowrap;
+    font-family: var(--font-family-3);
+    font-size: 1.2rem;
+    overflow: hidden;
 
-    width: 1.4rem;
-    height: 1.4rem;
-    border-radius: 50%;
+    width: 100%;
 
-    border: 2px solid currentColor;
-    box-shadow: inset 0 0 2px var(--box-shadow-color);
+    color: var(--tertiary-color);
 }
-.content-grid #btn {
+
+/* IMAGEM DO ITEM */
+.img-preview {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+    min-height: 1.0rem;
+    border-radius: 8px;
+
+    background-color: var(--background-color-2);
 }
-/* BOTÕES DE AÇÃO DA TABELA */
-.content-grid #btn button {
+
+/* ERRO */
+.error {
     display: flex;
     justify-content: center;
+    justify-self: center;
+    align-self: center;
     align-items: center;
-    font-size: 1.4rem;
-    cursor: pointer;
-    transition: all 0.4s;
+    font-size: 1.0rem;
 
-    padding: 0.2rem;
+    width: max-content;
+    height: max-content;
+    padding: 0.4rem 0.6rem;
     border-radius: 8px;
 
-    border: 0;
-    color: var(--font-color);
-    background: none;
-}
-.content-grid #btn button:hover {
-    scale: 1.1;
+    border: 2px solid currentColor;
     color: var(--secondary-color);
-    background-color: var(--background-color-2);
-}
-.content-grid #btn button:active {
-    scale: 0.9;
-    color: var(--primary-color);
-}
-
-/* IMPUT E SELECT */
-.content-grid input, .content-grid select {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: var(--font-family-1);
-    font-size: medium;
-    text-overflow: ellipsis; 
-  
-    padding: 0.4rem;
-    width: 100%;
-    border-radius: 8px;
-    
-    border: 2px solid var(--secondary-color);
-    text-shadow: 0 0 2px var(--box-shadow-color);
-    background-color: var(--background-color-2);
-    color: var(--font-color);
-  }
-.content-grid select:hover, .content-grid input:hover {
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 4px var(--secondary-color);
-}
-.content-grid select:focus, .content-grid input:focus {
-    outline: 0;
-    border: 2px solid var(--font-color);
-    box-shadow: none;
-}
-.content-grid select:disabled, .content-grid input:disabled{
-    opacity: 50%;
-}
-.content-grid select option {
-    font-family: var(--font-family-2);
-
-    color: var(--font-color);
-    text-shadow: 0 1px 1px var(--font-color);
+    background-color: color-mix(in srgb, currentColor 30%, #FFFFFF 70%);
 }

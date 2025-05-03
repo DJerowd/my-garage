@@ -5,7 +5,10 @@ export const getVehicles = (_, res) => {
     const q = "SELECT vehicles.id, vehicles.characterId, username, vehicles.garageId, property, manufacturer, model, primaryColor, secundaryColor, pearlescentColor, interiorColor, dashboardColor, rimColor, rimsType, rims, windows, plateModel, plate FROM ((vehicles LEFT JOIN characters ON vehicles.characterId = characters.id) LEFT JOIN garages ON vehicles.garageId = garages.id)";
     // const q = "SELECT * FROM vehicles";
     db.query(q, (err, data) => {
-        if (err) return res.status(500).json(err.code);
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         // if (data.length === 0) return res.status(204).json("Não há veículos cadastrados");
         return res.status(200).json(data);
     });
@@ -16,7 +19,10 @@ export const getVehiclesById = (req, res) => {
     const q = "SELECT vehicles.id, vehicles.characterId, username, vehicles.garageId, property, manufacturer, model, primaryColor, secundaryColor, pearlescentColor, interiorColor, dashboardColor, rimColor, rimsType, rims, windows, plateModel, plate FROM ((vehicles LEFT JOIN characters ON vehicles.characterId = characters.id) LEFT JOIN garages ON vehicles.garageId = garages.id) WHERE vehicles.id = ?";
     // const q = "SELECT * FROM vehicles WHERE `id` = ?";
     db.query(q, [req.params.id], (err, data) => {
-        if (err) return res.status(500).json(err.code);
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         // if (data.length === 0) return res.status(404).json("Nenhum modelo encontrado");
         return res.status(200).json(data);
     });
@@ -28,7 +34,10 @@ export const getVehiclesByCharacterId = (req, res) => {
     // const q = "SELECT * FROM vehicles WHERE `characterId` = ?";
     if (!req.params.id) return res.status(400).json("É necessário informar a ID do personagem");
     db.query(q, [req.params.id], (err, data) => {
-        if (err) return res.status(500).json(err.code);
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         // if (data.length === 0) return res.status(404).json("Nenhum veículo encontrado");
         return res.status(200).json(data);
     });
@@ -40,7 +49,10 @@ export const getVehiclesByGarageId = (req, res) => {
     // const q = "SELECT * FROM vehicles WHERE `garageId` = ?";
     if (!req.params.id) return res.status(400).json("É necessário informar a ID da garagem");
     db.query(q, [req.params.id], (err, data) => {
-        if (err) return res.status(500).json(err.code);
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         // if (data.length === 0) return res.status(404).json("Nenhum veículo encontrado");
         return res.status(200).json(data);
     });
@@ -68,6 +80,7 @@ export const addVehicle = (req, res) => {
     ];
     db.query(q, [values], (err) => {
         if (err) { 
+            console.log(JSON.stringify(err));
             if (err.code === 'ER_DUP_ENTRY') { 
                 return res.status(400).json("Veículo já cadastrado");
             }
@@ -86,6 +99,7 @@ export const updateVehicle = (req, res) => {
     ];
     db.query(q, values, (err, result) => {
         if (err) { 
+            console.log(JSON.stringify(err));
             if (err.code === 'ER_DUP_ENTRY') { 
                 return res.status(400).json("Veículo já cadastrado");
             }
@@ -105,6 +119,7 @@ export const updateVehicleGarage = (req, res) => {
     ];
     db.query(q, values, (err, result) => {
         if (err) { 
+            console.log(JSON.stringify(err));
             if (err.code === 'ER_DUP_ENTRY') { 
                 return res.status(400).json("Veículo já cadastrado");
             }
@@ -119,7 +134,10 @@ export const updateVehicleGarage = (req, res) => {
 export const deleteVehicle = (req, res) => {
     const q = "DELETE FROM vehicles WHERE `id` = (?)";
     db.query(q, [req.params.id], (err, result) => {
-        if (err) return res.status(500).json(err.code);
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         if (result.affectedRows === 0) return res.status(404).json("Veículo não encontrado");
         return res.status(200).json("Veículo excluido com sucesso!");
     });

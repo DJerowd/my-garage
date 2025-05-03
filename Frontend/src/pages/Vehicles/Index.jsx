@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { getLoggedInUser } from '../../utils/auth.js';
+import { FaPlus } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 import useCharactersByUserId from '../../hooks/Characters/useCharactersByUserId.jsx';
@@ -34,8 +35,11 @@ function Veiculo() {
   });
 
   // PAGINAÇÃO
-  const itemsPerPage = 6;
+  const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
+
+  // MODAL DE ADICIONAR
+  const [showAdd, setShowAdd] = useState(false);
 
   // TELA LOGIN NECESSÁRIO
   if (!loggedInUser) {
@@ -64,25 +68,18 @@ function Veiculo() {
   return (
     <div className='container'>
       <Header />
-      <div className='content content-grid'>
+      <div className='content content-display'>
 
         <main>
-          <h2>Adicionar Veículo:</h2>
           
-          <Form 
-            ids={ids}
-            garageLimit={garageLimit}
-            charactersByUserId={charactersByUserId}
-            garagesByCharacterId={garagesByCharacterId}
-            setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
-            increaseOccupation={increaseOccupation}
-            errorsCharacters={errorsCharacters}
-            errorsGarages={errorsGarages}
-            errorsVehicles={errorsVehicles}
-          />
-        </main>
+          <h2>
+            Veículos:
+            <button className="add-btn" onClick={() => setShowAdd(true)}>
+              <span>Novo</span>
+              <FaPlus />
+            </button>
+          </h2>
 
-        <aside>
           <Filter 
             setIds={setIds}
             vehiclesByGarageId={vehiclesByGarageId}
@@ -110,7 +107,17 @@ function Veiculo() {
             setCurrentPage={setCurrentPage} 
             itemsPerPage={itemsPerPage} 
           />
-        </aside>
+        </main>
+
+        {showAdd &&
+          <Form 
+            ids={ids}
+            garageLimit={garageLimit}
+            setUpdateVehicleListByGarageId={setUpdateVehicleListByGarageId}
+            increaseOccupation={increaseOccupation}
+            setShowAdd={setShowAdd}
+          />
+        }
 
       </div>
       <ToastContainer 

@@ -63,7 +63,7 @@ function Filter({ setIds, vehiclesByGarageId, setGarageLimit, charactersByUserId
   return (
     <div className="filter">
       <h3>Personagem:
-        <select name="character" onChange={handleChange}>
+        <select className='list-select' name="character" onChange={handleChange}>
           <option value="0">Selecione um personagem</option>
           {charactersByUserId.map((character, index) => (
             <option key={character.value} value={JSON.stringify(character)}>
@@ -74,7 +74,7 @@ function Filter({ setIds, vehiclesByGarageId, setGarageLimit, charactersByUserId
       </h3>
 
       <h3>Garagem:
-        <select name="garage" onChange={handleChange} disabled={!character}>
+        <select className='list-select' name="garage" onChange={handleChange} disabled={!character}>
           <option value="0">Selecione uma garagem</option>
           {garagesByCharacterId.map((garage, index) => (
             <option key={garage.value} value={JSON.stringify(garage)}>

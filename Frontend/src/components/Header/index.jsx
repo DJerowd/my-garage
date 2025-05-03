@@ -31,10 +31,10 @@ function Header(){
                 {showMenu && <Dropdown/>}
 
                 <a>
-                    <Link to="/signin" title='Entrar' className={(location.pathname === "/signin") ? 'sign-btn active' : 'sign-btn'}>
+                    <Link to="/signin" title='Entrar' className={(location.pathname === "/signin") ? 'details-btn active' : 'details-btn'}>
                         <IoLogIn  className='sign-icon'/>Entrar
                     </Link>
-                    <Link to="/signup" title='Cadastrar' className={(location.pathname === "/signup") ? 'sign-btn active' : 'sign-btn'}>
+                    <Link to="/signup" title='Cadastrar' className={(location.pathname === "/signup") ? 'details-btn active' : 'details-btn'}>
                         <IoPersonAdd  className='sign-icon'/>Cadastrar
                     </Link>
                 </a>

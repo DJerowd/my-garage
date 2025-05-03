@@ -1,12 +1,14 @@
 import { React, useState } from 'react';
+import { IoClose } from "react-icons/io5";
 import { toast } from 'react-toastify';
+
 import axios from 'axios';
 
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 import '../../Styles/responsive.css';
 
-function Form({ setUpdateCharactersListByUserId, loggedInUser }) {
+function Form({ setUpdateCharactersListByUserId, loggedInUser, setShowAdd }) {
   const [character, setCharacter] = useState({
     username: '',
     reputation: 0,
@@ -39,28 +41,36 @@ function Form({ setUpdateCharactersListByUserId, loggedInUser }) {
         reputation: 0,
         createDate: ''
       });
+      setShowAdd(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-          RP:
-          <input type="number" value={character.reputation} onChange={(e) => setCharacter({ ...character, reputation: e.target.value })} min="1" max={"9999"} />
-      </label>
+    <div className='content-modal'>
+      <form onSubmit={handleSubmit}>
 
-      <label>
-          Nome: 
-          <input type="text" value={character.username} onChange={(e) => setCharacter({ ...character, username: e.target.value })} />
-      </label>
+        <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
 
-      <label>
-          Data de Criação:
-          <input type="date" value={character.createDate} onChange={(e) => setCharacter({ ...character, createDate: e.target.value })} />
-      </label>
+        <h2>Adicionar Personagem:</h2>
+        
+        <label>
+            RP:
+            <input className='list-input' type="number" value={character.reputation} onChange={(e) => setCharacter({ ...character, reputation: e.target.value })} min="1" max={"9999"} />
+        </label>
 
-      <button type="submit">Salvar Personagem</button>
-    </form>
+        <label>
+            Nome: 
+            <input className='list-input' type="text" value={character.username} onChange={(e) => setCharacter({ ...character, username: e.target.value })} />
+        </label>
+
+        <label>
+            Data de Criação:
+            <input className='list-input' type="date" value={character.createDate} onChange={(e) => setCharacter({ ...character, createDate: e.target.value })} />
+        </label>
+
+        <button className='form-btn' type="submit">Salvar Personagem</button>
+      </form>
+    </div>
   );
 }
 

@@ -5,7 +5,10 @@ export const getGarages = (_, res) => {
     const q = "SELECT garages.id, characterId, username, slot, property, ocupation, capacity, location, price FROM garages LEFT JOIN characters ON garages.characterId = characters.id";
     // const q = "SELECT * FROM garages";
     db.query(q, (err, data) => {
-        if (err) return res.status(500).json(err.code);
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         if (data.length === 0) return res.status(204).json("Não há garagens cadastrados");
         return res.status(200).json(data);
     });
@@ -16,7 +19,10 @@ export const getGaragesById = (req, res) => {
     const q = "SELECT garages.id, characterId, username, slot, property, ocupation, capacity, location, price FROM garages LEFT JOIN characters ON garages.characterId = characters.id WHERE garages.id = ?";
     // const q = "SELECT * FROM garages WHERE `id` = ?";
     db.query(q, [req.params.id], (err, data) => {
-        if (err) return res.status(500).json(err.code);
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         // if (data.length === 0) return res.status(404).json("Nenhuma garagem encontrada");
         return res.status(200).json(data);
     });
@@ -28,7 +34,10 @@ export const getGaragesByCharacterId = (req, res) => {
     // const q = "SELECT * FROM garages WHERE `characterId` = ? ";
     if (!req.params.id) return res.status(400).json("É necessário informar a ID do personagem");
     db.query(q, [req.params.id], (err, data) => {
-        if (err) return res.status(500).json(err.code);
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         // if (data.length === 0) return res.status(404).json("Nenhuma garagem encontrada");
         return res.status(200).json(data);
     });
@@ -48,6 +57,7 @@ export const addGarages = (req, res) => {
     ];
     db.query(q, [values], (err) => {
         if (err) { 
+            console.log(JSON.stringify(err));
             if (err.code === 'ER_DUP_ENTRY') { 
                 return res.status(400).json("Garagem já cadastrada");
             }
@@ -68,8 +78,9 @@ export const updateGarages = (req, res) => {
         req.body.location,
         req.body.price
     ];
-    db.query(q, [...values, req.params.id], (err) => {
+    db.query(q, [...values, req.params.id], (err, result) => {
         if (err) { 
+            console.log(JSON.stringify(err));
             if (err.code === 'ER_DUP_ENTRY') { 
                 return res.status(400).json("Garagem já cadastrada");
             }
@@ -83,8 +94,11 @@ export const updateGarages = (req, res) => {
 // EXCLUIR GARAGEM EXISTENTE.
 export const deleteGarages = (req, res) => {
     const q = "DELETE FROM garages WHERE `id` = (?)";
-    db.query(q, [req.params.id], (err) => {
-        if (err) return res.status(500).json(err.code);
+    db.query(q, [req.params.id], (err, result) => {
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json(err.code);
+        }
         if (result.affectedRows === 0) return res.status(404).json("Garagem não encontrada");
         return res.status(200).json("Garagem deletada com sucesso");
     });
@@ -98,7 +112,10 @@ export const increaseGarageOccupation = (req, res) => {
         WHERE id = ?
     `;
     db.query(q, [req.params.id], (err, result) => {
-        if (err) return res.status(500).json({ message: "Erro ao aumentar ocupação", error: err });
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json({ message: "Erro ao aumentar ocupação", error: err });
+        }
         if (result.affectedRows === 0) return res.status(404).json("Garagem não encontrada");
         return res.status(200).json({ message: "Ocupação aumentada com sucesso" });
     });
@@ -112,7 +129,10 @@ export const decreaseGarageOccupation = (req, res) => {
         WHERE id = ?
     `;
     db.query(q, [req.params.id], (err, result) => {
-        if (err) return res.status(500).json({ message: "Erro ao diminuir ocupação", error: err });
+        if (err) {
+            console.log(JSON.stringify(err));
+            return res.status(500).json({ message: "Erro ao diminuir ocupação", error: err });
+        }
         if (result.affectedRows === 0) return res.status(404).json("Garagem não encontrada");
         return res.status(200).json({ message: "Ocupação diminuída com sucesso" });
     });

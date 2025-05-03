@@ -1,10 +1,11 @@
 import { React } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaCar } from "react-icons/fa";
 
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 
-function List({ garagesByCharacterId, setUpdateGarageListByCharacterId, currentPage, itemsPerPage }) {
+function List({ garagesByCharacterId, setUpdateGarageListByCharacterId, currentPage, itemsPerPage, setShowAdd }) {
     const navigate = useNavigate();
 
     // OBTÉM OS USUÁRIOS PARA A PÁGINA ATUAL
@@ -22,43 +23,25 @@ function List({ garagesByCharacterId, setUpdateGarageListByCharacterId, currentP
     //  LISTA VAZIA PARA SER EXIBIDA QUANDO NÃO HOUVER NENHUMA GARAGEM NO PERSONAGEM SELECIONADO.
     if (JSON.stringify(garagesByCharacterId) == '[]') {
         return (
-            <table>
-                {/* HEADER DA TABELA */}
-                <th id='garages-list'>
-                    <td id="index"></td>
-                    <td id="slot">Slot</td>
-                    <td id="property">Propriedade</td>
-                    <td id="ocupation">Ocup.</td>
-                    <td id="capacity">Capac.</td>
-                </th>
-                {/* DADOS DA TABELA */}
-                <tr id='none-list'>
-                    <td>Nenhuma garagem encontrada.</td>
-                </tr>
+            <table className='table'>
+                <h3 className='error'>Nenhuma garagem encontrada.</h3>
             </table>
         );
     }
 
     return (
-        <table>
-            {/* HEADER DA TABELA */}
-            <th id='garages-list'>
-                <td id="index"></td>
-                <td id="slot">Slot</td>
-                <td id="property">Propriedade</td>
-                <td id="ocupation">Ocup.</td>
-                <td id="capacity">Capac.</td>
-            </th>
-            {/* DADOS DA TABELA */}
+        <table className='table'>
+            <div className='list' style={{gridTemplateColumns: `repeat(calc(${itemsPerPage} / 2), 1fr)`}}>
             {currentGarages.map((garage, index) => (
-                <tr key={garage.id} id='garages-list' onClick={() => handleGarageDetails(garage.id)}>
-                    <td id="index">{index + 1 + ((currentPage - 1) * itemsPerPage)}</td>
-                    <td id="slot">{garage.slot}</td>
-                    <td id="property">{garage.property}</td>
-                    <td id="ocupation">{garage.ocupation}</td>
-                    <td id="capacity">{garage.capacity}</td>
-                </tr>
+                <section key={garage.id} className="item garage-item" onClick={() => handleGarageDetails(garage.id)}>
+                    <a className='img-preview garage-preview'>
+                        <img src={`/garage_preview/default.jpg`} alt={`${garage.id}`} onError={(e) => {e.target.onerror = null; e.target.src = '../../assets/icon.png'; }}/>
+                        <b><FaCar className='icon'/>{garage.capacity}</b>
+                    </a>
+                    <h3>{garage.property}</h3>
+                </section>
             ))}
+            </div>
         </table>
     );
 }

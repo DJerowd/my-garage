@@ -11,14 +11,14 @@
 }
 
 /* BARRA DE CORES */
-.content-vehicle .vehicle-colors {
+.vehicle-colors {
     display: flex;
     flex-wrap: wrap;
 
     width: 100%;
     gap: 0.2em 0.4rem;
 }
-.content-vehicle .vehicle-colors label {
+.vehicle-colors label {
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -31,7 +31,7 @@
     box-shadow: 0 0 4px var(--box-shadow-color);
     background: var(--background-color-2);
 }
-.content-vehicle .vehicle-colors span {
+.vehicle-colors span {
     display: flex;
     width: 24px;
     height: 24px;
@@ -63,7 +63,7 @@
     position: absolute;
     font-size: 2.2rem;
     font-family: var(--font-family-1);
-    overflow: scroll;
+    overflow: hidden;
     text-wrap: nowrap;
 
     width: 150px;
@@ -72,48 +72,11 @@
 
 /* ITEM VEÍCULOS */
 .vehicle-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: scale 0.4s;
-    cursor: pointer;
-
-    padding: 0 4px 4px 4px;
-    border-radius: 4px;
-    
-    box-shadow: 0 1px 4px var(--box-shadow-color);
-    background-color: var(--background-color);
-}
-.vehicle-item:hover {
-    scale: 1.1;
-}
-.vehicle-item h3 {
-    justify-content: start;
-    align-items: center;
-    text-align: center;
-    text-transform: capitalize;
-    text-overflow: ellipsis; 
-    text-wrap: nowrap;
-    font-family: var(--font-family-3);
-    font-size: 1.2rem;
-    overflow: hidden;
-
-    padding: 0 0 0.6rem 0;
-    width: 100%;
-
-    color: var(--tertiary-color);
+    color: var(--font-color);
 }
 
 /* IMAGEM DO VEÍCULO */
 .vehicle-preview {
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
-    height: 100%;
-    min-height: 1.0rem;
-    border-radius: 8px;
-
     background-color: var(--background-color-2);
 }
 .vehicle-preview img {

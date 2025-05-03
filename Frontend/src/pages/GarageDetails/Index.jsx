@@ -119,6 +119,10 @@ function GarageDetails() {
             <section>
               <h2>{`${garage.property}`}</h2>
 
+              <a className='garage-preview'>
+                <img src={`/garage_preview/default.jpg`} alt={`${garage.id}`} onError={(e) => {e.target.onerror = null; e.target.src = '../../assets/icon.png'; }}/>
+              </a>
+
               <h3>Informações da Propriedade</h3>
               <dl>
                 <dt>Dono:</dt>
@@ -138,10 +142,10 @@ function GarageDetails() {
               </dl>
 
               <div>
-                <button onClick={() => handleEdit(garage.id)}>
+                <button className='details-btn' onClick={() => handleEdit(garage.id)}>
                   <FaRegEdit/>Editar
                 </button>
-                <button onClick={() => handleDelete(garage.id)}>
+                <button className='details-btn' onClick={() => handleDelete(garage.id)}>
                   <FaTrash/>Excluir
                 </button>
               </div>
@@ -154,10 +158,10 @@ function GarageDetails() {
         ? 
           <aside>
             {vehiclesByGarageId.map((vehicle, index) => (
-              <section className="vehicle-item" onClick={() => handleVehicleDetails(vehicle.id)}>
+              <section className="item vehicle-item" onClick={() => handleVehicleDetails(vehicle.id)}>
                 <h3 className="article-title-overlay">{`${vehicle.manufacturer} ${vehicle.model}`}</h3>
                 <a className='vehicle-preview'>
-                <img src={`/vehicle_preview/${vehicle.model}.png`} alt={`${vehicle.model}`} onError={(e) => {e.target.onerror = null; e.target.src = '/vehicle_preview/default.png'; }}/>
+                  <img src={`/vehicle_preview/${vehicle.model}.png`} alt={`${vehicle.model}`} onError={(e) => {e.target.onerror = null; e.target.src = '/vehicle_preview/default.png'; }}/>
                   <b>{index + 1}</b>
                 </a>
               </section>

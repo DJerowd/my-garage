@@ -24,12 +24,6 @@
 .content-sign {
     background-image: url('../assets/background-2.jpg');
 }
-.content-grid {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-
-    gap: 12px;
-}
 .content-garage , .content-vehicle {
     display: flex;
     flex-direction: column;
@@ -39,7 +33,7 @@
     gap: 1rem;
 }
 /* CONTEUDO PRINCIPAL */
-.content-home main, .content-settings main, .content-profile main, .content-grid main, .content-grid aside {
+.content-home main, .content-settings main, .content-profile main {
     align-self: flex-start;
 
     min-height: 80vh;
@@ -62,15 +56,54 @@
 
     min-width: 100%;
 }
-/* .content-vehicle main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 
-    min-width: 100%;
-    padding: 12px 1vw;
-    gap: 1vw;
-} */
-.content-grid main, .content-grid aside {
+
+.content-display {
+    justify-content: center;
+    justify-self: center;
+    align-items: start;
+}
+.content-display main {
     display: flex;
     flex-direction: column;
+
+    width: 100%;
+    max-width: 1100px;
+    padding: 12px 1vw;
+    gap: 0.6rem;
+    border-radius: 8px;
+
+    background-color: var(--background-color);
+}
+
+/* MODAL DE FORMULARIOS */
+.content-modal {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: start;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+    height: 100%;
+    padding: 1.0rem;
+
+    backdrop-filter: blur(4px);
+}
+.content-modal form {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    
+    border-radius: 8px ;
+
+    min-width: 30vw;
+    max-height: 100%;
+    padding: 12px 1vw;
+    gap: 1rem;
+
+    box-shadow: var(--box-shadow-color) 0 4px 10px;
+    background-color: var(--background-color);
 }
