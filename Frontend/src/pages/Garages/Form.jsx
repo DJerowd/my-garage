@@ -99,7 +99,9 @@ function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId, set
         return (
             <div className='content-modal'>
                 <form>
-                    <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
+                    <div className='btn-bar'>
+                        <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
+                    </div>
                     <h3 className='error'>Primeiro selecione um personagem</h3>
                 </form>
             </div>
@@ -110,7 +112,9 @@ function Form({ ids, garagesByCharacterId, setUpdateGarageListByCharacterId, set
         <div className='content-modal'>
             <form onSubmit={handleSubmit}>
 
-                <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
+                <div className='btn-bar'>
+                    <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
+                </div>
 
                 <h2>Adicionar Garagem:</h2>
                 

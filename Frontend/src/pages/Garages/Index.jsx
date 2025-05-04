@@ -82,10 +82,8 @@ function Garagem() {
 
           <List
             garagesByCharacterId={garagesByCharacterId}
-            setUpdateGarageListByCharacterId={setUpdateGarageListByCharacterId}
             currentPage={currentPage} 
             itemsPerPage={itemsPerPage}
-            setShowAdd={setShowAdd}
           />
 
           <Pagination 

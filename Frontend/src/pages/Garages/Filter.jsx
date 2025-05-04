@@ -18,16 +18,14 @@ function Filter({ setIds, charactersByUserId, setGarageByCharacterId, setUpdateG
 
   return (
     <div className="filter">
-      <h3>Personagem:
-        <select className='list-select' name="character" onChange={handleChange} value={character}>
-          <option value="0">Selecione um personagem</option>
-          {charactersByUserId.map((character, index) => (
-            <option key={character.value} value={JSON.stringify(character)}>
-              {index + 1} - {character.username}
-            </option>
-          ))}
-        </select>
-      </h3>
+      <select className='list-select' name="character" onChange={handleChange} value={character}>
+        <option value="0">SELECIONE UM PERSONAGEM</option>
+        {charactersByUserId.map((character, index) => (
+          <option key={character.value} value={JSON.stringify(character)}>
+            {index + 1} - {character.username}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

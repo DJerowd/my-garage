@@ -42,12 +42,7 @@ export const getCharactersByUserId = (req, res) => {
 // ADICIONAR NOVO PERSONAGEM.
 export const addCharacter = (req, res) => {
     const q = "INSERT INTO characters(`userId`, `username`, `reputation`, `createDate`) VALUES (?)";
-    const values = [
-        req.body.userId,
-        req.body.username,
-        req.body.reputation,
-        req.body.createDate,
-    ];
+    const values = [ req.body.userId, req.body.username, req.body.reputation, req.body.createDate ];
     db.query(q, [values], (err) => {
         if (err) { 
             console.log(JSON.stringify(err));
@@ -62,13 +57,8 @@ export const addCharacter = (req, res) => {
 
 // ATUALIZAR PERSONAGEM EXISTENTE.
 export const updateCharacter = (req, res) => {
-    const q = "UPDATE characters SET `userId` = ?, `username` = ?, `reputation` = ?, `createDate` = ? WHERE `id` = ?";
-    const values = [
-        req.body.userId,
-        req.body.username,
-        req.body.reputation,
-        req.body.createDate,
-    ];
+    const q = "UPDATE characters SET `username` = ?, `reputation` = ? WHERE `id` = ?";
+    const values = [ req.body.username, req.body.reputation ];
     db.query(q, [...values, req.params.id], (err, result) => {
         if (err) {
             console.log(JSON.stringify(err));

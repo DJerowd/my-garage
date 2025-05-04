@@ -5,7 +5,7 @@ import { FaCar } from "react-icons/fa";
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 
-function List({ garagesByCharacterId, setUpdateGarageListByCharacterId, currentPage, itemsPerPage, setShowAdd }) {
+function List({ garagesByCharacterId, currentPage, itemsPerPage }) {
     const navigate = useNavigate();
 
     // OBTÉM OS USUÁRIOS PARA A PÁGINA ATUAL
@@ -35,7 +35,7 @@ function List({ garagesByCharacterId, setUpdateGarageListByCharacterId, currentP
             {currentGarages.map((garage, index) => (
                 <section key={garage.id} className="item garage-item" onClick={() => handleGarageDetails(garage.id)}>
                     <a className='img-preview garage-preview'>
-                        <img src={`/garage_preview/default.jpg`} alt={`${garage.id}`} onError={(e) => {e.target.onerror = null; e.target.src = '../../assets/icon.png'; }}/>
+                        <img src={`/garage_preview/${garage.property}.jpg`} alt={`${garage.id}`} onError={(e) => {e.target.onerror = null; e.target.src = '/garage_preview/default.png'; }}/>
                         <b><FaCar className='icon'/>{garage.capacity}</b>
                     </a>
                     <h3>{garage.property}</h3>

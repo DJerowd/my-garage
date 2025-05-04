@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 
 import axios from 'axios';
 
+import plateModels from '../../data/license-plates.json';
+
 import '../../Styles/layout.css';
 import '../../Styles/grid.css';
 
@@ -45,6 +47,14 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
     navigate(`/vehicle/${id}`);
   };
 
+  // DEFINE A COR DO TEXTO DA PLACA
+  const getPlateTextColor = (plateModelId) => {
+    if (plateModelId === 3 || plateModelId === 4 || plateModelId === 10 || plateModelId === 11) return "#DDC25A";
+    if (plateModelId === 6 || plateModelId === 12) return "#FFFFFF";
+    if (plateModelId === 5) return "#000000";
+    return "#25295F";
+  };
+
   //  LISTA VAZIA PARA SER EXIBIDA QUANDO NÃO HOUVER NENHUM VEICULO NA GARAGEM SELECIONADA.
   if (JSON.stringify(vehiclesByGarageId) == '[]') {
     return (
@@ -62,7 +72,6 @@ function List({ ids, vehiclesByGarageId, setUpdateVehicleListByGarageId, decreas
           <section key={vehicle.id} className="item vehicle-item" onClick={() => handleVehicleDetails(vehicle.id)}>
             <a className='img-preview vehicle-preview'>
               <img src={`/vehicle_preview/${vehicle.model}.png`} alt={`${vehicle.model}`} onError={(e) => {e.target.onerror = null; e.target.src = '/vehicle_preview/default.png'; }}/>
-              <b>{vehicle.plate}</b>
             </a>
             <h3>{`${vehicle.manufacturer} ${vehicle.model}`}</h3>
           </section>

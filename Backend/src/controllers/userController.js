@@ -45,11 +45,7 @@ export const getUsersBySearch = (req, res) => {
 // ADICIONAR NOVO USUÁRIO.
 export const addUser = (req, res) => {
     const q = "INSERT INTO users(`username`, `email`, `password`) VALUES (?)";
-    const values = [
-        req.body.username,
-        req.body.email,
-        req.body.password,
-    ];
+    const values = [ req.body.username, req.body.email, req.body.password ];
     db.query(q, [values], (err) => {
         if (err) { 
             console.log(JSON.stringify(err));
@@ -65,11 +61,7 @@ export const addUser = (req, res) => {
 // ATUALIZAR USUÁRIO EXISTENTE.
 export const updateUser = (req, res) => {
     const q = "UPDATE users SET `username` = ?, `email` = ?, `password` = ? WHERE `id` = ?";
-    const values = [
-        req.body.username,
-        req.body.email,
-        req.body.password,
-    ];
+    const values = [ req.body.username, req.body.email, req.body.password ];
     db.query(q, [...values, req.params.id], (err, result) => {
         if (err) {
             console.log(JSON.stringify(err));

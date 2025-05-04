@@ -1,5 +1,5 @@
 /* TITULO */
-.content-display h2 {
+.content-display main h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,12 +37,6 @@
     gap: 0.4rem;
     
     background: var(--background-color-2);
-}
-.filter h3 {
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
 }
 .filter a {
     display: flex;
@@ -113,6 +107,18 @@
     border-radius: 8px;
 
     background-color: var(--background-color-2);
+}
+.img-preview img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.0rem;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
 }
 
 /* ERRO */

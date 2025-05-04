@@ -21,9 +21,11 @@
     background-size: cover;
     background-position: center;
 }
+/* CONTEUDO CREDENCIAMENTO */
 .content-sign {
     background-image: url('../assets/background-2.jpg');
 }
+/* CONTEUDO DE DETALHES */
 .content-garage , .content-vehicle {
     display: flex;
     flex-direction: column;
@@ -33,7 +35,7 @@
     gap: 1rem;
 }
 /* CONTEUDO PRINCIPAL */
-.content-home main, .content-settings main, .content-profile main {
+.content-settings main, .content-profile main {
     align-self: flex-start;
 
     min-height: 80vh;
@@ -41,23 +43,28 @@
 
     background-color: var(--background-color);
 }
+/* CONTEUDO HOME */
 .content-home main {
     display: flex;
     flex-direction: column;
+    align-self: flex-start;
 
     width: 100%;
-    padding: 12px 1vw;
+    max-width: 1100px;
+    padding: 1rem;
+    border-radius: 8px;
     
-    color: var(--font-color);
+    background-color: var(--background-color);
 }
+/* CONTEUDO CONFIGURAÇÕES E PERFIL */
 .content-settings main, .content-profile main {
     display: flex;
     flex-direction: column;
 
-    min-width: 100%;
+    width: 100%;
+    max-width: 1100px;
 }
-
-
+/* CONTEUDO DISPLAY DE ITENS */
 .content-display {
     justify-content: center;
     justify-self: center;
@@ -81,7 +88,7 @@
     display: flex;
     justify-content: center;
     justify-self: center;
-    align-items: start;
+    align-items: center;
     position: fixed;
     top: 0;
     z-index: 1000;
@@ -106,4 +113,17 @@
 
     box-shadow: var(--box-shadow-color) 0 4px 10px;
     background-color: var(--background-color);
+}
+.content-modal h2 {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-family: var(--font-family-3);
+
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    gap: 0.4rem;
+
+    color: var(--secondary-color);
+    background-color: var(--background-color-2);
 }

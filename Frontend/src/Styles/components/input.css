@@ -23,7 +23,6 @@
     color: var(--font-color);
 }
 
-
 /* IMPUT E SELECT DOS FORMULÁRIOS DE PERSONAGENS, GARAGENS E VEÍCULOS */
 .list-input, .list-select {
     cursor: pointer;

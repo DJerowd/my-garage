@@ -46,15 +46,7 @@ export const getGaragesByCharacterId = (req, res) => {
 // ADICIONAR NOVA GARAGEM.
 export const addGarages = (req, res) => {
     const q = "INSERT INTO garages(`characterId`, `slot`, `property`, `ocupation`, `capacity`, `location`, `price`) VALUES (?)";
-    const values = [
-        req.body.characterId,
-        req.body.slot,
-        req.body.property,
-        req.body.ocupation,
-        req.body.capacity,
-        req.body.location,
-        req.body.price
-    ];
+    const values = [ req.body.characterId, req.body.slot, req.body.property, req.body.ocupation, req.body.capacity, req.body.location, req.body.price ];
     db.query(q, [values], (err) => {
         if (err) { 
             console.log(JSON.stringify(err));
@@ -69,15 +61,8 @@ export const addGarages = (req, res) => {
 
 // ATUALIZAR GARAGEM EXISTENTE.
 export const updateGarages = (req, res) => {
-    const q = "UPDATE garages SET `slot` = ?, `property` = ?, `ocupation` = ?, `capacity` = ?, `location` = ?, `price` = ? WHERE `id` = ?";
-    const values = [
-        req.body.slot,
-        req.body.property,
-        req.body.ocupation,
-        req.body.capacity,
-        req.body.location,
-        req.body.price
-    ];
+    const q = "UPDATE garages SET `property` = ?, `capacity` = ?, `location` = ?, `price` = ? WHERE `id` = ?";
+    const values = [ req.body.property, req.body.capacity, req.body.location, req.body.price ];
     db.query(q, [...values, req.params.id], (err, result) => {
         if (err) { 
             console.log(JSON.stringify(err));
@@ -106,11 +91,7 @@ export const deleteGarages = (req, res) => {
 
 // FUNÇÃO PARA AUMENTAR A OCUPAÇÂO DE UMA GARAGEM.
 export const increaseGarageOccupation = (req, res) => {
-    const q = `
-        UPDATE garages 
-        SET ocupation = IF(ocupation + 1 <= capacity, ocupation + 1, capacity)
-        WHERE id = ?
-    `;
+    const q = `UPDATE garages SET ocupation = IF(ocupation + 1 <= capacity, ocupation + 1, capacity) WHERE id = ?`;
     db.query(q, [req.params.id], (err, result) => {
         if (err) {
             console.log(JSON.stringify(err));
@@ -123,11 +104,7 @@ export const increaseGarageOccupation = (req, res) => {
 
 // FUNÇÃO PARA REDUZIR A OCUPAÇÂO DE UMA GARAGEM.
 export const decreaseGarageOccupation = (req, res) => {
-    const q = `
-        UPDATE garages 
-        SET ocupation = IF(ocupation > 0, ocupation - 1, 0)
-        WHERE id = ?
-    `;
+    const q = `UPDATE garages SET ocupation = IF(ocupation > 0, ocupation - 1, 0) WHERE id = ?`;
     db.query(q, [req.params.id], (err, result) => {
         if (err) {
             console.log(JSON.stringify(err));

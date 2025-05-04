@@ -49,7 +49,9 @@ function Form({ setUpdateCharactersListByUserId, loggedInUser, setShowAdd }) {
     <div className='content-modal'>
       <form onSubmit={handleSubmit}>
 
-        <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
+        <div className='btn-bar'>
+          <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
+        </div>
 
         <h2>Adicionar Personagem:</h2>
         
@@ -69,6 +71,7 @@ function Form({ setUpdateCharactersListByUserId, loggedInUser, setShowAdd }) {
         </label>
 
         <button className='form-btn' type="submit">Salvar Personagem</button>
+        
       </form>
     </div>
   );

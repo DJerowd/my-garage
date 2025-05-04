@@ -61,23 +61,7 @@ export const getVehiclesByGarageId = (req, res) => {
 // ADICIONAR NOVO VEÍCULO.
 export const addVehicle = (req, res) => {
     const q = "INSERT INTO vehicles(`characterId`, `garageId`, `manufacturer`, `model`, `primaryColor`, `secundaryColor`, `pearlescentColor`, `interiorColor`, `dashboardColor`, `rimColor`, `rimsType`, `rims`, `windows`, `plateModel`, `plate`) VALUES (?)";
-    const values = [
-        req.body.characterId,
-        req.body.garageId,
-        req.body.manufacturer,
-        req.body.model,
-        req.body.primaryColor,
-        req.body.secundaryColor,
-        req.body.pearlescentColor,
-        req.body.interiorColor,
-        req.body.dashboardColor,
-        req.body.rimColor,
-        req.body.rimsType,
-        req.body.rims,
-        req.body.windows,
-        req.body.plateModel,
-        req.body.plate,
-    ];
+    const values = [ req.body.characterId, req.body.garageId, req.body.manufacturer, req.body.model, req.body.primaryColor, req.body.secundaryColor, req.body.pearlescentColor, req.body.interiorColor, req.body.dashboardColor, req.body.rimColor, req.body.rimsType, req.body.rims, req.body.windows, req.body.plateModel, req.body.plate ];
     db.query(q, [values], (err) => {
         if (err) { 
             console.log(JSON.stringify(err));
@@ -93,10 +77,7 @@ export const addVehicle = (req, res) => {
 // ATUALIZAR VEÍCULO EXISTENTE.
 export const updateVehicle = (req, res) => {
     const q = "UPDATE vehicles SET ?  WHERE `id` = ?";
-    const values = [
-        req.body,
-        req.params.id
-    ];
+    const values = [ req.body, req.params.id ];
     db.query(q, values, (err, result) => {
         if (err) { 
             console.log(JSON.stringify(err));
@@ -113,10 +94,7 @@ export const updateVehicle = (req, res) => {
 // ALTERAR GARAGEM DO VEÍCULO.
 export const updateVehicleGarage = (req, res) => {
     const q = "UPDATE vehicles SET garageId = ? WHERE id = ?";
-    const values = [
-        req.body.garageId,
-        req.params.id
-    ];
+    const values = [ req.body.garageId, req.params.id ];
     db.query(q, values, (err, result) => {
         if (err) { 
             console.log(JSON.stringify(err));

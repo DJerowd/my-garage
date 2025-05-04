@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useParams } from "react-router";
 import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { getLoggedInUser } from '../../utils/auth.js';
+import { ToastContainer, toast } from 'react-toastify';
 
 import axios from 'axios';
 
@@ -12,6 +13,7 @@ import useVehiclesByGarageId from '../../hooks/Vehicles/useVehiclesByGarageId.js
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Loading from '../../components/Loading/Index.jsx';
+import Edit from './Edit.jsx';
 
 import '../../Styles/layout.css';
 import '../../Styles/garage.css';
@@ -25,6 +27,10 @@ function GarageDetails() {
   const { vehiclesByGarageId, setUpdateVehicleListByGarageId, setVehicleByGarageId, loading:loadingVehicles, errors:errorsVehicles } = useVehiclesByGarageId();
   const loggedInUser = getLoggedInUser();
   const navigate = useNavigate();
+
+  // MODAL DE EDIÇÃO
+  const [showEdit, setShowEdit] = useState(false);
+  const [editingGarage, setEditingGarage] = useState(null);
 
    // CARREGA DADOS DA GARAGEM
    useEffect(() => {
@@ -45,7 +51,9 @@ function GarageDetails() {
   }, [garage]);
 
   // FUNÇÃO PARA EDITAR A GARAGEM.
-  const handleEdit = (id) => {
+  const handleEdit = () => {
+    setShowEdit(true);
+    setEditingGarage(garage[0]);
   };
 
   // FUNÇÃO PARA EXCLUIR A GARAGEM.
@@ -58,8 +66,8 @@ function GarageDetails() {
       await axios
       .delete("http://localhost:8800/garages/" + id)
       .then(({ data }) => {
-        setUpdateListVehicle(prevState => !prevState);
         navigate(-1);
+        setUpdateListVehicle(prevState => !prevState);
       })
       .catch(({ data }) => toast.error(data)
       );
@@ -119,8 +127,8 @@ function GarageDetails() {
             <section>
               <h2>{`${garage.property}`}</h2>
 
-              <a className='garage-preview'>
-                <img src={`/garage_preview/default.jpg`} alt={`${garage.id}`} onError={(e) => {e.target.onerror = null; e.target.src = '../../assets/icon.png'; }}/>
+              <a className='img-preview garage-preview'>
+                <img src={`/garage_preview/${garage.property}.jpg`} alt={`${garage.id}`} onError={(e) => {e.target.onerror = null; e.target.src = '/garage_preview/default.png'; }}/>
               </a>
 
               <h3>Informações da Propriedade</h3>
@@ -142,7 +150,7 @@ function GarageDetails() {
               </dl>
 
               <div>
-                <button className='details-btn' onClick={() => handleEdit(garage.id)}>
+                <button className='details-btn' onClick={() => handleEdit()}>
                   <FaRegEdit/>Editar
                 </button>
                 <button className='details-btn' onClick={() => handleDelete(garage.id)}>
@@ -159,21 +167,35 @@ function GarageDetails() {
           <aside>
             {vehiclesByGarageId.map((vehicle, index) => (
               <section className="item vehicle-item" onClick={() => handleVehicleDetails(vehicle.id)}>
-                <h3 className="article-title-overlay">{`${vehicle.manufacturer} ${vehicle.model}`}</h3>
-                <a className='vehicle-preview'>
+                <a className='img-preview vehicle-preview'>
                   <img src={`/vehicle_preview/${vehicle.model}.png`} alt={`${vehicle.model}`} onError={(e) => {e.target.onerror = null; e.target.src = '/vehicle_preview/default.png'; }}/>
-                  <b>{index + 1}</b>
                 </a>
+                <h3 className="article-title-overlay">{`${vehicle.manufacturer} ${vehicle.model}`}</h3>
               </section>
             ))}
           </aside>
         :
-          <h3>
-            Essa garagem não possuí nenhum veículo
-          </h3>
+          <h3 className='error'>Essa garagem não possuí nenhum veículo</h3>
+        }
+
+        {showEdit && 
+          <Edit 
+            setUpdateListGarage={setUpdateListGarage}
+            setShowEdit={setShowEdit} 
+            editingGarage={editingGarage} 
+            setEditingGarage={setEditingGarage}
+          />
         }
         
       </div>
+      <ToastContainer 
+        className='toastContainer' 
+        autoClose={3000} 
+        limit={7}
+        hideProgressBar={true}
+        position="bottom-left" 
+        theme="dark"
+      />
 
       <Footer/>
     </div>

@@ -30,14 +30,7 @@ export const getModelsById = (req, res) => {
 // ADICIONAR NOVO MODELO.
 export const addModel = (req, res) => {
     const q = "INSERT INTO vehicle_models(`classId`, `manufacturerId`, `model`, `hash`, `price`, `seats`) VALUES (?)";
-    const values = [
-        req.body.classId,
-        req.body.manufacturerId,
-        req.body.model,
-        req.body.hash,
-        req.body.price,
-        req.body.seats,
-    ];
+    const values = [ req.body.classId, req.body.manufacturerId, req.body.model, req.body.hash, req.body.price, req.body.seats ];
     db.query(q, [values], (err, result) => {
         if (err) { 
             console.log(JSON.stringify(err));
@@ -53,9 +46,7 @@ export const addModel = (req, res) => {
 // ATUALIZAR MODELO EXISTENTE.
 export const updateModel = (req, res) => {
     const q = "UPDATE vehicle_models SET ? WHERE `id` = ?";
-    const values = [
-        req.body
-    ];
+    const values = [ req.body ];
     db.query(q, [...values, req.params.id], (err, result) => {
         if (err) {
             console.log(JSON.stringify(err));

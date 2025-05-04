@@ -1,3 +1,10 @@
+/* BARRA DE BOTÕES */
+.btn-bar {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1.0rem;
+}
+
 /* BOTÃO DE FORMULÁRIO DE ACESSO */
 .sign-btn {
     font-size: 1.0rem;
@@ -112,7 +119,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-family: var(--font-family-1);
     transition: all 0.2s ease-in-out;
     cursor: pointer;

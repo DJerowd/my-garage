@@ -42,7 +42,7 @@
 }
 
 /* PLACAS DO VEÍCULO */
-.content-vehicle #license-plate {
+#license-plate {
     display: flex;
     justify-content: center;
     align-items: start;
@@ -51,12 +51,12 @@
     width: 150px;
     height: 76.2px;
 }
-.content-vehicle #license-plate img {
-    width: 150px;
-    height: 76.2px;
+#license-plate img {
+    width: 100%;
+    height: 100%;
     border-radius: 6px;
 }
-.content-vehicle #license-plate span {
+#license-plate span {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,32 +78,4 @@
 /* IMAGEM DO VEÍCULO */
 .vehicle-preview {
     background-color: var(--background-color-2);
-}
-.vehicle-preview img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 1.0rem;
-
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-}
-.vehicle-preview b {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--font-family-1);
-    font-size: 1rem;
-    overflow: none;
-
-    width: max-content;
-    height: max-content;
-    padding: 0.2rem 0.4rem;
-
-    color: var(--font-color);
-    text-shadow: 0 1px 2px var(--box-shadow-color);;
 }

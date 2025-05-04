@@ -129,7 +129,9 @@ function Form({ ids, garageLimit, setUpdateVehicleListByGarageId, increaseOccupa
     return (
       <div className='content-modal'>
         <form>
-          <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
+          <div className='btn-bar'>
+            <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
+          </div>
           <h3 className='error'>Primeiro selecione uma garagem</h3>
         </form>
       </div>
@@ -140,7 +142,9 @@ function Form({ ids, garageLimit, setUpdateVehicleListByGarageId, increaseOccupa
     <div className='content-modal'>
       <form onSubmit={handleSubmit}>
 
-        <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
+        <div className='btn-bar'>
+          <button type='button' className='close-btn' onClick={() => setShowAdd(false)}><IoClose/></button>
+        </div>
 
         <h2>Adicionar Veículo:</h2>
 
@@ -240,7 +244,6 @@ function Form({ ids, garageLimit, setUpdateVehicleListByGarageId, increaseOccupa
             ))}
           </select>
         </label>
-
 
         <label>
           Tipo das rodas:

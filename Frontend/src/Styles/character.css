@@ -7,18 +7,6 @@
 .character-preview {
     background-color: var(--background-color-2);
 }
-.character-preview img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 1.0rem;
-
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-}
 .character-preview b {
     display: flex;
     position: absolute;

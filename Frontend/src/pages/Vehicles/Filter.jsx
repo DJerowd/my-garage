@@ -62,27 +62,23 @@ function Filter({ setIds, vehiclesByGarageId, setGarageLimit, charactersByUserId
   
   return (
     <div className="filter">
-      <h3>Personagem:
-        <select className='list-select' name="character" onChange={handleChange}>
-          <option value="0">Selecione um personagem</option>
-          {charactersByUserId.map((character, index) => (
-            <option key={character.value} value={JSON.stringify(character)}>
-              {index + 1} - {character.username}
-            </option>
-          ))}
-        </select>
-      </h3>
+      <select className='list-select' name="character" onChange={handleChange}>
+        <option value="0">SELECIONE UM PERSONAGEM</option>
+        {charactersByUserId.map((character, index) => (
+          <option key={character.value} value={JSON.stringify(character)}>
+            {index + 1} - {character.username}
+          </option>
+        ))}
+      </select>
 
-      <h3>Garagem:
-        <select className='list-select' name="garage" onChange={handleChange} disabled={!character}>
-          <option value="0">Selecione uma garagem</option>
-          {garagesByCharacterId.map((garage, index) => (
-            <option key={garage.value} value={JSON.stringify(garage)}>
-              {index + 1} - {garage.property}
-            </option>
-          ))}
-        </select>
-      </h3>
+      <select className='list-select' name="garage" onChange={handleChange} disabled={!character}>
+        <option value="0">SELECIONE UMA GARAGEM</option>
+        {garagesByCharacterId.map((garage, index) => (
+          <option key={garage.value} value={JSON.stringify(garage)}>
+            {index + 1} - {garage.property}
+          </option>
+        ))}
+      </select>
 
       <a>{garage.ocupation !== undefined ? `${vehiclesByGarageId.length}/${garage.capacity}` : '0/00'}</a>
     </div>

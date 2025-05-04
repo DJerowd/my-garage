@@ -12,6 +12,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Loading from '../../components/Loading/Index.jsx';
 import plateModels from '../../data/license-plates.json';
+import Edit from './Edit.jsx';
 
 import '../../Styles/layout.css';
 import '../../Styles/vehicle.css';
@@ -24,6 +25,10 @@ function VehicleDetails() {
   const loggedInUser = getLoggedInUser();
   const navigate = useNavigate();
 
+  // MODAL DE EDIÇÃO
+  const [showEdit, setShowEdit] = useState(false);
+  const [editingVehicle, setEditingVehicle] = useState(null);
+
   // CARREGA DADOS DO VEÍCULO
   useEffect(() => {
     setVehicleId(id)
@@ -32,7 +37,9 @@ function VehicleDetails() {
   }, [load]);
 
   // FUNÇÃO PARA EDITAR O VEÍCULO.
-    const handleEdit = (id) => {
+  const handleEdit = () => {
+    setShowEdit(true);
+    setEditingVehicle(vehicle[0]);
   };
 
   // FUNÇÃO PARA EXCLUIR O VEICULO.
@@ -107,7 +114,7 @@ function VehicleDetails() {
             <section>
               <h2>{`${vehicle.manufacturer} ${vehicle.model}`}</h2> 
               
-              <a className='vehicle-preview'>
+              <a className='img-preview vehicle-preview'>
                 <img src={`/vehicle_preview/${vehicle.model}.png`} alt={`${vehicle.model}`} onError={(e) => {e.target.onerror = null; e.target.src = '/vehicle_preview/default.png'; }}/>
               </a>
 
@@ -166,7 +173,7 @@ function VehicleDetails() {
               </a>
 
               <div>
-                <button className='details-btn' onClick={() => handleEdit(vehicle.id)}>
+                <button className='details-btn' onClick={() => handleEdit()}>
                   <FaRegEdit/>Editar
                 </button>
                 <button className='details-btn' onClick={() => handleDelete(vehicle.id)}>
@@ -179,6 +186,15 @@ function VehicleDetails() {
           </main>
         ))}
         
+        {showEdit && 
+          <Edit 
+            setUpdateListVehicle={setUpdateListVehicle}
+            setShowEdit={setShowEdit} 
+            editingVehicle={editingVehicle} 
+            setEditingVehicle={setEditingVehicle}
+          />
+        }
+
       </div>
 
       <Footer/>
